@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.nbt.tags</title>
+    <title>sel.hncom.player</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,15 +463,23 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.nbt.tags</h1>
-        <section id="module_content">
+        <h1 class="module_name">sel.hncom.player</h1>
+        <section id="module_content"><section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Packets related to a <code class="code">player</code>. The first field of every packet is an <code class="code">hub id</code>
+ that uniquely identifies a <code class="code">player</code> in the hub and never changes until it disconnects.
+  </p>
+</div>
+
+</section>
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
     <ul class="ddoc_members">
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NBT_TYPE" id="NBT_TYPE"><code class="code">NBT_TYPE</code></a>
+  <a href="#Add" id="Add"><code class="code">Add</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,7 +488,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NBT_TYPE"></span>enum <code class="code">NBT_TYPE</code>: ubyte;
+            <span class="ddoc_anchor" id="Add"></span>struct <code class="code">Add</code>;
 
           </code>
         </p>
@@ -492,42 +500,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    NBT's ids, as unsigned bytes, used by for client-server
- and generic io communication.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag" id="Tag"><code class="code">Tag</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag"></span>abstract class <code class="code">Tag</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Base class for every NBT that contains id and encoding
- functions (the endianness may vary from a Minecraft version
- to another and the purpose of the tags in the game).
+    Adds a player to the node.
   </p>
 </div>
 
@@ -536,7 +509,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Tag.type" id="Tag.type"><code class="code">type</code></a>
+  <a href="#Add.FIRST_JOIN" id="Add.FIRST_JOIN"><code class="code">FIRST_JOIN</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -545,7 +518,100 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Tag.type"></span>const pure nothrow @nogc @property @safe NBT_TYPE <code class="code">type</code>();
+            <span class="ddoc_anchor" id="Add.FIRST_JOIN"></span><code class="code">FIRST_JOIN</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The player has been automatically put on this node because it's a non-full main node.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.TRANSFERRED" id="Add.TRANSFERRED"><code class="code">TRANSFERRED</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.TRANSFERRED"></span><code class="code">TRANSFERRED</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The player has been transferred to this node.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.FORCIBLY_TRANSFERRED" id="Add.FORCIBLY_TRANSFERRED"><code class="code">FORCIBLY_TRANSFERRED</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.FORCIBLY_TRANSFERRED"></span><code class="code">FORCIBLY_TRANSFERRED</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The player was on a node that has wrongly disconnected (probably crashing) and the player has been transferred to the first non-full main node.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.hubId" id="Add.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.hubId"></span>uint <code class="code">hubId</code>;
 
           </code>
         </p>
@@ -557,18 +623,467 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the tag's <code class="code">type</code>.
-
+    Player's unique id given by the hub.
   </p>
 </div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.reason" id="Add.reason"><code class="code">reason</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.reason"></span>ubyte <code class="code">reason</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
   <p class="para">
-    a value in the NBT_TYPE enum
-
+    Reason for which the player has been added to the node.
   </p>
 </div>
-<div class="ddoc_section">
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.type" id="Add.type"><code class="code">type</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.type"></span>ubyte <code class="code">type</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Game used by the player, which could either be Minecraft or Minecraft: Pocket Edition.
+ It should be one of the keys given in NodeInfo's acceptedGames field.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.protocol" id="Add.protocol"><code class="code">protocol</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.protocol"></span>uint <code class="code">protocol</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Version of the <code class="code">protocol</code> used by the client. Should be contained in the list given
+ to the hub in the NodeInfo's acceptedGames field.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.version_" id="Add.version_"><code class="code">version_</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.version_"></span>string <code class="code">version_</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Version of the game used by the client, usually in the format major.minor[.patch],
+ calculated by the server or passed by the client during the authentication process.
+ The node should verify that the version exists and matches the protocol indicated
+ in the previous field.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.uuid" id="Add.uuid"><code class="code">uuid</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.uuid"></span>UUID <code class="code">uuid</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Client's UUID, given by Mojang's or Microsoft's services if the server is in
+ online mode or given by the client (and not verified) if the server is in offline mode.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.username" id="Add.username"><code class="code">username</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.username"></span>string <code class="code">username</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Username of the player.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.displayName" id="Add.displayName"><code class="code">displayName</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.displayName"></span>string <code class="code">displayName</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Display name of the player, which can contain formatting codes. By default it's equals
+ to the username but it can be updated by the node using the UpdateDisplayName packet.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.dimension" id="Add.dimension"><code class="code">dimension</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.dimension"></span>ubyte <code class="code">dimension</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Dimension in which the player was playing before being transferred in the MCPE format
+ (0: overworld, 1: nether, 2: end). It shouldn't be considered if the client just joined
+ the server instead of being transferred.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.viewDistance" id="Add.viewDistance"><code class="code">viewDistance</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.viewDistance"></span>uint <code class="code">viewDistance</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Client's view distance (or chunk radius).
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.clientAddress" id="Add.clientAddress"><code class="code">clientAddress</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.clientAddress"></span>Address <code class="code">clientAddress</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Remote address of the player.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.serverAddress" id="Add.serverAddress"><code class="code">serverAddress</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.serverAddress"></span>ServerAddress <code class="code">serverAddress</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Address used by the client to connect to the server. The value of this field is the address
+ the client has saved in its servers list. For example a client that joins through <code class="code">localhost</code>
+ and a client that joins through <code class="code">127.0.0.1</code> will connect to the same server with the same ip
+ but the field of this value will be different (<code class="code">localhost</code> for the first client and
+ <code class="code">127.0.0.1</code> for the latter).
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.skin" id="Add.skin"><code class="code">skin</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.skin"></span>Skin <code class="code">skin</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Client's <code class="code">skin</code>, given by the client or downloaded from Mojang's services in online mode.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.language" id="Add.language"><code class="code">language</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.language"></span>string <code class="code">language</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Client's <code class="code">language</code>, in the same format as HubInfo's <code class="code">language</code> field, which should be updated
+ from the node when the client changes it.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Add.gameData" id="Add.gameData"><code class="code">gameData</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Add.gameData"></span>JSONValue <code class="code">gameData</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_section">
   <p class="para">
     <span class="ddoc_section_h">Example:</span>
 
@@ -576,1274 +1091,12 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Byte().<span class="psymbol">type</span> == NBT_TYPE.BYTE);
-<span class="keyword">assert</span>(<span class="keyword">new</span> List().<span class="psymbol">type</span> == NB_TYPE.LIST);
-<span class="keyword">assert</span>(<span class="keyword">new</span> Tags[NBT_TYPE.INT]().<span class="psymbol">type</span> == NBT_TYPE.INT);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.named" id="Tag.named"><code class="code">named</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.named"></span>final pure nothrow @nogc @property @safe bool <code class="code">named</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates whether the tag has a name.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.name" id="Tag.name"><code class="code">name</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.name"></span>const pure nothrow @nogc @property @safe string <code class="code">name</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gets the tag's <code class="code">name</code>, if there's one.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.rename" id="Tag.rename"><code class="code">rename</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.rename"></span>abstract pure nothrow @safe Tag <code class="code">rename</code>(string);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Creates a NamedTag maintaing the tag's properties.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> t = <span class="keyword">new</span> Float(22);
-<span class="keyword">auto</span> named = t.<span class="psymbol">rename</span>(<span class="string_literal">"float"</span>);
-<span class="keyword">assert</span>(<span class="keyword">cast</span>(NamedTag)named);
-<span class="keyword">assert</span>(named.name == <span class="string_literal">"float"</span>);
-<span class="keyword">assert</span>(named == 22);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.encode" id="Tag.encode"><code class="code">encode</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.encode"></span>abstract pure nothrow @safe void <code class="code">encode</code>(Stream);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Encodes the tag's body.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.decode" id="Tag.decode"><code class="code">decode</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.decode"></span>abstract pure nothrow @safe void <code class="code">decode</code>(Stream);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Decodes the tag's body.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.toJSON" id="Tag.toJSON"><code class="code">toJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.toJSON"></span>abstract JSONValue <code class="code">toJSON</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Encodes the tag's value as json.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.toString" id="Tag.toString"><code class="code">toString</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.toString"></span>abstract string <code class="code">toString</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Encodes the tag a human-readable string.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Named" id="Named"><code class="code">Named</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Named"></span>class <code class="code">Named</code>(T : Tag): T;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Creates a named tag. The first argument of the constructor becomes a string
- (the name) and rest doesn't change.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> tag = <span class="keyword">new</span> <span class="psymbol">Named</span>!Int(<span class="string_literal">"name"</span>, 12);
-<span class="keyword">assert</span>(tag.named);
-<span class="keyword">assert</span>(tag.name == <span class="string_literal">"name"</span>);
-<span class="keyword">assert</span>(tag.value == 12);
-<span class="keyword">assert</span>(tag == <span class="keyword">new</span> Int(12));
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#SimpleTag" id="SimpleTag"><code class="code">SimpleTag</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="SimpleTag"></span>class <code class="code">SimpleTag</code>(T, NBT_TYPE _type): Tag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Simple tag with a value of type T, if T is a primitive type
- or it can be written in the buffer.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Short(1) == 1);
-<span class="keyword">assert</span>(<span class="keyword">new</span> <span class="psymbol">SimpleTag</span>!(<span class="keyword">char</span>, 12)('c') == 'c');
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Byte" id="Byte"><code class="code">Byte</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Byte"></span>alias <code class="code">Byte</code> = SimpleTag!(byte, cast(NBT_TYPE)cast(ubyte)1u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed byte, usually used to store small
- values like the progress of an action or the type of
- an entity.
- An unsigned version of the tag can be obtained doing a
- cast to ubyte.
- <a href="#ByteArray"><code class="code">Byte</code> Array</a> is a tag with an array
- of unsigned bytes.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">cast</span>(<span class="keyword">ubyte</span>)(<span class="keyword">new</span> <span class="psymbol">Byte</span>(-1)) == 255);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Bool" id="Bool"><code class="code">Bool</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Bool"></span>alias <code class="code">Bool</code> = SimpleTag!(byte, cast(NBT_TYPE)cast(ubyte)1u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Byte tag that only uses the values 1 and 0 to indicate
- respectively <code class="code">true</code> and <code class="code">false</code>.
- It's usually used by SEL to store boolean values instead
- of a byte tag.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Byte(1) == <span class="keyword">new</span> <span class="psymbol">Bool</span>(<span class="keyword">true</span>));
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Short" id="Short"><code class="code">Short</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Short"></span>alias <code class="code">Short</code> = SimpleTag!(short, cast(NBT_TYPE)cast(ubyte)2u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed short, used when the 255 bytes (or 127
- if only the positive part is counted) is not enough.
- This tag can also be converted to its unsigned version
- doing a simple cast to ushort.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Int" id="Int"><code class="code">Int</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Int"></span>alias <code class="code">Int</code> = SimpleTag!(int, cast(NBT_TYPE)cast(ubyte)3u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed integer, used to store values that
- don't usually fit in the short tag, like entity's ids.
- This tag can aslo be converted to its unsigned version
- (uint) with a simple cast to it.
- <a href="#IntArray"><code class="code">Int</code> Array</a> is a tag with an array
- of signed integers.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Long" id="Long"><code class="code">Long</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Long"></span>alias <code class="code">Long</code> = SimpleTag!(long, cast(NBT_TYPE)cast(ubyte)4u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed long.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Float" id="Float"><code class="code">Float</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Float"></span>alias <code class="code">Float</code> = SimpleTag!(float, cast(NBT_TYPE)cast(ubyte)5u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a 4-bytes floating point value, usually used to
- store non-blocks coordinates or points in the world.
- The float.nan value can be used and recognized by the
- SEL-derived systems, but couldn't be recognized by other
- softwares based on different programming languages that
- doesn't support the not-a-number value.
- More informations about the NaN value and its encoding
- can be found on <a href="#https://en.wikipedia.org/wiki/NaN">Wikipedia</a>.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Double" id="Double"><code class="code">Double</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Double"></span>alias <code class="code">Double</code> = SimpleTag!(double, cast(NBT_TYPE)cast(ubyte)6u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with an 8-bytes float point value used instead of the
- Float tag if the precision or the available number's range
- must be higher.
- See <a href="#Float">Float</a>'s documentation for informations
- about the NaN value and its support inside and outside SEL.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#String" id="String"><code class="code">String</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="String"></span>alias <code class="code">String</code> = SimpleTag!(string, cast(NBT_TYPE)cast(ubyte)8u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with an UTF-8 string encoded as its length as short and
- its content casted to btyes.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> <span class="psymbol">String</span>(<span class="string_literal">"test"</span>) == <span class="string_literal">""</span>);
-<span class="keyword">assert</span>(<span class="keyword">new</span> <span class="psymbol">String</span>(<span class="string_literal">""</span>, <span class="string_literal">"test"</span>) == <span class="string_literal">"test"</span>);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag" id="ArrayTag"><code class="code">ArrayTag</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag"></span>class <code class="code">ArrayTag</code>(T, NBT_TYPE _type): Tag;
-<br>
-<span class="ddoc_anchor" id="NumericArrayTag"></span>class <code class="code">NumericArrayTag</code>(T, NBT_TYPE _type) if (isNumeric!T): ArrayTag!(T, _type);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Simple tag with array-related functions.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> ByteArray([2, 3, 4]).length == <span class="keyword">new</span> IntArray([9, 0, 12]).length);
-
-<span class="keyword">auto</span> b = <span class="keyword">new</span> ByteArray();
-<span class="keyword">assert</span>(b.empty);
-b ~= 14;
-<span class="keyword">assert</span>(b.length == 1 &amp;&amp; b[0] == 14);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.opOpAssign" id="ArrayTag.opOpAssign"><code class="code">opOpAssign</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.opOpAssign"></span>@safe void <code class="code">opOpAssign</code>(string op : "~", G)(G <code class="code">value</code>) if (is(G == T) || is(G == T[]));
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Concatenates T, an array of T or a NBT array of T to the tag.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> array = <span class="keyword">new</span> IntArray([1]);
-
-array ~= 1;
-<span class="keyword">assert</span>(array == [1, 1]);
-
-array ~= [1, 2, 3];
-<span class="keyword">assert</span>(array == [1, 1, 1, 2, 3]);
-
-array ~= <span class="keyword">new</span> IntArray([100, 99]);
-<span class="keyword">assert</span>(array == [1, 1, 1, 2, 3, 100, 99]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.opBinary" id="ArrayTag.opBinary"><code class="code">opBinary</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.opBinary"></span>@safe typeof(this) <code class="code">opBinary</code>(string op : "~", G)(G <code class="code">value</code>) if (is(G == T) || is(G == T[]));
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Does the same job opOpAssign does, but creates a new instance
- of typeof(this) with the same name of the tag and returns it.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> array = <span class="keyword">new</span> IntArray([1, 2, 3]);
-<span class="keyword">assert</span>(array ~ [2, 1] == [1, 2, 3, 2, 1] &amp;&amp; array == [1, 2, 3]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.remove" id="ArrayTag.remove"><code class="code">remove</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.remove"></span>@safe void <code class="code">remove</code>(size_t <code class="code">index</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Removes the element at the given <code class="code">index</code> from the array.
-
-  </p>
-</div>
-<div class="ddoc_throws">
-  <h4>Throws</h4>
-  <p class="para">
-    RangeError if <code class="code">index</code> is higher or equals than the array's length
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> array = <span class="keyword">new</span> IntArray([1, 2, 3]);
-array.<span class="psymbol">remove</span>(0);
-<span class="keyword">assert</span>(array == [2, 3]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.empty" id="ArrayTag.empty"><code class="code">empty</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.empty"></span>final pure nothrow @nogc @property @safe bool <code class="code">empty</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Checks whether or not the array's length is equals to 0.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ByteArray" id="ByteArray"><code class="code">ByteArray</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ByteArray"></span>alias <code class="code">ByteArray</code> = NumericArrayTag!(byte, cast(NBT_TYPE)cast(ubyte)7u).NumericArrayTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Array of unsigned bytes (clients and other softwares may
- interpret the bytes as signed due to limitations of the
- programming language).
- The tag is usually used by Minecraft's worlds to store
- blocks' ids and metas.
-
-  </p>
-</div>
-<div class="ddoc_description">
-  <h4>Discussion</h4>
-  <p class="para">
-    If a signed byte is needed a cast operation can be done.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> unsigned = <span class="keyword">new</span> <span class="psymbol">ByteArray</span>([0, 1, 255]);
-<span class="keyword">auto</span> signed = <span class="keyword">cast</span>(<span class="keyword">byte</span>[])unsigned;
-<span class="keyword">assert</span>(signed == [0, 1, -1]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#IntArray" id="IntArray"><code class="code">IntArray</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="IntArray"></span>alias <code class="code">IntArray</code> = NumericArrayTag!(int, cast(NBT_TYPE)cast(ubyte)11u).NumericArrayTag;
-<br>
-<span class="ddoc_anchor" id="ListOf"></span>class <code class="code">ListOf</code>(T : Tag) if (!isAbstractClass!T): ListImpl!T;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Array of signed integers, introduced in the last version
- of the NBT format. Used by anvil worlds.
-
-  </p>
-</div>
-<div class="ddoc_description">
-  <h4>Discussion</h4>
-  <p class="para">
-    The same cast rules also apply for this tag's values.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> signed = <span class="keyword">new</span> <span class="psymbol">IntArray</span>([-1]);
-<span class="keyword">assert</span>(<span class="keyword">cast</span>(<span class="keyword">uint</span>[])signed == [<span class="keyword">uint</span>.max]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound" id="Compound"><code class="code">Compound</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound"></span>class <code class="code">Compound</code>: <span class="ddoc_psuper_symbol">sel.nbt.tags.Tag</span>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Associative array of named tags (that can be of different types).
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> <span class="psymbol">Compound</span>();
-compound[<span class="string_literal">"string"</span>] = <span class="keyword">new</span> String(<span class="string_literal">"test"</span>);
-compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new</span> Byte(18);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.has" id="Compound.has"><code class="code">has</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.has"></span>pure nothrow @safe bool <code class="code">has</code>(string <code class="code">name</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Checks whether or not a value is in the associative array.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    <code class="code">true</code> if the key is found, <code class="code">false</code> otherwise
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.has" id="Compound.has"><code class="code">has</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.has.2"></span>pure nothrow @trusted bool <code class="code">has</code>(T : Tag)(string <code class="code">name</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Checks if the key is associated to a value and that the value
- is of the same type of T.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    <code class="code">true</code> if the value is found and is of the type T, <code class="code">false</code> otherwise
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.opBinaryRight" id="Compound.opBinaryRight"><code class="code">opBinaryRight</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.opBinaryRight"></span>pure nothrow @safe Tag* <code class="code">opBinaryRight</code>(string op : "in")(string <code class="code">name</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gets a pointer to the element at the given index.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> test = <span class="string_literal">"test"</span> <span class="keyword">in</span> compound;
-<span class="keyword">if</span>(test &amp;&amp; <span class="keyword">cast</span>(String)*test) {
-   <span class="keyword">assert</span>(*test == <span class="string_literal">"test"</span>);
+        <li><code class="code"><span class="comment">// pocket
+</span>{
+   <span class="string_literal">"version"</span>: <span class="string_literal">"1.1.1.3"</span>,
+   <span class="string_literal">"edu"</span>: <span class="keyword">false</span>,
+   <span class="string_literal">"os"</span>: 7,
+   <span class="string_literal">"model"</span>: <span class="string_literal">"ONEPLUS A0001"</span>
 }
 </code></li>
       </ol>
@@ -1858,10 +1111,15 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 
 </div>
 
+</li>
+</ul>
+
+</div>
+
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndex" id="Compound.opIndex"><code class="code">opIndex</code></a>
+  <a href="#Remove" id="Remove"><code class="code">Remove</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1870,7 +1128,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndex"></span>pure nothrow @safe Tag[] <code class="code">opIndex</code>();
+            <span class="ddoc_anchor" id="Remove"></span>struct <code class="code">Remove</code>;
 
           </code>
         </p>
@@ -1882,28 +1140,37 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the array of named tags (without the keys).
- To get the associative array of named tags use the
- property value.
-
+    Removes a player from the node.
+ If the player is removed using Kick or Transfer this packet is not sent.
   </p>
 </div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
 
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code">Compound compound = <span class="keyword">new</span> Compound([<span class="keyword">new</span> Byte(1), <span class="keyword">new</span> Int(2)]);
-<span class="keyword">assert</span>(compound[] == compound.value.values);
-</code></li>
-      </ol>
-    </div>
-  </div>
 </section>
-
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Remove.LEFT" id="Remove.LEFT"><code class="code">LEFT</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Remove.LEFT"></span><code class="code">LEFT</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The player has closed the connection.
   </p>
 </div>
 
@@ -1914,7 +1181,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndex" id="Compound.opIndex"><code class="code">opIndex</code></a>
+  <a href="#Remove.TIMED_OUT" id="Remove.TIMED_OUT"><code class="code">TIMED_OUT</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1923,7 +1190,100 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndex.2"></span>pure nothrow @safe Tag <code class="code">opIndex</code>(string <code class="code">name</code>);
+            <span class="ddoc_anchor" id="Remove.TIMED_OUT"></span><code class="code">TIMED_OUT</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The hub has closed the connection because didn't had any response from the client for too long.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Remove.KICKED" id="Remove.KICKED"><code class="code">KICKED</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Remove.KICKED"></span><code class="code">KICKED</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The player has been manually kicked.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Remove.TRANSFERRED" id="Remove.TRANSFERRED"><code class="code">TRANSFERRED</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Remove.TRANSFERRED"></span><code class="code">TRANSFERRED</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The player has been transferred by the hub
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Remove.hubId" id="Remove.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Remove.hubId"></span>uint <code class="code">hubId</code>;
 
           </code>
         </p>
@@ -1935,32 +1295,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the element at the given index.
-
-  </p>
-</div>
-<div class="ddoc_throws">
-  <h4>Throws</h4>
-  <p class="para">
-    RangeError if the given index is not in the array
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!String(<span class="string_literal">"0"</span>, <span class="string_literal">"test"</span>))[<span class="string_literal">"0"</span>] == <span class="string_literal">"test"</span>);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Player's unique id given by the hub.
   </p>
 </div>
 
@@ -1971,7 +1306,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.get" id="Compound.get"><code class="code">get</code></a>
+  <a href="#Remove.reason" id="Remove.reason"><code class="code">reason</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1980,7 +1315,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.get"></span>pure nothrow @safe T <code class="code">get</code>(T : Tag)(string <code class="code">name</code>);
+            <span class="ddoc_anchor" id="Remove.reason"></span>ubyte <code class="code">reason</code>;
 
           </code>
         </p>
@@ -1992,45 +1327,23 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the element at the given index, casting it to T.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    the named tag of type T or <code class="code">null</code> if the conversion has failed
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="string_literal">""</span>, [<span class="string_literal">"test"</span>: <span class="keyword">new</span> String(<span class="string_literal">"value"</span>)]);
-<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(compound[<span class="string_literal">"test"</span>]) == NamedTag));
-<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(compound.<span class="psymbol">get</span>!String(<span class="string_literal">"test"</span>)) == String));
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Reason of the disconnection.
   </p>
 </div>
 
 </section>
+
+</div>
+
+</li>
+</ul>
 
 </div>
 
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndexAssign" id="Compound.opIndexAssign"><code class="code">opIndexAssign</code></a>
+  <a href="#Kick" id="Kick"><code class="code">Kick</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2039,7 +1352,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndexAssign"></span>pure nothrow @safe void <code class="code">opIndexAssign</code>(T)(T <code class="code">value</code>, string <code class="code">name</code>) if (is(T : Tag) || isNumeric!T || is(T == bool) || is(T == string) || is(T == ubyte[]) || is(T == byte[]) || is(T == int[]));
+            <span class="ddoc_anchor" id="Kick"></span>struct <code class="code">Kick</code>;
 
           </code>
         </p>
@@ -2051,41 +1364,17 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Sets the <code class="code">value</code> at the given index.
- If the tag's <code class="code">name</code> is different from the given index, the tag's
- <code class="code">name</code> will be changed to the given index's one.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code">compound[<span class="string_literal">"string"</span>] = <span class="keyword">new</span> String(<span class="string_literal">"test"</span>, <span class="string_literal">"test"</span>);
-<span class="keyword">assert</span>(compound[<span class="string_literal">"string"</span>].<span class="param">name</span> == <span class="string_literal">"string"</span>);
-compound[<span class="string_literal">"int"</span>] = 12;
-compound[<span class="string_literal">"string"</span>] = <span class="string_literal">"Another string"</span>;
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Kicks a player from the node and the whole server. When a player is disconnected
+ from the node using this packet the hub will not send the Remove packet.
   </p>
 </div>
 
 </section>
-
-</div>
-
-</li><li class="ddoc_member">
+<ul class="ddoc_members">
+  <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndexAssign" id="Compound.opIndexAssign"><code class="code">opIndexAssign</code></a>
+  <a href="#Kick.hubId" id="Kick.hubId"><code class="code">hubId</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2094,7 +1383,7 @@ compound[<span class="string_literal">"string"</span>] = <span class="string_lit
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndexAssign.2"></span>pure nothrow @safe void <code class="code">opIndexAssign</code>(Tag <code class="code">tag</code>);
+            <span class="ddoc_anchor" id="Kick.hubId"></span>uint <code class="code">hubId</code>;
 
           </code>
         </p>
@@ -2106,27 +1395,7 @@ compound[<span class="string_literal">"string"</span>] = <span class="string_lit
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Sets the value using the named <code class="code">tag</code>'s name as the index.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="string_literal">""</span>);
-compound[] = <span class="keyword">new</span> String(<span class="string_literal">"test"</span>, <span class="string_literal">"value"</span>);
-<span class="keyword">assert</span>(compound[<span class="string_literal">"test"</span>] == <span class="string_literal">"value"</span>);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Player to be kicked.
   </p>
 </div>
 
@@ -2137,7 +1406,7 @@ compound[] = <span class="keyword">new</span> String(<span class="string_literal
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.remove" id="Compound.remove"><code class="code">remove</code></a>
+  <a href="#Kick.reason" id="Kick.reason"><code class="code">reason</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2146,7 +1415,7 @@ compound[] = <span class="keyword">new</span> String(<span class="string_literal
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.remove"></span>@safe void <code class="code">remove</code>(string <code class="code">name</code>);
+            <span class="ddoc_anchor" id="Kick.reason"></span>string <code class="code">reason</code>;
 
           </code>
         </p>
@@ -2158,28 +1427,8 @@ compound[] = <span class="keyword">new</span> String(<span class="string_literal
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Removed the given index from the array, if set.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="string_literal">""</span>, [<span class="string_literal">"string"</span>, <span class="keyword">new</span> String(<span class="string_literal">"test"</span>)]);
-<span class="keyword">assert</span>(<span class="string_literal">"string"</span> <span class="keyword">in</span> compound);
-compound.<span class="psymbol">remove</span>(<span class="string_literal">"string"</span>);
-<span class="keyword">assert</span>(<span class="string_literal">"string"</span> !<span class="keyword">in</span> compound);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Reason of the disconnection that will be displayed in the client's
+ disconnection screen.
   </p>
 </div>
 
@@ -2190,7 +1439,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.length" id="Compound.length"><code class="code">length</code></a>
+  <a href="#Kick.translation" id="Kick.translation"><code class="code">translation</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2199,7 +1448,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.length"></span>final pure nothrow @nogc @property @safe size_t <code class="code">length</code>();
+            <span class="ddoc_anchor" id="Kick.translation"></span>bool <code class="code">translation</code>;
 
           </code>
         </p>
@@ -2211,7 +1460,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the <code class="code">length</code> of the array (or the number of NamedTags in it).
+    Whether the previous string should be translated client-side or not.
   </p>
 </div>
 
@@ -2222,7 +1471,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.empty" id="Compound.empty"><code class="code">empty</code></a>
+  <a href="#Kick.parameters" id="Kick.parameters"><code class="code">parameters</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2231,7 +1480,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.empty"></span>final pure nothrow @nogc @property @safe bool <code class="code">empty</code>();
+            <span class="ddoc_anchor" id="Kick.parameters"></span>string[] <code class="code">parameters</code>;
 
           </code>
         </p>
@@ -2243,7 +1492,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Checks whether or not the array is <code class="code">empty</code> (its length is equal to 0).
+    Optional <code class="code">parameters</code> for the translation (Only for java clients).
   </p>
 </div>
 
@@ -2251,10 +1500,15 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
 
 </div>
 
+</li>
+</ul>
+
+</div>
+
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.names" id="Compound.names"><code class="code">names</code></a>
+  <a href="#Transfer" id="Transfer"><code class="code">Transfer</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2263,7 +1517,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.names"></span>pure nothrow @nogc @property @safe string[] <code class="code">names</code>();
+            <span class="ddoc_anchor" id="Transfer"></span>struct <code class="code">Transfer</code>;
 
           </code>
         </p>
@@ -2275,25 +1529,39 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the keys (indexes of the array).
-
+    Transfers a player to another node. When a player is transferred from the node the hub
+ will not send the Remove packet and there's no way, for the node, to know whether the
+ player was disconnected or successfully transferred, if not using messages through a
+ user-defined protocol.
   </p>
 </div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
 
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Compound(<span class="string_literal">""</span>, [<span class="string_literal">"a"</span>: <span class="keyword">new</span> String(<span class="string_literal">"a"</span>), <span class="string_literal">"b"</span>: <span class="keyword">new</span> String(<span class="string_literal">"b"</span>)]).keys == [<span class="string_literal">"a"</span>, <span class="string_literal">"b"</span>]);
-</code></li>
-      </ol>
-    </div>
-  </div>
 </section>
-
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Transfer.DISCONNECT" id="Transfer.DISCONNECT"><code class="code">DISCONNECT</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Transfer.DISCONNECT"></span><code class="code">DISCONNECT</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Disconnect with <code class="code">End of Stream</code> message.
   </p>
 </div>
 
@@ -2304,7 +1572,7 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.dup" id="Compound.dup"><code class="code">dup</code></a>
+  <a href="#Transfer.AUTO" id="Transfer.AUTO"><code class="code">AUTO</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2313,7 +1581,69 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.dup"></span>@property Compound <code class="code">dup</code>();
+            <span class="ddoc_anchor" id="Transfer.AUTO"></span><code class="code">AUTO</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Connect to the first available node or disconnects if there isn't one.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Transfer.RECONNECT" id="Transfer.RECONNECT"><code class="code">RECONNECT</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Transfer.RECONNECT"></span><code class="code">RECONNECT</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Connect to the same node, but as a new player.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Transfer.hubId" id="Transfer.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Transfer.hubId"></span>uint <code class="code">hubId</code>;
 
           </code>
         </p>
@@ -2325,7 +1655,643 @@ compound.<span class="psymbol">remove</span>(<span class="string_literal">"strin
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Creates an exact duplicate of the tag.
+    Player to be transferred.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Transfer.node" id="Transfer.node"><code class="code">node</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Transfer.node"></span>uint <code class="code">node</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Id of the <code class="code">node</code> that player will be transferred to. It should be an id of a
+ connected <code class="code">node</code> (which can be calculated using AddNode and RemoveNode packets),
+ otherwise the player will be disconnected or moved to another <code class="code">node</code> (see the following field).
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Transfer.onFail" id="Transfer.onFail"><code class="code">onFail</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Transfer.onFail"></span>ubyte <code class="code">onFail</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates the action to be taken when a transfer fails because the indicated node is
+ not connected anymore or it cannot accept the given player's game type or protocol.
+ If the indicated node is full the player will be simply disconnected with the <code class="code">Server Full</code> message.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateDisplayName" id="UpdateDisplayName"><code class="code">UpdateDisplayName</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateDisplayName"></span>struct <code class="code">UpdateDisplayName</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Updates the player's display name when it is changed by the node.
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateDisplayName.hubId" id="UpdateDisplayName.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateDisplayName.hubId"></span>uint <code class="code">hubId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's unique id given by the hub.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateDisplayName.displayName" id="UpdateDisplayName.displayName"><code class="code">displayName</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateDisplayName.displayName"></span>string <code class="code">displayName</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's display name that can contain formatting codes. Prefixes and suffixes should be avoided.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateWorld" id="UpdateWorld"><code class="code">UpdateWorld</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateWorld"></span>struct <code class="code">UpdateWorld</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Updates player's world. The player's dimension should be updated by
+ the hub using worldId to identify the world added with AddWorld and
+ removed with RemoveWorld.
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateWorld.hubId" id="UpdateWorld.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateWorld.hubId"></span>uint <code class="code">hubId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's unique id given by the hub.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateWorld.worldId" id="UpdateWorld.worldId"><code class="code">worldId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateWorld.worldId"></span>uint <code class="code">worldId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    World's id, that should have been previously added with the
+ AddWorld packet.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateViewDistance" id="UpdateViewDistance"><code class="code">UpdateViewDistance</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateViewDistance"></span>struct <code class="code">UpdateViewDistance</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Update's the player's view distance (or chunk radius).
+ This packet is sent when the client updates its view distance and the node accepts it.
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateViewDistance.hubId" id="UpdateViewDistance.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateViewDistance.hubId"></span>uint <code class="code">hubId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's unique id given by the hub.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateViewDistance.viewDistance" id="UpdateViewDistance.viewDistance"><code class="code">viewDistance</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateViewDistance.viewDistance"></span>uint <code class="code">viewDistance</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's new view distance. The range is defined by the node.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateLanguage" id="UpdateLanguage"><code class="code">UpdateLanguage</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateLanguage"></span>struct <code class="code">UpdateLanguage</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Updates the player's language when the client changes it.
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateLanguage.hubId" id="UpdateLanguage.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateLanguage.hubId"></span>uint <code class="code">hubId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's unique id given by the hub.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateLanguage.language" id="UpdateLanguage.language"><code class="code">language</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateLanguage.language"></span>string <code class="code">language</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's <code class="code">language</code> in the same format as HubInfo's <code class="code">language</code> field.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateLatency" id="UpdateLatency"><code class="code">UpdateLatency</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateLatency"></span>struct <code class="code">UpdateLatency</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Updates the latency between the player and the hub.
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateLatency.hubId" id="UpdateLatency.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateLatency.hubId"></span>uint <code class="code">hubId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's unique id given by the hub.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdateLatency.latency" id="UpdateLatency.latency"><code class="code">latency</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdateLatency.latency"></span>uint <code class="code">latency</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's <code class="code">latency</code> in milliseconds. The <code class="code">latency</code> between the client and the
+ node is then calculated adding the <code class="code">latency</code> between the node and the hub
+ to this field's value.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdatePacketLoss" id="UpdatePacketLoss"><code class="code">UpdatePacketLoss</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdatePacketLoss"></span>struct <code class="code">UpdatePacketLoss</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Updates the packet loss between the player and the hub.
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#UpdatePacketLoss.hubId" id="UpdatePacketLoss.hubId"><code class="code">hubId</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="UpdatePacketLoss.hubId"></span>uint <code class="code">hubId</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Player's unique id given by the hub.
   </p>
 </div>
 

@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.nbt.parser</title>
+    <title>sel.hncom.about</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,93 +463,8 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.nbt.parser</h1>
+        <h1 class="module_name">sel.hncom.about</h1>
         <section id="module_content">
-<section class="section ddoc_module_members_section">
-  <div class="ddoc_module_members">
-    <ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#parse" id="parse"><code class="code">parse</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="parse"></span>Tag <code class="code">parse</code>(string <code class="code">data</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Parses a string into a tag.
-  </p>
-</div>
-<div class="ddoc_examples">
-  <h4>Examples</h4>
-  <p class="para">
-    
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">""</span>) <span class="keyword">is</span> <span class="keyword">null</span>);
-
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"{}"</span>) == <span class="keyword">new</span> Compound());
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"{a:true,b:false}"</span>) == <span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!Byte(<span class="string_literal">"a"</span>, <span class="keyword">true</span>), <span class="keyword">new</span> Named!Byte(<span class="string_literal">"b"</span>, <span class="keyword">false</span>)));
-
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"[string,1]"</span>) <span class="keyword">is</span> <span class="keyword">null</span>);
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"[]"</span>) == <span class="keyword">new</span> List());
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"[,]"</span>) == <span class="keyword">new</span> IntArray());
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"[1L, 2]"</span>) == <span class="keyword">new</span> IntArray(1, 2));
-
-<span class="comment">// string
-</span><span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">`"a string"`</span>) == <span class="keyword">new</span> String(<span class="string_literal">"a string"</span>));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">`"a \"quoted\" string"`</span>) == <span class="keyword">new</span> String(<span class="string_literal">"a \"quoted\" string"</span>));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">`"a newline\nstring"`</span>) == <span class="keyword">new</span> String(<span class="string_literal">"a newline\\nstring"</span>));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">`"\\\\\" \ "`</span>) == <span class="keyword">new</span> String(<span class="string_literal">`\\" \ `</span>));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"test"</span>) == <span class="keyword">new</span> String(<span class="string_literal">"test"</span>));
-
-<span class="comment">// numbers
-</span><span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"55"</span>) == <span class="keyword">new</span> Int(55));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"12b"</span>) == <span class="keyword">new</span> Byte(12));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"-4S"</span>) == <span class="keyword">new</span> Short(-4));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"2147483649"</span>) == <span class="keyword">new</span> Long(2147483649L));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"0L"</span>) == <span class="keyword">new</span> Long(0));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"12.1"</span>) == <span class="keyword">new</span> Double(12.1));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">".44f"</span>) == <span class="keyword">new</span> Float(.44f));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">"12.1.1.1"</span>) == <span class="keyword">new</span> Double(12.1));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">".00D"</span>) == <span class="keyword">new</span> Double(0));
-
-<span class="comment">// compound
-</span><span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">`{EntityData:{id:"minecraft:creeper"}}`</span>) == <span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!Compound(<span class="string_literal">"EntityData"</span>, <span class="keyword">new</span> Named!String(<span class="string_literal">"id"</span>, <span class="string_literal">"minecraft:creeper"</span>))));
-<span class="keyword">assert</span>(<span class="psymbol">parse</span>(<span class="string_literal">`{Potion:"minecraft:long_strength"}`</span>) == <span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!String(<span class="string_literal">"Potion"</span>, <span class="string_literal">"minecraft:long_strength"</span>)));
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-</section>
-
-</div>
-
-</li>
-</ul>
-  </div>
-</section>
 </section>
       </article>
     </div>
