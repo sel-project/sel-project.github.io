@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.hncom.login</title>
+    <title>selery.math.vector</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,15 +463,19 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.hncom.login</h1>
-        <section id="module_content">
-<section class="section ddoc_module_members_section">
-  <div class="ddoc_module_members">
-    <ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
+        <h1 class="module_name">selery.math.vector</h1>
+        <section id="module_content"><section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    General utilies on vectors, math of vectors, conversion of vectors
+ and collisions between boxes (3D vectors).
+  </p>
+</div>
+
+</section>
+$(DDOC_MODULE_MEMBERS $(DDOC_MEMBER<div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest" id="ConnectionRequest"><code class="code">ConnectionRequest</code></a>
+  <a href="#Vector" id="Vector"><code class="code">Vector</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,8 +484,12 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest"></span>struct <code class="code">ConnectionRequest</code>;
-
+            <span class="ddoc_anchor" id="Vector"></span>struct <code class="code">Vector</code>(T, char[] c) if (c.length &gt; 1 &amp;&amp; areValidCoordinates(c));
+<br>
+template <code class="code">Vector</code>(T, string coords)<br>
+<span class="ddoc_anchor" id="Vector2"></span>template <code class="code">Vector2</code>(T)<br>
+<span class="ddoc_anchor" id="Vector3"></span>template <code class="code">Vector3</code>(T)<br>
+<span class="ddoc_anchor" id="Vector4"></span>template <code class="code">Vector4</code>(T)
           </code>
         </p>
       </div>
@@ -492,8 +500,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    First packet sent by the client after the connection is established.
- It contains informations used by the hub to check permissions and compatibility.
+    <code class="code">Vector</code> for coordinates storing and operations.
   </p>
 </div>
 
@@ -502,7 +509,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.password" id="ConnectionRequest.password"><code class="code">password</code></a>
+  <a href="#Vector.tuple" id="Vector.tuple"><code class="code">tuple</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -511,7 +518,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.password"></span>string <code class="code">password</code>;
+            <span class="ddoc_anchor" id="Vector.tuple"></span>const pure nothrow @nogc @property @safe Tuple <code class="code">tuple</code>();
 
           </code>
         </p>
@@ -523,816 +530,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Password, if the hub requires one, or an empty string.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.name" id="ConnectionRequest.name"><code class="code">name</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.name"></span>string <code class="code">name</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Name of the node that will be validated by the hub. It should always be
- lowercase and only contain letters, numbers, dashes and underscores.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.main" id="ConnectionRequest.main"><code class="code">main</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.main"></span>bool <code class="code">main</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates whether the node accepts clients when they first connect to the
- hub or exclusively when they are transferred.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.protocol" id="ConnectionRequest.protocol"><code class="code">protocol</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.protocol"></span>uint <code class="code">protocol</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Version of the <code class="code">protocol</code> used by the client that must match the hub's one.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse" id="ConnectionResponse"><code class="code">ConnectionResponse</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse"></span>struct <code class="code">ConnectionResponse</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Reply to ConnectionRequest sent only when the node's ip is accepted by the hub.
- It contains the connection status (accepted or an error code) and the hub's protocol.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_HUB" id="ConnectionResponse.OUTDATED_HUB"><code class="code">OUTDATED_HUB</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_HUB"></span><code class="code">OUTDATED_HUB</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The hub uses an old version of hncom
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_NODE" id="ConnectionResponse.OUTDATED_NODE"><code class="code">OUTDATED_NODE</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_NODE"></span><code class="code">OUTDATED_NODE</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The node uses an old version of hncom
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.PASSWORD_REQUIRED" id="ConnectionResponse.PASSWORD_REQUIRED"><code class="code">PASSWORD_REQUIRED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.PASSWORD_REQUIRED"></span><code class="code">PASSWORD_REQUIRED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    A password is required to connect
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.WRONG_PASSWORD" id="ConnectionResponse.WRONG_PASSWORD"><code class="code">WRONG_PASSWORD</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.WRONG_PASSWORD"></span><code class="code">WRONG_PASSWORD</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The password doesn't match the hub's one
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_LENGTH" id="ConnectionResponse.INVALID_NAME_LENGTH"><code class="code">INVALID_NAME_LENGTH</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_LENGTH"></span><code class="code">INVALID_NAME_LENGTH</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name is too short or too long
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_CHARACTERS" id="ConnectionResponse.INVALID_NAME_CHARACTERS"><code class="code">INVALID_NAME_CHARACTERS</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_CHARACTERS"></span><code class="code">INVALID_NAME_CHARACTERS</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name contains invalid characters
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_ALREADY_USED" id="ConnectionResponse.NAME_ALREADY_USED"><code class="code">NAME_ALREADY_USED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_ALREADY_USED"></span><code class="code">NAME_ALREADY_USED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    There's already a node connected with the same name
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_RESERVED" id="ConnectionResponse.NAME_RESERVED"><code class="code">NAME_RESERVED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_RESERVED"></span><code class="code">NAME_RESERVED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name cannot be used because the hub has reserved it for something else
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.BLOCKED_BY_PLUGIN" id="ConnectionResponse.BLOCKED_BY_PLUGIN"><code class="code">BLOCKED_BY_PLUGIN</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.BLOCKED_BY_PLUGIN"></span><code class="code">BLOCKED_BY_PLUGIN</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    A plugin has blocked the node from connecting
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.status" id="ConnectionResponse.status"><code class="code">status</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.status"></span>ubyte <code class="code">status</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates the <code class="code">status</code> of connection. If not 0, it indicates an error.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.protocol" id="ConnectionResponse.protocol"><code class="code">protocol</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.protocol"></span>uint <code class="code">protocol</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates the version of the <code class="code">protocol</code> used by the hub when the status
- code indicates that the hub or the node is obsolete.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo" id="HubInfo"><code class="code">HubInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo"></span>struct <code class="code">HubInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Hub's informations.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.serverId" id="HubInfo.serverId"><code class="code">serverId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.serverId"></span>ulong <code class="code">serverId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Server's id, either given by a snoop system or randomly generated at runtime.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.reservedUUIDs" id="HubInfo.reservedUUIDs"><code class="code">reservedUUIDs</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.reservedUUIDs"></span>ulong <code class="code">reservedUUIDs</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    First number of the 4,294,967,296 (2^32) reserved by the hub to create the node's UUIDs.
- Every UUID generated by the node is formed by the server's id (most signicant)
- and the next reserved uuid (least significant). This way every UUID in the hub
- and in the connected nodes is always different.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.displayName" id="HubInfo.displayName"><code class="code">displayName</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.displayName"></span>string <code class="code">displayName</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Unformatted name of the server as indicated in the hub's configuration file.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.gamesInfo" id="HubInfo.gamesInfo"><code class="code">gamesInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.gamesInfo"></span>GameInfo[ubyte] <code class="code">gamesInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Informations about the games supported by the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.online" id="HubInfo.online"><code class="code">online</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.online"></span>uint <code class="code">online</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Number of players currently <code class="code">online</code> and connected to other nodes.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.max" id="HubInfo.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.max"></span>int <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Number of maximum players that can connect to the server (that is the sum
- of the <code class="code">max</code> players of the nodes already connected).
- The number may change after the current node connects.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.language" id="HubInfo.language"><code class="code">language</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.language"></span>string <code class="code">language</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Default server's <code class="code">language</code> in format (language_COUNTRY, e.g. en_GB) and also the
- default <code class="code">language</code> for players that don't specify their <code class="code">language</code> or for the ones
- which <code class="code">language</code> is not supported by the server.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.acceptedLanguages" id="HubInfo.acceptedLanguages"><code class="code">acceptedLanguages</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.acceptedLanguages"></span>string[] <code class="code">acceptedLanguages</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Languages accepted by the server in the same format as language.
- The list should always contain at least one element (the default language).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.additionalJSON" id="HubInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software, social accounts, system and options.
+    Gets the vector as a constant <code class="code">tuple</code>.
 
   </p>
 </div>
@@ -1344,31 +542,8 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"minecraft"</span>: {
-     <span class="string_literal">"edu"</span>: <span class="keyword">false</span>,
-     <span class="string_literal">"realm"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"social"</span>: {
-     <span class="string_literal">"website"</span>: <span class="string_literal">"example.com"</span>,
-     <span class="string_literal">"facebook"</span>: <span class="string_literal">"example-official"</span>,
-     <span class="string_literal">"twitter"</span>: <span class="string_literal">"example_tweets"</span>,
-     <span class="string_literal">"youtube"</span>: <span class="string_literal">"examplechannel"</span>,
-     <span class="string_literal">"instagram"</span>: <span class="string_literal">"example"</span>,
-     <span class="string_literal">"google-plus"</span>: <span class="string_literal">"example-plus"</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Ubuntu 16.04"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz"</span>,
-     <span class="string_literal">"cores"</span>: 2,
-     <span class="string_literal">"ram"</span>: 2147483648
-  }
-}
+        <li><code class="code"><span class="keyword">auto</span> v = vector(0, 3, 4);
+<span class="keyword">assert</span>(v.<span class="psymbol">tuple</span> == <span class="keyword">typeof</span>(v).Tuple(0, 3, 4));
 </code></li>
       </ol>
     </div>
@@ -1382,15 +557,10 @@
 
 </div>
 
-</li>
-</ul>
-
-</div>
-
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NodeInfo" id="NodeInfo"><code class="code">NodeInfo</code></a>
+  <a href="#Vector.opEquals" id="Vector.opEquals"><code class="code">opEquals</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1399,7 +569,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo"></span>struct <code class="code">NodeInfo</code>;
+            <span class="ddoc_anchor" id="Vector.opEquals"></span>bool <code class="code">opEquals</code>(F)(F <code class="code">value</code>);
 
           </code>
         </p>
@@ -1411,136 +581,15 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Node's informations.
+    Compares the vector with another vector of the same length or with
+ a single number.
+
   </p>
 </div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.acceptedGames" id="NodeInfo.acceptedGames"><code class="code">acceptedGames</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.acceptedGames"></span>uint[][ubyte] <code class="code">acceptedGames</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
   <p class="para">
-    Informations about the games accepted by the node. There should be at least
- one combination of game/protocols that is also accepted by hub as indicated
- in HubInfo.gamesInfo, otherwise the node will never receive any player.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.max" id="NodeInfo.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.max"></span>uint <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Maximum number of players accepted by node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.plugins" id="NodeInfo.plugins"><code class="code">plugins</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.plugins"></span>Plugin[] <code class="code">plugins</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    List of <code class="code">plugins</code> loaded on the node for creating queries on the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.additionalJSON" id="NodeInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software and system,
- similar to HubInfo's additionalJson field.
+    <code class="code">true</code> if all the values are equals, <code class="code">false</code> otherwise
 
   </p>
 </div>
@@ -1552,19 +601,11 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Windows 10"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i7-5700U CPU @ 3.40GHz"</span>,
-     <span class="string_literal">"cores"</span>: 4,
-     <span class="string_literal">"ram"</span>: 8589934592
-  }
-}
+        <li><code class="code"><span class="keyword">assert</span>(Vector2!<span class="keyword">int</span>(0, 10) == Vector2!<span class="keyword">int</span>(0, 10));
+<span class="keyword">assert</span>(Vector3!<span class="keyword">ubyte</span>(1, 1, 255) == Vector3!<span class="keyword">real</span>(1, 1, 255));
+<span class="keyword">assert</span>(vector(0, 0, 0, 0) == 0);
+<span class="keyword">assert</span>(vector(1, 2) == [1, 2]);
+<span class="keyword">assert</span>(vector(<span class="keyword">float</span>.nan, <span class="keyword">float</span>.nan) != vector(<span class="keyword">float</span>.nan, <span class="keyword">float</span>.nan));
 </code></li>
       </ol>
     </div>
@@ -1578,16 +619,1223 @@
 
 </div>
 
-</li>
-</ul>
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.opUnary" id="Vector.opUnary"><code class="code">opUnary</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.opUnary"></span>typeof(this) <code class="code">opUnary</code>(string op)() if (__traits(compiles, ()
+{
+mixin("T t;t=" ~ op ~ "t;");
+}
+));
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Performs an unary operation on the vector.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    the new vector
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">auto</span> v = vector(-1, 0, 1);
+<span class="keyword">assert</span>(-v == vector(1, 0, -1));
+<span class="keyword">assert</span>(++v == vector(0, 1, 2)); <span class="comment">// this will change the original vector's values!
+</span><span class="keyword">assert</span>(v-- == vector(0, 1, 2) &amp;&amp; v == vector(-1, 0, 1));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.opBinary" id="Vector.opBinary"><code class="code">opBinary</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.opBinary"></span>typeof(this) <code class="code">opBinary</code>(string op, F)(F <code class="code">value</code>) if (op != "in");
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Performs a binary operation on the vector.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">F <code class="code">value</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      a number, a vector or an array with the same size
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    the new vector
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(vector(1, 1) - 1 == vector(0, 0));
+<span class="keyword">assert</span>(vector(10, 10) * vector(0, 9) == vector(0, 90));
+<span class="keyword">assert</span>(vector(16, 15) &amp; [15, 3] == vector(0, 3));
+<span class="keyword">assert</span>(1 - vector(100, 0, -100) == vector(-99, 1, 101));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.opOpAssign" id="Vector.opOpAssign"><code class="code">opOpAssign</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.opOpAssign"></span>typeof(this) <code class="code">opOpAssign</code>(string op, F)(F <code class="code">value</code>) if (isVector!F &amp;&amp; coordinates == F.coordinates);
+<br>
+typeof(this) <code class="code">opOpAssign</code>(string op, F)(F <code class="code">value</code>) if (isArray!F);
+<br>
+typeof(this) <code class="code">opOpAssign</code>(string op, F)(F <code class="code">value</code>) if (isImplicitlyConvertible!(F, T));
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Performs an assign operation on the vector, modifying it.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">F <code class="code">value</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      a number, a vector or an array with the same size
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">auto</span> v = vector(1, 2);
+v += 4;
+v *= [0, 2];
+<span class="keyword">assert</span>(v == vector(0, 12));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.opCast" id="Vector.opCast"><code class="code">opCast</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.opCast"></span>@safe auto <code class="code">opCast</code>(F)() if (isVector!F);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Converts the vector to the given one, mantaining the variables's
+ value when possible.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">cast</span>(Vector2!<span class="keyword">int</span>)vector(.1, .1, 14) == vector(0, 14));
+<span class="keyword">assert</span>(<span class="keyword">cast</span>(Vector4!<span class="keyword">real</span>)vector(.5, 100) == vector(.5, 0, 100, 0));
+<span class="comment">// this will only return the vector
+</span><span class="keyword">assert</span>(<span class="keyword">cast</span>(Vector2!<span class="keyword">int</span>
+)
+)</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+  </p>
+</div>
+
+
+</section>
+<li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.opCast" id="Vector.opCast"><code class="code">opCast</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.opCast.2"></span>@safe auto <code class="code">opCast</code>(F)() if (isArray!F);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Converts the vector into an array of the same size.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">cast</span>(<span class="keyword">int</span>[])vector(1, 2) == [1, 2]);
+<span class="keyword">assert</span>(<span class="keyword">cast</span>(<span class="keyword">long</span>[])vector(.1, 1.5, -.1) == [0L, 1L, 0L]);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.type" id="Vector.type"><code class="code">type</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.type"></span>auto <code class="code">type</code>(F)() if (isImplicitlyConvertible!(F, T));
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Changes the vector's <code class="code">type</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.dup" id="Vector.dup"><code class="code">dup</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.dup"></span>alias <code class="code">dup</code> = type!T;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Duplicates the vector, mantaing the type, variables'
+ names and their value.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(vector(1, 1).<span class="psymbol">dup</span> == vector(1, 1));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.length" id="Vector.length"><code class="code">length</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.length"></span>@property double <code class="code">length</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the vector's <code class="code">length</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.length" id="Vector.length"><code class="code">length</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.length.2"></span>@property double <code class="code">length</code>(double <code class="code">length</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Sets the vector's <code class="code">length</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Vector.toString" id="Vector.toString"><code class="code">toString</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Vector.toString"></span>string <code class="code">toString</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Converts the vector into a string for logging and debugging purposes.
+  </p>
+</div>
+
+</section>
 
 </div>
 
 </li>
+</div>
+</li>
+
 </ul>
+<li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#vector" id="vector"><code class="code">vector</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="vector"></span>auto <code class="code">vector</code>(E...)(E <code class="code">args</code>) if (E.length &gt; 1 &amp;&amp; E.length &lt;= 4 &amp;&amp; !is(CommonType!E == void));
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Automatically creates a <code class="code">vector</code> if the number of the
+ given arguments matches one of the default vectors.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(<span class="psymbol">vector</span>(1, 1)) == Vector2!<span class="keyword">int</span>));
+<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(<span class="psymbol">vector</span>(2Lu, 4)) == Vector2!<span class="keyword">ulong</span>));
+<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(<span class="psymbol">vector</span>(5, 5, 19.0)) == Vector3!<span class="keyword">double</span>));
+<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(<span class="psymbol">vector</span>(0, <span class="keyword">real</span>.nan, <span class="keyword">double</span>.nan, <span class="keyword">float</span>.nan)) == Vector4!<span class="keyword">real</span>));
+</code></li>
+      </ol>
+    </div>
   </div>
 </section>
+
+  </p>
+</div>
+
 </section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#isVector" id="isVector"><code class="code">isVector</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="isVector"></span>enum bool <code class="code">isVector</code>(T);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Checks if the given type is a vector
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#round" id="round"><code class="code">round</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="round"></span>nothrow @safe T <code class="code">round</code>(T)(T <code class="code">vector</code>) if (isVector!T);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Rounds a <code class="code">vector</code> to the nearest integer.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">round</span>(<span class="param">vector</span>(.25, .5, .75)) == <span class="param">vector</span>(0, 1, 1));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#floor" id="floor"><code class="code">floor</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="floor"></span>nothrow @safe T <code class="code">floor</code>(T)(T <code class="code">vector</code>) if (isVector!T);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Floors a <code class="code">vector</code> to the nearest integer.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">floor</span>(<span class="param">vector</span>(.25, .5, .75)) == <span class="param">vector</span>(0, 0, 0));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ceil" id="ceil"><code class="code">ceil</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ceil"></span>nothrow @safe T <code class="code">ceil</code>(T)(T <code class="code">vector</code>) if (isVector!T);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Ceils a <code class="code">vector</code> to the nearest integer.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">ceil</span>(<span class="param">vector</span>(.25, .5, .75)) == <span class="param">vector</span>(1, 1, 1));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#abs" id="abs"><code class="code">abs</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="abs"></span>nothrow @safe T <code class="code">abs</code>(T)(T <code class="code">vector</code>) if (isVector!T);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Calculate the absolute value of the array.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">abs</span>(<span class="param">vector</span>(-1, 0, 90)) == <span class="param">vector</span>(1, 0, 90));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#isFinite" id="isFinite"><code class="code">isFinite</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="isFinite"></span>pure nothrow @nogc @safe bool <code class="code">isFinite</code>(T)(T <code class="code">vector</code>) if (isVector!T &amp;&amp; T.isFloatingPoint);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Checks whether or not every member of the <code class="code">vector</code> is finite
+ (not infite, -inifite, nan).
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">isFinite</span>(<span class="param">vector</span>(1, 2)));
+<span class="keyword">assert</span>(<span class="psymbol">isFinite</span>(<span class="param">vector</span>(<span class="keyword">float</span>.min, <span class="keyword">float</span>.max)));
+<span class="keyword">assert</span>(!<span class="psymbol">isFinite</span>(<span class="param">vector</span>(1, <span class="keyword">float</span>.nan)));
+<span class="keyword">assert</span>(!<span class="psymbol">isFinite</span>(<span class="param">vector</span>(-<span class="keyword">float</span>.infinity, 1f/0f)));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#isNaN" id="isNaN"><code class="code">isNaN</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="isNaN"></span>pure nothrow @nogc @safe bool <code class="code">isNaN</code>(T)(T <code class="code">vector</code>) if (isVector!T &amp;&amp; T.isFloatingPoint);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Checks whether or not at least one member of the <code class="code">vector</code>
+ is not a number (nan).
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(!<span class="psymbol">isNaN</span>(<span class="param">vector</span>(0, 2.1)));
+<span class="keyword">assert</span>(<span class="psymbol">isNaN</span>(<span class="param">vector</span>(<span class="keyword">float</span>.init, -<span class="keyword">double</span>.init)));
+<span class="keyword">assert</span>(<span class="psymbol">isNaN</span>(<span class="param">vector</span>(0, <span class="keyword">float</span>.nan)));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#distance" id="distance"><code class="code">distance</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="distance"></span>@safe double <code class="code">distance</code>(T, char[] coords, E)(Vector!(T, coords) <code class="code">vector1</code>, Vector!(E, coords) <code class="code">vector2</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Calculates the <code class="code">distance</code> between to vectors of the
+ same length.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">Vector!(T, coords) <code class="code">vector1</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the first vector
+    </p>
+  </div>
+</td>
+</tr>
+<tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">Vector!(E, coords) <code class="code">vector2</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the second vector
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    the <code class="code">distance</code> between the two vectors (always higher or equals than  0)
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">distance</span>(vector(0, 0), vector(1, 0)) == 1);
+<span class="keyword">assert</span>(<span class="psymbol">distance</span>(vector(0, 0, 0) == vector(1, 1, 1)) == 3 ^^ .5); <span class="comment">// 3 ^^ .5 is the squared root of 3
+</span></code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#vector" id="vector"><code class="code">vector</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="vector.2"></span>V <code class="code">vector</code>(V, T)(T <code class="code">tuple</code>) if (isVector!V &amp;&amp; isTuple!T);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">alias</span> DoublePosition = Vector3!<span class="keyword">float</span>;
+
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ChunkPosition" id="ChunkPosition"><code class="code">ChunkPosition</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ChunkPosition"></span>alias <code class="code">ChunkPosition</code> = Vector!(int, "xz").Vector;
+<br>
+<span class="ddoc_anchor" id="EntityPosition"></span>alias <code class="code">EntityPosition</code> = Vector!(double, "xyz").Vector;
+<br>
+<span class="ddoc_anchor" id="BlockPosition"></span>alias <code class="code">BlockPosition</code> = Vector!(int, "xyz").Vector;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Vectors usually used by Minecraft
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#shortBlockPosition" id="shortBlockPosition"><code class="code">shortBlockPosition</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="shortBlockPosition"></span>@property @safe ushort <code class="code">shortBlockPosition</code>(BlockPosition <code class="code">position</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets a ushort that indicates a <code class="code">position</code> in a chunk.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#blockPositionShort" id="blockPositionShort"><code class="code">blockPositionShort</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="blockPositionShort"></span>@property @safe BlockPosition <code class="code">blockPositionShort</code>(ushort <code class="code">position</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets a BlockPosition from an ushort that indicates a <code class="code">position</code> in a chunk.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#entityPosition" id="entityPosition"><code class="code">entityPosition</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="entityPosition"></span>@property @safe EntityPosition <code class="code">entityPosition</code>(BlockPosition <code class="code">block</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Casts a BlockPosition to an EntityPosition using vector's opCast.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#blockPosition" id="blockPosition"><code class="code">blockPosition</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="blockPosition"></span>@property @safe BlockPosition <code class="code">blockPosition</code>(EntityPosition <code class="code">entity</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Casts an EntityPosition to a BlockPosition using vector's opCast.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</div></section>
       </article>
     </div>
   </body>

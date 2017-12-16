@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.hncom.login</title>
+    <title>selery.session.hncom</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,15 +463,38 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.hncom.login</h1>
-        <section id="module_content">
+        <h1 class="module_name">selery.session.hncom</h1>
+        <section id="module_content"><section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Hncom (hub-node communication) is the protocol used by SEL to
+ exchange informations between the hub and the connected nodes.
+
+  </p>
+</div>
+<div class="ddoc_license">
+  <h4>License</h4>
+  <p class="para">
+    .
+
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Source:</span>
+
+  </p>
+</div>
+
+</section>
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
     <ul class="ddoc_members">
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest" id="ConnectionRequest"><code class="code">ConnectionRequest</code></a>
+  <a href="#AbstractNode" id="AbstractNode"><code class="code">AbstractNode</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,7 +503,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest"></span>struct <code class="code">ConnectionRequest</code>;
+            <span class="ddoc_anchor" id="AbstractNode"></span>abstract class <code class="code">AbstractNode</code>: <span class="ddoc_psuper_symbol">selery.network.session.Session</span>, <span class="ddoc_psuper_symbol">sel.hncom.handler.Handler!(serverbound).HncomHandler</span>;
 
           </code>
         </p>
@@ -492,8 +515,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    First packet sent by the client after the connection is established.
- It contains informations used by the hub to check permissions and compatibility.
+    Session of a node. It's executed in a dedicated thread.
   </p>
 </div>
 
@@ -502,7 +524,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.password" id="ConnectionRequest.password"><code class="code">password</code></a>
+  <a href="#AbstractNode.name" id="AbstractNode.name"><code class="code">name</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -511,7 +533,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.password"></span>string <code class="code">password</code>;
+            <span class="ddoc_anchor" id="AbstractNode.name"></span>shared const nothrow @nogc @property @safe string <code class="code">name</code>();
 
           </code>
         </p>
@@ -523,7 +545,9 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Password, if the hub requires one, or an empty string.
+    Gets the <code class="code">name</code> of the node. The <code class="code">name</code> is different for every node
+ connected to hub and it should be used other nodes with
+ the transfer function.
   </p>
 </div>
 
@@ -534,7 +558,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.name" id="ConnectionRequest.name"><code class="code">name</code></a>
+  <a href="#AbstractNode.main" id="AbstractNode.main"><code class="code">main</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -543,7 +567,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.name"></span>string <code class="code">name</code>;
+            <span class="ddoc_anchor" id="AbstractNode.main"></span>shared const nothrow @nogc @property @safe bool <code class="code">main</code>();
 
           </code>
         </p>
@@ -555,8 +579,12 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Name of the node that will be validated by the hub. It should always be
- lowercase and only contain letters, numbers, dashes and underscores.
+    Indicates whether or not this is a <code class="code">main</code> node.
+ A <code class="code">main</code> node is able to receive players without the
+ use of the transfer function.
+ Every hub should have at least one <code class="code">main</code> node, otherwise
+ every player that tries to connect will be disconnected with
+ the 'end of stream' message.
   </p>
 </div>
 
@@ -567,7 +595,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.main" id="ConnectionRequest.main"><code class="code">main</code></a>
+  <a href="#AbstractNode.max" id="AbstractNode.max"><code class="code">max</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -576,7 +604,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.main"></span>bool <code class="code">main</code>;
+            <span class="ddoc_anchor" id="AbstractNode.max"></span>shared const nothrow @nogc @property @safe uint <code class="code">max</code>();
 
           </code>
         </p>
@@ -588,8 +616,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Indicates whether the node accepts clients when they first connect to the
- hub or exclusively when they are transferred.
+    Gets the highest number of players that can connect to the node.
   </p>
 </div>
 
@@ -600,7 +627,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.protocol" id="ConnectionRequest.protocol"><code class="code">protocol</code></a>
+  <a href="#AbstractNode.online" id="AbstractNode.online"><code class="code">online</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -609,7 +636,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.protocol"></span>uint <code class="code">protocol</code>;
+            <span class="ddoc_anchor" id="AbstractNode.online"></span>shared const nothrow @nogc @property @safe uint <code class="code">online</code>();
 
           </code>
         </p>
@@ -621,74 +648,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Version of the <code class="code">protocol</code> used by the client that must match the hub's one.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse" id="ConnectionResponse"><code class="code">ConnectionResponse</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse"></span>struct <code class="code">ConnectionResponse</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Reply to ConnectionRequest sent only when the node's ip is accepted by the hub.
- It contains the connection status (accepted or an error code) and the hub's protocol.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_HUB" id="ConnectionResponse.OUTDATED_HUB"><code class="code">OUTDATED_HUB</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_HUB"></span><code class="code">OUTDATED_HUB</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The hub uses an old version of hncom
+    Gets the number of players connected to the node.
   </p>
 </div>
 
@@ -699,7 +659,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_NODE" id="ConnectionResponse.OUTDATED_NODE"><code class="code">OUTDATED_NODE</code></a>
+  <a href="#AbstractNode.full" id="AbstractNode.full"><code class="code">full</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -708,7 +668,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_NODE"></span><code class="code">OUTDATED_NODE</code>
+            <span class="ddoc_anchor" id="AbstractNode.full"></span>shared const nothrow @nogc @property @safe bool <code class="code">full</code>();
+
           </code>
         </p>
       </div>
@@ -719,7 +680,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    The node uses an old version of hncom
+    Indicates whether the node is <code class="code">full</code>.
   </p>
 </div>
 
@@ -730,7 +691,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.PASSWORD_REQUIRED" id="ConnectionResponse.PASSWORD_REQUIRED"><code class="code">PASSWORD_REQUIRED</code></a>
+  <a href="#AbstractNode.latency" id="AbstractNode.latency"><code class="code">latency</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -739,7 +700,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.PASSWORD_REQUIRED"></span><code class="code">PASSWORD_REQUIRED</code>
+            <span class="ddoc_anchor" id="AbstractNode.latency"></span>shared const nothrow @nogc @property @safe uint <code class="code">latency</code>();
+
           </code>
         </p>
       </div>
@@ -750,7 +712,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    A password is required to connect
+    Gets the node's <code class="code">latency</code> (it may not be precise).
   </p>
 </div>
 
@@ -761,7 +723,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.WRONG_PASSWORD" id="ConnectionResponse.WRONG_PASSWORD"><code class="code">WRONG_PASSWORD</code></a>
+  <a href="#AbstractNode.tps" id="AbstractNode.tps"><code class="code">tps</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -770,7 +732,12 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.WRONG_PASSWORD"></span><code class="code">WRONG_PASSWORD</code>
+            <span class="ddoc_anchor" id="AbstractNode.tps"></span>shared const nothrow @nogc @property @safe float <code class="code">tps</code>();
+<br>
+<span class="ddoc_anchor" id="AbstractNode.ram"></span>shared const nothrow @nogc @property @safe ulong <code class="code">ram</code>();
+<br>
+<span class="ddoc_anchor" id="AbstractNode.cpu"></span>shared const nothrow @nogc @property @safe float <code class="code">cpu</code>();
+
           </code>
         </p>
       </div>
@@ -781,7 +748,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    The password doesn't match the hub's one
+    Gets the node's usage, updated with the ResourcesUsage packet.
   </p>
 </div>
 
@@ -792,7 +759,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_LENGTH" id="ConnectionResponse.INVALID_NAME_LENGTH"><code class="code">INVALID_NAME_LENGTH</code></a>
+  <a href="#AbstractNode.sendTo" id="AbstractNode.sendTo"><code class="code">sendTo</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -801,7 +768,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_LENGTH"></span><code class="code">INVALID_NAME_LENGTH</code>
+            <span class="ddoc_anchor" id="AbstractNode.sendTo"></span>shared void <code class="code">sendTo</code>(shared PlayerSession <code class="code">player</code>, ubyte[] <code class="code">data</code>);
+
           </code>
         </p>
       </div>
@@ -812,7 +780,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    The name is too short or too long
+    Sends <code class="code">data</code> to the node received from a <code class="code">player</code>.
   </p>
 </div>
 
@@ -823,7 +791,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_CHARACTERS" id="ConnectionResponse.INVALID_NAME_CHARACTERS"><code class="code">INVALID_NAME_CHARACTERS</code></a>
+  <a href="#AbstractNode.addNode" id="AbstractNode.addNode"><code class="code">addNode</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -832,7 +800,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_CHARACTERS"></span><code class="code">INVALID_NAME_CHARACTERS</code>
+            <span class="ddoc_anchor" id="AbstractNode.addNode"></span>shared void <code class="code">addNode</code>(shared AbstractNode <code class="code">node</code>);
+
           </code>
         </p>
       </div>
@@ -843,7 +812,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    The name contains invalid characters
+    Notifies the <code class="code">node</code> that another <code class="code">node</code> has connected
+ to the hub.
   </p>
 </div>
 
@@ -854,7 +824,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_ALREADY_USED" id="ConnectionResponse.NAME_ALREADY_USED"><code class="code">NAME_ALREADY_USED</code></a>
+  <a href="#AbstractNode.removeNode" id="AbstractNode.removeNode"><code class="code">removeNode</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -863,7 +833,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_ALREADY_USED"></span><code class="code">NAME_ALREADY_USED</code>
+            <span class="ddoc_anchor" id="AbstractNode.removeNode"></span>shared void <code class="code">removeNode</code>(shared AbstractNode <code class="code">node</code>);
+
           </code>
         </p>
       </div>
@@ -874,7 +845,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    There's already a node connected with the same name
+    Notifies the <code class="code">node</code> that another <code class="code">node</code> has been
+ disconnected from the hub.
   </p>
 </div>
 
@@ -885,7 +857,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_RESERVED" id="ConnectionResponse.NAME_RESERVED"><code class="code">NAME_RESERVED</code></a>
+  <a href="#AbstractNode.sendMessage" id="AbstractNode.sendMessage"><code class="code">sendMessage</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -894,7 +866,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_RESERVED"></span><code class="code">NAME_RESERVED</code>
+            <span class="ddoc_anchor" id="AbstractNode.sendMessage"></span>shared void <code class="code">sendMessage</code>(uint <code class="code">sender</code>, bool <code class="code">broadcasted</code>, ubyte[] <code class="code">payload</code>);
+
           </code>
         </p>
       </div>
@@ -905,7 +878,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    The name cannot be used because the hub has reserved it for something else
+    Sends a message to the node.
   </p>
 </div>
 
@@ -916,7 +889,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.BLOCKED_BY_PLUGIN" id="ConnectionResponse.BLOCKED_BY_PLUGIN"><code class="code">BLOCKED_BY_PLUGIN</code></a>
+  <a href="#AbstractNode.updatePlayers" id="AbstractNode.updatePlayers"><code class="code">updatePlayers</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -925,7 +898,8 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.BLOCKED_BY_PLUGIN"></span><code class="code">BLOCKED_BY_PLUGIN</code>
+            <span class="ddoc_anchor" id="AbstractNode.updatePlayers"></span>shared void <code class="code">updatePlayers</code>(inout uint <code class="code">online</code>, inout uint <code class="code">max</code>);
+
           </code>
         </p>
       </div>
@@ -936,7 +910,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    A plugin has blocked the node from connecting
+    Sends the number of <code class="code">online</code> players and maximum number of
+ players to the node.
   </p>
 </div>
 
@@ -947,7 +922,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.status" id="ConnectionResponse.status"><code class="code">status</code></a>
+  <a href="#AbstractNode.remoteCommand" id="AbstractNode.remoteCommand"><code class="code">remoteCommand</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -956,7 +931,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.status"></span>ubyte <code class="code">status</code>;
+            <span class="ddoc_anchor" id="AbstractNode.remoteCommand"></span>shared void <code class="code">remoteCommand</code>(string <code class="code">command</code>, ubyte <code class="code">origin</code>, Address <code class="code">address</code>, int <code class="code">commandId</code>);
 
           </code>
         </p>
@@ -968,7 +943,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Indicates the <code class="code">status</code> of connection. If not 0, it indicates an error.
+    Executes a remote <code class="code">command</code>.
   </p>
 </div>
 
@@ -979,7 +954,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.protocol" id="ConnectionResponse.protocol"><code class="code">protocol</code></a>
+  <a href="#AbstractNode.reload" id="AbstractNode.reload"><code class="code">reload</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -988,7 +963,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.protocol"></span>uint <code class="code">protocol</code>;
+            <span class="ddoc_anchor" id="AbstractNode.reload"></span>shared void <code class="code">reload</code>();
 
           </code>
         </p>
@@ -1000,75 +975,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Indicates the version of the <code class="code">protocol</code> used by the hub when the status
- code indicates that the hub or the node is obsolete.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo" id="HubInfo"><code class="code">HubInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo"></span>struct <code class="code">HubInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Hub's informations.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.serverId" id="HubInfo.serverId"><code class="code">serverId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.serverId"></span>ulong <code class="code">serverId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Server's id, either given by a snoop system or randomly generated at runtime.
+    Tells the node to <code class="code">reload</code> its configurations.
   </p>
 </div>
 
@@ -1079,7 +986,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.reservedUUIDs" id="HubInfo.reservedUUIDs"><code class="code">reservedUUIDs</code></a>
+  <a href="#AbstractNode.addPlayer" id="AbstractNode.addPlayer"><code class="code">addPlayer</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1088,7 +995,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.reservedUUIDs"></span>ulong <code class="code">reservedUUIDs</code>;
+            <span class="ddoc_anchor" id="AbstractNode.addPlayer"></span>shared void <code class="code">addPlayer</code>(shared PlayerSession <code class="code">player</code>, ubyte <code class="code">reason</code>);
 
           </code>
         </p>
@@ -1100,10 +1007,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    First number of the 4,294,967,296 (2^32) reserved by the hub to create the node's UUIDs.
- Every UUID generated by the node is formed by the server's id (most signicant)
- and the next reserved uuid (least significant). This way every UUID in the hub
- and in the connected nodes is always different.
+    Adds a <code class="code">player</code> to the node.
   </p>
 </div>
 
@@ -1114,7 +1018,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.displayName" id="HubInfo.displayName"><code class="code">displayName</code></a>
+  <a href="#AbstractNode.onPlayerTransferred" id="AbstractNode.onPlayerTransferred"><code class="code">onPlayerTransferred</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1123,7 +1027,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.displayName"></span>string <code class="code">displayName</code>;
+            <span class="ddoc_anchor" id="AbstractNode.onPlayerTransferred"></span>shared void <code class="code">onPlayerTransferred</code>(shared PlayerSession <code class="code">player</code>);
 
           </code>
         </p>
@@ -1135,7 +1039,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Unformatted name of the server as indicated in the hub's configuration file.
+    Called when a <code class="code">player</code> is transferred by the hub (not by the node)
+ to another node.
   </p>
 </div>
 
@@ -1146,7 +1051,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.gamesInfo" id="HubInfo.gamesInfo"><code class="code">gamesInfo</code></a>
+  <a href="#AbstractNode.onPlayerLeft" id="AbstractNode.onPlayerLeft"><code class="code">onPlayerLeft</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1155,7 +1060,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.gamesInfo"></span>GameInfo[ubyte] <code class="code">gamesInfo</code>;
+            <span class="ddoc_anchor" id="AbstractNode.onPlayerLeft"></span>shared void <code class="code">onPlayerLeft</code>(shared PlayerSession <code class="code">player</code>);
 
           </code>
         </p>
@@ -1167,7 +1072,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Informations about the games supported by the hub.
+    Called when a <code class="code">player</code> lefts the server using the disconnect
+ button or closing the socket.
   </p>
 </div>
 
@@ -1178,7 +1084,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.online" id="HubInfo.online"><code class="code">online</code></a>
+  <a href="#AbstractNode.onPlayerTimedOut" id="AbstractNode.onPlayerTimedOut"><code class="code">onPlayerTimedOut</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1187,7 +1093,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.online"></span>uint <code class="code">online</code>;
+            <span class="ddoc_anchor" id="AbstractNode.onPlayerTimedOut"></span>shared void <code class="code">onPlayerTimedOut</code>(shared PlayerSession <code class="code">player</code>);
 
           </code>
         </p>
@@ -1199,7 +1105,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Number of players currently <code class="code">online</code> and connected to other nodes.
+    Called when a <code class="code">player</code> times out.
   </p>
 </div>
 
@@ -1210,7 +1116,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.max" id="HubInfo.max"><code class="code">max</code></a>
+  <a href="#AbstractNode.onPlayerKicked" id="AbstractNode.onPlayerKicked"><code class="code">onPlayerKicked</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1219,7 +1125,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.max"></span>int <code class="code">max</code>;
+            <span class="ddoc_anchor" id="AbstractNode.onPlayerKicked"></span>shared void <code class="code">onPlayerKicked</code>(shared PlayerSession <code class="code">player</code>);
 
           </code>
         </p>
@@ -1231,9 +1137,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Number of maximum players that can connect to the server (that is the sum
- of the <code class="code">max</code> players of the nodes already connected).
- The number may change after the current node connects.
+    Called when a <code class="code">player</code> is kicked (not by the node).
   </p>
 </div>
 
@@ -1244,7 +1148,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.language" id="HubInfo.language"><code class="code">language</code></a>
+  <a href="#AbstractNode.onPlayerGone" id="AbstractNode.onPlayerGone"><code class="code">onPlayerGone</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1253,7 +1157,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.language"></span>string <code class="code">language</code>;
+            <span class="ddoc_anchor" id="AbstractNode.onPlayerGone"></span>protected shared void <code class="code">onPlayerGone</code>(shared PlayerSession <code class="code">player</code>, ubyte <code class="code">reason</code>);
 
           </code>
         </p>
@@ -1265,9 +1169,9 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Default server's <code class="code">language</code> in format (language_COUNTRY, e.g. en_GB) and also the
- default <code class="code">language</code> for players that don't specify their <code class="code">language</code> or for the ones
- which <code class="code">language</code> is not supported by the server.
+    Generic function that removes a <code class="code">player</code> from the
+ node's list and sends a PlayerDisconnected packet to
+ notify the node of the disconnection.
   </p>
 </div>
 
@@ -1278,7 +1182,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.acceptedLanguages" id="HubInfo.acceptedLanguages"><code class="code">acceptedLanguages</code></a>
+  <a href="#AbstractNode.sendLatencyUpdate" id="AbstractNode.sendLatencyUpdate"><code class="code">sendLatencyUpdate</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1287,7 +1191,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.acceptedLanguages"></span>string[] <code class="code">acceptedLanguages</code>;
+            <span class="ddoc_anchor" id="AbstractNode.sendLatencyUpdate"></span>shared void <code class="code">sendLatencyUpdate</code>(shared PlayerSession <code class="code">player</code>);
 
           </code>
         </p>
@@ -1299,8 +1203,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Languages accepted by the server in the same format as language.
- The list should always contain at least one element (the default language).
+    Updates a <code class="code">player</code>'s latency (usually sent every 30 seconds).
   </p>
 </div>
 
@@ -1311,7 +1214,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#HubInfo.additionalJSON" id="HubInfo.additionalJSON"><code class="code">additionalJSON</code></a>
+  <a href="#AbstractNode.sendPacketLossUpdate" id="AbstractNode.sendPacketLossUpdate"><code class="code">sendPacketLossUpdate</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1320,7 +1223,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
+            <span class="ddoc_anchor" id="AbstractNode.sendPacketLossUpdate"></span>shared void <code class="code">sendPacketLossUpdate</code>(shared PlayerSession <code class="code">player</code>);
 
           </code>
         </p>
@@ -1332,118 +1235,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Optional informations about the server's software, social accounts, system and options.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"minecraft"</span>: {
-     <span class="string_literal">"edu"</span>: <span class="keyword">false</span>,
-     <span class="string_literal">"realm"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"social"</span>: {
-     <span class="string_literal">"website"</span>: <span class="string_literal">"example.com"</span>,
-     <span class="string_literal">"facebook"</span>: <span class="string_literal">"example-official"</span>,
-     <span class="string_literal">"twitter"</span>: <span class="string_literal">"example_tweets"</span>,
-     <span class="string_literal">"youtube"</span>: <span class="string_literal">"examplechannel"</span>,
-     <span class="string_literal">"instagram"</span>: <span class="string_literal">"example"</span>,
-     <span class="string_literal">"google-plus"</span>: <span class="string_literal">"example-plus"</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Ubuntu 16.04"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz"</span>,
-     <span class="string_literal">"cores"</span>: 2,
-     <span class="string_literal">"ram"</span>: 2147483648
-  }
-}
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo" id="NodeInfo"><code class="code">NodeInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo"></span>struct <code class="code">NodeInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Node's informations.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.acceptedGames" id="NodeInfo.acceptedGames"><code class="code">acceptedGames</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.acceptedGames"></span>uint[][ubyte] <code class="code">acceptedGames</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Informations about the games accepted by the node. There should be at least
- one combination of game/protocols that is also accepted by hub as indicated
- in HubInfo.gamesInfo, otherwise the node will never receive any player.
+    Updates a <code class="code">player</code>'s packet loss (usually sent every 30 seconds).
   </p>
 </div>
 
@@ -1454,7 +1246,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.max" id="NodeInfo.max"><code class="code">max</code></a>
+  <a href="#AbstractNode.onClosed" id="AbstractNode.onClosed"><code class="code">onClosed</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1463,7 +1255,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.max"></span>uint <code class="code">max</code>;
+            <span class="ddoc_anchor" id="AbstractNode.onClosed"></span>shared void <code class="code">onClosed</code>(bool <code class="code">transfer</code> = true);
 
           </code>
         </p>
@@ -1475,102 +1267,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Maximum number of players accepted by node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.plugins" id="NodeInfo.plugins"><code class="code">plugins</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.plugins"></span>Plugin[] <code class="code">plugins</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    List of <code class="code">plugins</code> loaded on the node for creating queries on the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.additionalJSON" id="NodeInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software and system,
- similar to HubInfo's additionalJson field.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Windows 10"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i7-5700U CPU @ 3.40GHz"</span>,
-     <span class="string_literal">"cores"</span>: 4,
-     <span class="string_literal">"ram"</span>: 8589934592
-  }
-}
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Called when the client closes the connection.
+ Tries to <code class="code">transfer</code> every connected player to the main node.
   </p>
 </div>
 

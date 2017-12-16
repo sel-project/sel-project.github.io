@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.hncom.login</title>
+    <title>selery.block.tile</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,15 +463,29 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.hncom.login</h1>
-        <section id="module_content">
+        <h1 class="module_name">selery.block.tile</h1>
+        <section id="module_content"><section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Tiles, also known as block entities, are blocks with additional data stored in an NBT tag.
+
+  </p>
+</div>
+<div class="ddoc_license">
+  <h4>License</h4>
+  <p class="para">
+    <a href="http://www.gnu.org/licenses/lgpl-3.0.html" target="_blank">GNU General Lesser Public License v3</a>
+  </p>
+</div>
+
+</section>
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
     <ul class="ddoc_members">
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest" id="ConnectionRequest"><code class="code">ConnectionRequest</code></a>
+  <a href="#Tile" id="Tile"><code class="code">Tile</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,7 +494,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest"></span>struct <code class="code">ConnectionRequest</code>;
+            <span class="ddoc_anchor" id="Tile"></span>abstract class <code class="code">Tile</code>: <span class="ddoc_psuper_symbol">selery.block.block.Block</span>;
 
           </code>
         </p>
@@ -492,8 +506,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    First packet sent by the client after the connection is established.
- It contains informations used by the hub to check permissions and compatibility.
+    A special block that contains additional data.
   </p>
 </div>
 
@@ -502,7 +515,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.password" id="ConnectionRequest.password"><code class="code">password</code></a>
+  <a href="#Tile.javaSpawnId" id="Tile.javaSpawnId"><code class="code">javaSpawnId</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -511,7 +524,9 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.password"></span>string <code class="code">password</code>;
+            <span class="ddoc_anchor" id="Tile.javaSpawnId"></span>abstract pure nothrow @property @safe string <code class="code">javaSpawnId</code>();
+<br>
+<span class="ddoc_anchor" id="Tile.pocketSpawnId"></span>abstract pure nothrow @property @safe string <code class="code">pocketSpawnId</code>();
 
           </code>
         </p>
@@ -523,7 +538,10 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Password, if the hub requires one, or an empty string.
+    Gets the tile's spawn id for Minecraft and Minecraft: Pocket
+ Edition.
+ They're usually in snake case in Minecraft (flower_pot) and
+ in pascal case in Minecraft: Pocket Edition (FlowerPot).
   </p>
 </div>
 
@@ -534,7 +552,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.name" id="ConnectionRequest.name"><code class="code">name</code></a>
+  <a href="#Tile.javaCompound" id="Tile.javaCompound"><code class="code">javaCompound</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -543,7 +561,9 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.name"></span>string <code class="code">name</code>;
+            <span class="ddoc_anchor" id="Tile.javaCompound"></span>abstract @property Compound <code class="code">javaCompound</code>();
+<br>
+<span class="ddoc_anchor" id="Tile.pocketCompound"></span>abstract @property Compound <code class="code">pocketCompound</code>();
 
           </code>
         </p>
@@ -555,8 +575,9 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Name of the node that will be validated by the hub. It should always be
- lowercase and only contain letters, numbers, dashes and underscores.
+    Gets the named binary tag.
+ The tag may be <code class="code">null</code> if the tile does not exists in the game's
+ version or when the tile is in its inital state (or empty).
   </p>
 </div>
 
@@ -567,7 +588,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.main" id="ConnectionRequest.main"><code class="code">main</code></a>
+  <a href="#Tile.parseJavaCompound" id="Tile.parseJavaCompound"><code class="code">parseJavaCompound</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -576,7 +597,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.main"></span>bool <code class="code">main</code>;
+            <span class="ddoc_anchor" id="Tile.parseJavaCompound"></span>abstract void <code class="code">parseJavaCompound</code>(Compound <code class="code">compound</code>);
 
           </code>
         </p>
@@ -588,8 +609,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Indicates whether the node accepts clients when they first connect to the
- hub or exclusively when they are transferred.
+    Parses a non-<code class="code">null</code> <code class="code">compound</code> saved in the Minecraft's Anvil
+ format.
   </p>
 </div>
 
@@ -600,7 +621,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.protocol" id="ConnectionRequest.protocol"><code class="code">protocol</code></a>
+  <a href="#Tile.parsePocketCompound" id="Tile.parsePocketCompound"><code class="code">parsePocketCompound</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -609,7 +630,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.protocol"></span>uint <code class="code">protocol</code>;
+            <span class="ddoc_anchor" id="Tile.parsePocketCompound"></span>abstract void <code class="code">parsePocketCompound</code>(Compound <code class="code">compound</code>);
 
           </code>
         </p>
@@ -621,74 +642,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Version of the <code class="code">protocol</code> used by the client that must match the hub's one.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse" id="ConnectionResponse"><code class="code">ConnectionResponse</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse"></span>struct <code class="code">ConnectionResponse</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Reply to ConnectionRequest sent only when the node's ip is accepted by the hub.
- It contains the connection status (accepted or an error code) and the hub's protocol.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_HUB" id="ConnectionResponse.OUTDATED_HUB"><code class="code">OUTDATED_HUB</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_HUB"></span><code class="code">OUTDATED_HUB</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The hub uses an old version of hncom
+    Parses a non-<code class="code">null</code> <code class="code">compound</code> saved from a Minecraft: Pocket
+ Edition's LevelDB format.
   </p>
 </div>
 
@@ -699,7 +654,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_NODE" id="ConnectionResponse.OUTDATED_NODE"><code class="code">OUTDATED_NODE</code></a>
+  <a href="#Tile.placed" id="Tile.placed"><code class="code">placed</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -708,255 +663,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_NODE"></span><code class="code">OUTDATED_NODE</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The node uses an old version of hncom
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.PASSWORD_REQUIRED" id="ConnectionResponse.PASSWORD_REQUIRED"><code class="code">PASSWORD_REQUIRED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.PASSWORD_REQUIRED"></span><code class="code">PASSWORD_REQUIRED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    A password is required to connect
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.WRONG_PASSWORD" id="ConnectionResponse.WRONG_PASSWORD"><code class="code">WRONG_PASSWORD</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.WRONG_PASSWORD"></span><code class="code">WRONG_PASSWORD</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The password doesn't match the hub's one
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_LENGTH" id="ConnectionResponse.INVALID_NAME_LENGTH"><code class="code">INVALID_NAME_LENGTH</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_LENGTH"></span><code class="code">INVALID_NAME_LENGTH</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name is too short or too long
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_CHARACTERS" id="ConnectionResponse.INVALID_NAME_CHARACTERS"><code class="code">INVALID_NAME_CHARACTERS</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_CHARACTERS"></span><code class="code">INVALID_NAME_CHARACTERS</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name contains invalid characters
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_ALREADY_USED" id="ConnectionResponse.NAME_ALREADY_USED"><code class="code">NAME_ALREADY_USED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_ALREADY_USED"></span><code class="code">NAME_ALREADY_USED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    There's already a node connected with the same name
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_RESERVED" id="ConnectionResponse.NAME_RESERVED"><code class="code">NAME_RESERVED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_RESERVED"></span><code class="code">NAME_RESERVED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name cannot be used because the hub has reserved it for something else
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.BLOCKED_BY_PLUGIN" id="ConnectionResponse.BLOCKED_BY_PLUGIN"><code class="code">BLOCKED_BY_PLUGIN</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.BLOCKED_BY_PLUGIN"></span><code class="code">BLOCKED_BY_PLUGIN</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    A plugin has blocked the node from connecting
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.status" id="ConnectionResponse.status"><code class="code">status</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.status"></span>ubyte <code class="code">status</code>;
+            <span class="ddoc_anchor" id="Tile.placed"></span>final pure nothrow @nogc @property @safe bool <code class="code">placed</code>();
 
           </code>
         </p>
@@ -968,371 +675,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Indicates the <code class="code">status</code> of connection. If not 0, it indicates an error.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.protocol" id="ConnectionResponse.protocol"><code class="code">protocol</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.protocol"></span>uint <code class="code">protocol</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates the version of the <code class="code">protocol</code> used by the hub when the status
- code indicates that the hub or the node is obsolete.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo" id="HubInfo"><code class="code">HubInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo"></span>struct <code class="code">HubInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Hub's informations.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.serverId" id="HubInfo.serverId"><code class="code">serverId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.serverId"></span>ulong <code class="code">serverId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Server's id, either given by a snoop system or randomly generated at runtime.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.reservedUUIDs" id="HubInfo.reservedUUIDs"><code class="code">reservedUUIDs</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.reservedUUIDs"></span>ulong <code class="code">reservedUUIDs</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    First number of the 4,294,967,296 (2^32) reserved by the hub to create the node's UUIDs.
- Every UUID generated by the node is formed by the server's id (most signicant)
- and the next reserved uuid (least significant). This way every UUID in the hub
- and in the connected nodes is always different.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.displayName" id="HubInfo.displayName"><code class="code">displayName</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.displayName"></span>string <code class="code">displayName</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Unformatted name of the server as indicated in the hub's configuration file.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.gamesInfo" id="HubInfo.gamesInfo"><code class="code">gamesInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.gamesInfo"></span>GameInfo[ubyte] <code class="code">gamesInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Informations about the games supported by the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.online" id="HubInfo.online"><code class="code">online</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.online"></span>uint <code class="code">online</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Number of players currently <code class="code">online</code> and connected to other nodes.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.max" id="HubInfo.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.max"></span>int <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Number of maximum players that can connect to the server (that is the sum
- of the <code class="code">max</code> players of the nodes already connected).
- The number may change after the current node connects.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.language" id="HubInfo.language"><code class="code">language</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.language"></span>string <code class="code">language</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Default server's <code class="code">language</code> in format (language_COUNTRY, e.g. en_GB) and also the
- default <code class="code">language</code> for players that don't specify their <code class="code">language</code> or for the ones
- which <code class="code">language</code> is not supported by the server.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.acceptedLanguages" id="HubInfo.acceptedLanguages"><code class="code">acceptedLanguages</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.acceptedLanguages"></span>string[] <code class="code">acceptedLanguages</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Languages accepted by the server in the same format as language.
- The list should always contain at least one element (the default language).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.additionalJSON" id="HubInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software, social accounts, system and options.
+    Indicates whether the tile has been <code class="code">placed</code> in a world.
 
   </p>
 </div>
@@ -1344,30 +687,651 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"minecraft"</span>: {
-     <span class="string_literal">"edu"</span>: <span class="keyword">false</span>,
-     <span class="string_literal">"realm"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"social"</span>: {
-     <span class="string_literal">"website"</span>: <span class="string_literal">"example.com"</span>,
-     <span class="string_literal">"facebook"</span>: <span class="string_literal">"example-official"</span>,
-     <span class="string_literal">"twitter"</span>: <span class="string_literal">"example_tweets"</span>,
-     <span class="string_literal">"youtube"</span>: <span class="string_literal">"examplechannel"</span>,
-     <span class="string_literal">"instagram"</span>: <span class="string_literal">"example"</span>,
-     <span class="string_literal">"google-plus"</span>: <span class="string_literal">"example-plus"</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Ubuntu 16.04"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz"</span>,
-     <span class="string_literal">"cores"</span>: 2,
-     <span class="string_literal">"ram"</span>: 2147483648
-  }
+        <li><code class="code"><span class="keyword">if</span>(tile.<span class="psymbol">placed</span>) {
+   <span class="keyword">assert</span>(tile.world !<span class="keyword">is</span> <span class="keyword">null</span>);
+}
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Tile.world" id="Tile.world"><code class="code">world</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Tile.world"></span>final pure nothrow @nogc @property @safe World <code class="code">world</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the <code class="code">world</code> the tile is placed in, if placed is <code class="code">true</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Tile.position" id="Tile.position"><code class="code">position</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Tile.position"></span>final pure nothrow @nogc @property @safe BlockPosition <code class="code">position</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the tile's <code class="code">position</code> in the world, if placed.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">if</span>(tile.placed) {
+   <span class="keyword">assert</span>(tile.tid == tile.world.tileAt(tile.<span class="psymbol">position</span>).tid);
+}
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Tile.action" id="Tile.action"><code class="code">action</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Tile.action"></span>abstract pure nothrow @nogc @property @safe ubyte <code class="code">action</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the <code class="code">action</code> type of the tile, used in Minecraft's
+ UpdateBlockEntity packet.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li>
+</ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign" id="Sign"><code class="code">Sign</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign"></span>abstract class <code class="code">Sign</code>: <span class="ddoc_psuper_symbol">selery.block.tile.Tile</span>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    <code class="code">Sign</code> with methods to get and set the text.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">auto</span> sign = world.tileAt!<span class="psymbol">Sign</span>(10, 44, 90);
+<span class="keyword">if</span>(sign !<span class="keyword">is</span> <span class="keyword">null</span>) {
+   sign[1] = <span class="string_literal">"Click to go to"</span>;
+   sign[2] = <span class="string_literal">"world"</span>;
+   <span class="keyword">assert</span>(sign[] == [<span class="string_literal">""</span>, <span class="string_literal">"Click to go to"</span>, <span class="string_literal">"world"</span>, <span class="string_literal">""</span>]);
+}
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.FIRST_LINE" id="Sign.FIRST_LINE"><code class="code">FIRST_LINE</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.FIRST_LINE"></span>static immutable size_t <code class="code">FIRST_LINE</code>;
+<br>
+<span class="ddoc_anchor" id="Sign.SECOND_LINE"></span>static immutable size_t <code class="code">SECOND_LINE</code>;
+<br>
+<span class="ddoc_anchor" id="Sign.THIRD_LINE"></span>static immutable size_t <code class="code">THIRD_LINE</code>;
+<br>
+<span class="ddoc_anchor" id="Sign.FOURTH_LINE"></span>static immutable size_t <code class="code">FOURTH_LINE</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates the line.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.opIndex" id="Sign.opIndex"><code class="code">opIndex</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.opIndex"></span>@nogc @safe string[4] <code class="code">opIndex</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the array with the text in the four lines.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">sign[2] = <span class="string_literal">"test"</span>;
+<span class="keyword">assert</span>(sign[] == [<span class="string_literal">""</span>, <span class="string_literal">""</span>, <span class="string_literal">"test"</span>, <span class="string_literal">""</span>]);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.opIndex" id="Sign.opIndex"><code class="code">opIndex</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.opIndex.2"></span>@safe string <code class="code">opIndex</code>(size_t <code class="code">index</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the text at the given line.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">size_t <code class="code">index</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the line of the sign
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    a string with the text that has been written at the given line
+
+  </p>
+</div>
+<div class="ddoc_throws">
+  <h4>Throws</h4>
+  <p class="para">
+    RangeError if <code class="code">index</code> is not on the range 0..4
+
+  </p>
+</div><div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">d(<span class="string_literal">"First line of sign is: "</span>, sign[Sign.FIRST_LINE]);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.opIndexAssign" id="Sign.opIndexAssign"><code class="code">opIndexAssign</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.opIndexAssign"></span>void <code class="code">opIndexAssign</code>(string[4] <code class="code">texts</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Sets all the four lines of the sign.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">string[4] <code class="code">texts</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      four strings to be set in sign's lines
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">sign[] = [<span class="string_literal">"a"</span>, <span class="string_literal">"b"</span>, <span class="string_literal">""</span>, <span class="string_literal">"d"</span>];
+<span class="keyword">assert</span>(sign[0] == <span class="string_literal">"a"</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.opIndexAssign" id="Sign.opIndexAssign"><code class="code">opIndexAssign</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.opIndexAssign.2"></span>void <code class="code">opIndexAssign</code>(string <code class="code">text</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Sets the given texts in every line of the sign.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">string <code class="code">text</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the <code class="code">text</code> to be set in every line
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">sign[] = <span class="string_literal">"line"</span>;
+<span class="keyword">assert</span>(sign[] == [<span class="string_literal">"line"</span>, <span class="string_literal">"line"</span>, <span class="string_literal">"line"</span>, <span class="string_literal">"line"</span>]);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.opIndexAssign" id="Sign.opIndexAssign"><code class="code">opIndexAssign</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.opIndexAssign.3"></span>void <code class="code">opIndexAssign</code>(string <code class="code">text</code>, size_t <code class="code">index</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Sets the <code class="code">text</code> at the given line.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">string <code class="code">text</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the new <code class="code">text</code> for the given line
+    </p>
+  </div>
+</td>
+</tr>
+<tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">size_t <code class="code">index</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the line to place the <code class="code">text</code> into
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_throws">
+  <h4>Throws</h4>
+  <p class="para">
+    RangeError if <code class="code">index</code> is not on the range 0..4
+
+  </p>
+</div><div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">string <span class="param">text</span> = <span class="string_literal">"New text for line 2"</span>;
+sign[Sign.SECOND_LINE] = <span class="param">text</span>;
+<span class="keyword">assert</span>(sign[Sign.SECOND_LINE] == <span class="param">text</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Sign.empty" id="Sign.empty"><code class="code">empty</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Sign.empty"></span>final @property @safe bool <code class="code">empty</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Checks whether or not every sign's line is
+ an <code class="code">empty</code> string.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">if</span>(!sign.<span class="psymbol">empty</span>) {
+   sign[] = <span class="string_literal">""</span>;
+   <span class="keyword">assert</span>(sign.<span class="psymbol">empty</span>);
 }
 </code></li>
       </ol>
@@ -1390,7 +1354,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NodeInfo" id="NodeInfo"><code class="code">NodeInfo</code></a>
+  <a href="#FlowerPot" id="FlowerPot"><code class="code">FlowerPot</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1399,7 +1363,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo"></span>struct <code class="code">NodeInfo</code>;
+            <span class="ddoc_anchor" id="FlowerPot"></span>class <code class="code">FlowerPot</code>: <span class="ddoc_psuper_symbol">selery.block.tile.Tile</span>;
 
           </code>
         </p>
@@ -1411,7 +1375,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Node's informations.
+    A pot that can contain a plant.
   </p>
 </div>
 
@@ -1420,7 +1384,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.acceptedGames" id="NodeInfo.acceptedGames"><code class="code">acceptedGames</code></a>
+  <a href="#FlowerPot.item" id="FlowerPot.item"><code class="code">item</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1429,7 +1393,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.acceptedGames"></span>uint[][ubyte] <code class="code">acceptedGames</code>;
+            <span class="ddoc_anchor" id="FlowerPot.item"></span>pure nothrow @nogc @property @safe Item <code class="code">item</code>();
 
           </code>
         </p>
@@ -1441,106 +1405,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Informations about the games accepted by the node. There should be at least
- one combination of game/protocols that is also accepted by hub as indicated
- in HubInfo.gamesInfo, otherwise the node will never receive any player.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.max" id="NodeInfo.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.max"></span>uint <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Maximum number of players accepted by node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.plugins" id="NodeInfo.plugins"><code class="code">plugins</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.plugins"></span>Plugin[] <code class="code">plugins</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    List of <code class="code">plugins</code> loaded on the node for creating queries on the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.additionalJSON" id="NodeInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software and system,
- similar to HubInfo's additionalJson field.
+    Gets the current <code class="code">item</code> placed in the pot.
+ It may be <code class="code">null</code> if the pot is empty.
 
   </p>
 </div>
@@ -1552,20 +1418,61 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Windows 10"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i7-5700U CPU @ 3.40GHz"</span>,
-     <span class="string_literal">"cores"</span>: 4,
-     <span class="string_literal">"ram"</span>: 8589934592
-  }
+        <li><code class="code"><span class="keyword">if</span>(pot.<span class="psymbol">item</span> <span class="keyword">is</span> <span class="keyword">null</span>) {
+   pot.<span class="psymbol">item</span> = <span class="keyword">new</span> Items.OxeyeDaisy();
 }
 </code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#FlowerPot.item" id="FlowerPot.item"><code class="code">item</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="FlowerPot.item.2"></span>@property Item <code class="code">item</code>(Item <code class="code">item</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Places or removes an <code class="code">item</code> from the pot.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">pot.<span class="psymbol">item</span> = <span class="keyword">new</span> Items.OxeyeDaisy(); <span class="comment">// add
+</span>pot.<span class="psymbol">item</span> = <span class="keyword">null</span>; <span class="comment">// remove
+</span></code></li>
       </ol>
     </div>
   </div>

@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.nbt.tags</title>
+    <title>selery.item.item</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,7 +463,7 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.nbt.tags</h1>
+        <h1 class="module_name">selery.item.item</h1>
         <section id="module_content">
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
@@ -471,7 +471,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NBT_TYPE" id="NBT_TYPE"><code class="code">NBT_TYPE</code></a>
+  <a href="#Item" id="Item"><code class="code">Item</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,7 +480,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NBT_TYPE"></span>enum <code class="code">NBT_TYPE</code>: ubyte;
+            <span class="ddoc_anchor" id="Item"></span>class <code class="code">Item</code>;
 
           </code>
         </p>
@@ -492,42 +492,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    NBT's ids, as unsigned bytes, used by for client-server
- and generic io communication.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag" id="Tag"><code class="code">Tag</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag"></span>abstract class <code class="code">Tag</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Base class for every NBT that contains id and encoding
- functions (the endianness may vary from a Minecraft version
- to another and the purpose of the tags in the game).
+    Base class for an <code class="code">Item</code>.
   </p>
 </div>
 
@@ -536,7 +501,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Tag.type" id="Tag.type"><code class="code">type</code></a>
+  <a href="#Item.this" id="Item.this"><code class="code">this</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -545,7 +510,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Tag.type"></span>const pure nothrow @nogc @property @safe NBT_TYPE <code class="code">type</code>();
+            <span class="ddoc_anchor" id="Item.this"></span>@trusted this(string <code class="code">data</code>);
 
           </code>
         </p>
@@ -557,937 +522,14 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the tag's <code class="code">type</code>.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    a value in the NBT_TYPE enum
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Byte().<span class="psymbol">type</span> == NBT_TYPE.BYTE);
-<span class="keyword">assert</span>(<span class="keyword">new</span> List().<span class="psymbol">type</span> == NB_TYPE.LIST);
-<span class="keyword">assert</span>(<span class="keyword">new</span> Tags[NBT_TYPE.INT]().<span class="psymbol">type</span> == NBT_TYPE.INT);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.named" id="Tag.named"><code class="code">named</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.named"></span>final pure nothrow @nogc @property @safe bool <code class="code">named</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates whether the tag has a name.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.name" id="Tag.name"><code class="code">name</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.name"></span>const pure nothrow @nogc @property @safe string <code class="code">name</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gets the tag's <code class="code">name</code>, if there's one.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.rename" id="Tag.rename"><code class="code">rename</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.rename"></span>abstract pure nothrow @safe Tag <code class="code">rename</code>(string);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Creates a NamedTag maintaing the tag's properties.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> t = <span class="keyword">new</span> Float(22);
-<span class="keyword">auto</span> named = t.<span class="psymbol">rename</span>(<span class="string_literal">"float"</span>);
-<span class="keyword">assert</span>(<span class="keyword">cast</span>(NamedTag)named);
-<span class="keyword">assert</span>(named.name == <span class="string_literal">"float"</span>);
-<span class="keyword">assert</span>(named == 22);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.encode" id="Tag.encode"><code class="code">encode</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.encode"></span>abstract pure nothrow @safe void <code class="code">encode</code>(Stream);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Encodes the tag's body.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.decode" id="Tag.decode"><code class="code">decode</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.decode"></span>abstract pure nothrow @safe void <code class="code">decode</code>(Stream);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Decodes the tag's body.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.toJSON" id="Tag.toJSON"><code class="code">toJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.toJSON"></span>abstract JSONValue <code class="code">toJSON</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Encodes the tag's value as json.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Tag.toString" id="Tag.toString"><code class="code">toString</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Tag.toString"></span>abstract string <code class="code">toString</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Encodes the tag a human-readable string.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Named" id="Named"><code class="code">Named</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Named"></span>class <code class="code">Named</code>(T : Tag): T;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Creates a named tag. The first argument of the constructor becomes a string
- (the name) and rest doesn't change.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> tag = <span class="keyword">new</span> <span class="psymbol">Named</span>!Int(<span class="string_literal">"name"</span>, 12);
-<span class="keyword">assert</span>(tag.named);
-<span class="keyword">assert</span>(tag.name == <span class="string_literal">"name"</span>);
-<span class="keyword">assert</span>(tag.value == 12);
-<span class="keyword">assert</span>(tag == <span class="keyword">new</span> Int(12));
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#SimpleTag" id="SimpleTag"><code class="code">SimpleTag</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="SimpleTag"></span>class <code class="code">SimpleTag</code>(T, NBT_TYPE _type): Tag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Simple tag with a value of type T, if T is a primitive type
- or it can be written in the buffer.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Short(1) == 1);
-<span class="keyword">assert</span>(<span class="keyword">new</span> <span class="psymbol">SimpleTag</span>!(<span class="keyword">char</span>, 12)('c') == 'c');
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Byte" id="Byte"><code class="code">Byte</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Byte"></span>alias <code class="code">Byte</code> = SimpleTag!(byte, cast(NBT_TYPE)cast(ubyte)1u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed byte, usually used to store small
- values like the progress of an action or the type of
- an entity.
- An unsigned version of the tag can be obtained doing a
- cast to ubyte.
- <a href="#ByteArray"><code class="code">Byte</code> Array</a> is a tag with an array
- of unsigned bytes.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">cast</span>(<span class="keyword">ubyte</span>)(<span class="keyword">new</span> <span class="psymbol">Byte</span>(-1)) == 255);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Bool" id="Bool"><code class="code">Bool</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Bool"></span>alias <code class="code">Bool</code> = SimpleTag!(byte, cast(NBT_TYPE)cast(ubyte)1u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Byte tag that only uses the values 1 and 0 to indicate
- respectively <code class="code">true</code> and <code class="code">false</code>.
- It's usually used by SEL to store boolean values instead
- of a byte tag.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Byte(1) == <span class="keyword">new</span> <span class="psymbol">Bool</span>(<span class="keyword">true</span>));
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Short" id="Short"><code class="code">Short</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Short"></span>alias <code class="code">Short</code> = SimpleTag!(short, cast(NBT_TYPE)cast(ubyte)2u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed short, used when the 255 bytes (or 127
- if only the positive part is counted) is not enough.
- This tag can also be converted to its unsigned version
- doing a simple cast to ushort.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Int" id="Int"><code class="code">Int</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Int"></span>alias <code class="code">Int</code> = SimpleTag!(int, cast(NBT_TYPE)cast(ubyte)3u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed integer, used to store values that
- don't usually fit in the short tag, like entity's ids.
- This tag can aslo be converted to its unsigned version
- (uint) with a simple cast to it.
- <a href="#IntArray"><code class="code">Int</code> Array</a> is a tag with an array
- of signed integers.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Long" id="Long"><code class="code">Long</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Long"></span>alias <code class="code">Long</code> = SimpleTag!(long, cast(NBT_TYPE)cast(ubyte)4u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a signed long.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Float" id="Float"><code class="code">Float</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Float"></span>alias <code class="code">Float</code> = SimpleTag!(float, cast(NBT_TYPE)cast(ubyte)5u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with a 4-bytes floating point value, usually used to
- store non-blocks coordinates or points in the world.
- The float.nan value can be used and recognized by the
- SEL-derived systems, but couldn't be recognized by other
- softwares based on different programming languages that
- doesn't support the not-a-number value.
- More informations about the NaN value and its encoding
- can be found on <a href="#https://en.wikipedia.org/wiki/NaN">Wikipedia</a>.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Double" id="Double"><code class="code">Double</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Double"></span>alias <code class="code">Double</code> = SimpleTag!(double, cast(NBT_TYPE)cast(ubyte)6u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with an 8-bytes float point value used instead of the
- Float tag if the precision or the available number's range
- must be higher.
- See <a href="#Float">Float</a>'s documentation for informations
- about the NaN value and its support inside and outside SEL.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#String" id="String"><code class="code">String</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="String"></span>alias <code class="code">String</code> = SimpleTag!(string, cast(NBT_TYPE)cast(ubyte)8u).SimpleTag;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Tag with an UTF-8 string encoded as its length as short and
- its content casted to btyes.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> <span class="psymbol">String</span>(<span class="string_literal">"test"</span>) == <span class="string_literal">""</span>);
-<span class="keyword">assert</span>(<span class="keyword">new</span> <span class="psymbol">String</span>(<span class="string_literal">""</span>, <span class="string_literal">"test"</span>) == <span class="string_literal">"test"</span>);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag" id="ArrayTag"><code class="code">ArrayTag</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag"></span>class <code class="code">ArrayTag</code>(T, NBT_TYPE _type): Tag;
-<br>
-<span class="ddoc_anchor" id="NumericArrayTag"></span>class <code class="code">NumericArrayTag</code>(T, NBT_TYPE _type) if (isNumeric!T): ArrayTag!(T, _type);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Simple tag with array-related functions.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> ByteArray([2, 3, 4]).length == <span class="keyword">new</span> IntArray([9, 0, 12]).length);
-
-<span class="keyword">auto</span> b = <span class="keyword">new</span> ByteArray();
-<span class="keyword">assert</span>(b.empty);
-b ~= 14;
-<span class="keyword">assert</span>(b.length == 1 &amp;&amp; b[0] == 14);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.opOpAssign" id="ArrayTag.opOpAssign"><code class="code">opOpAssign</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.opOpAssign"></span>@safe void <code class="code">opOpAssign</code>(string op : "~", G)(G <code class="code">value</code>) if (is(G == T) || is(G == T[]));
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Concatenates T, an array of T or a NBT array of T to the tag.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> array = <span class="keyword">new</span> IntArray([1]);
-
-array ~= 1;
-<span class="keyword">assert</span>(array == [1, 1]);
-
-array ~= [1, 2, 3];
-<span class="keyword">assert</span>(array == [1, 1, 1, 2, 3]);
-
-array ~= <span class="keyword">new</span> IntArray([100, 99]);
-<span class="keyword">assert</span>(array == [1, 1, 1, 2, 3, 100, 99]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.opBinary" id="ArrayTag.opBinary"><code class="code">opBinary</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.opBinary"></span>@safe typeof(this) <code class="code">opBinary</code>(string op : "~", G)(G <code class="code">value</code>) if (is(G == T) || is(G == T[]));
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Does the same job opOpAssign does, but creates a new instance
- of typeof(this) with the same name of the tag and returns it.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> array = <span class="keyword">new</span> IntArray([1, 2, 3]);
-<span class="keyword">assert</span>(array ~ [2, 1] == [1, 2, 3, 2, 1] &amp;&amp; array == [1, 2, 3]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.remove" id="ArrayTag.remove"><code class="code">remove</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.remove"></span>@safe void <code class="code">remove</code>(size_t <code class="code">index</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Removes the element at the given <code class="code">index</code> from the array.
+    Constructs an item with some extra <code class="code">data</code>.
 
   </p>
 </div>
 <div class="ddoc_throws">
   <h4>Throws</h4>
   <p class="para">
-    RangeError if <code class="code">index</code> is higher or equals than the array's length
+    JSONException if the JSON string is malformed
 
   </p>
 </div><div class="ddoc_section">
@@ -1498,9 +540,9 @@ array ~= <span class="keyword">new</span> IntArray([100, 99]);
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> array = <span class="keyword">new</span> IntArray([1, 2, 3]);
-array.<span class="psymbol">remove</span>(0);
-<span class="keyword">assert</span>(array == [2, 3]);
+        <li><code class="code"><span class="keyword">auto</span> item = <span class="keyword">new</span> Items.Apple(<span class="string_literal">`{"customName":"SPECIAL APPLE","enchantments":[{"name":"protection","level":"IV"}]}`</span>);
+<span class="keyword">assert</span>(item.customName == <span class="string_literal">"SPECIAL APPLE"</span>);
+<span class="keyword">assert</span>(Enchantments.protection <span class="keyword">in</span> item);
 </code></li>
       </ol>
     </div>
@@ -1517,7 +559,7 @@ array.<span class="psymbol">remove</span>(0);
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ArrayTag.empty" id="ArrayTag.empty"><code class="code">empty</code></a>
+  <a href="#Item.this" id="Item.this"><code class="code">this</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1526,7 +568,7 @@ array.<span class="psymbol">remove</span>(0);
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ArrayTag.empty"></span>final pure nothrow @nogc @property @safe bool <code class="code">empty</code>();
+            <span class="ddoc_anchor" id="Item.this.2"></span>@safe this(std.json.JSONValue <code class="code">data</code>);
 
           </code>
         </p>
@@ -1538,23 +580,24 @@ array.<span class="psymbol">remove</span>(0);
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Checks whether or not the array's length is equals to 0.
+    Constructs an item adding properties from a JSON.
+
   </p>
 </div>
-
-</section>
-
+<div class="ddoc_throws">
+  <h4>Throws</h4>
+  <p class="para">
+    RangeError if the enchanting name doesn't exist
+  </p>
 </div>
-
-</li>
-</ul>
+</section>
 
 </div>
 
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ByteArray" id="ByteArray"><code class="code">ByteArray</code></a>
+  <a href="#Item.data" id="Item.data"><code class="code">data</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1563,7 +606,7 @@ array.<span class="psymbol">remove</span>(0);
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ByteArray"></span>alias <code class="code">ByteArray</code> = NumericArrayTag!(byte, cast(NBT_TYPE)cast(ubyte)7u).NumericArrayTag;
+            <span class="ddoc_anchor" id="Item.data"></span>const pure nothrow @nogc @property @safe sul.items.Item <code class="code">data</code>();
 
           </code>
         </p>
@@ -1575,38 +618,7 @@ array.<span class="psymbol">remove</span>(0);
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Array of unsigned bytes (clients and other softwares may
- interpret the bytes as signed due to limitations of the
- programming language).
- The tag is usually used by Minecraft's worlds to store
- blocks' ids and metas.
-
-  </p>
-</div>
-<div class="ddoc_description">
-  <h4>Discussion</h4>
-  <p class="para">
-    If a signed byte is needed a cast operation can be done.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> unsigned = <span class="keyword">new</span> <span class="psymbol">ByteArray</span>([0, 1, 255]);
-<span class="keyword">auto</span> signed = <span class="keyword">cast</span>(<span class="keyword">byte</span>[])unsigned;
-<span class="keyword">assert</span>(signed == [0, 1, -1]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
+    Gets the item's <code class="code">data</code>.
   </p>
 </div>
 
@@ -1617,7 +629,7 @@ array.<span class="psymbol">remove</span>(0);
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#IntArray" id="IntArray"><code class="code">IntArray</code></a>
+  <a href="#Item.java" id="Item.java"><code class="code">java</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1626,9 +638,11 @@ array.<span class="psymbol">remove</span>(0);
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="IntArray"></span>alias <code class="code">IntArray</code> = NumericArrayTag!(int, cast(NBT_TYPE)cast(ubyte)11u).NumericArrayTag;
+            <span class="ddoc_anchor" id="Item.java"></span>pure nothrow @nogc @property @safe bool <code class="code">java</code>();
 <br>
-<span class="ddoc_anchor" id="ListOf"></span>class <code class="code">ListOf</code>(T : Tag) if (!isAbstractClass!T): ListImpl!T;
+<span class="ddoc_anchor" id="Item.javaId"></span>pure nothrow @nogc @property @safe ushort <code class="code">javaId</code>();
+<br>
+<span class="ddoc_anchor" id="Item.javaMeta"></span>pure nothrow @nogc @property @safe ushort <code class="code">javaMeta</code>();
 
           </code>
         </p>
@@ -1640,15 +654,71 @@ array.<span class="psymbol">remove</span>(0);
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Array of signed integers, introduced in the last version
- of the NBT format. Used by anvil worlds.
-
+    Indicates wether the item exists in Minecraft.
   </p>
 </div>
-<div class="ddoc_description">
-  <h4>Discussion</h4>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.bedrock" id="Item.bedrock"><code class="code">bedrock</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.bedrock"></span>pure nothrow @nogc @property @safe bool <code class="code">bedrock</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
   <p class="para">
-    The same cast rules also apply for this tag's values.
+    Indicates whether the item exists in Minecraft.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.name" id="Item.name"><code class="code">name</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.name"></span>pure nothrow @nogc @property @safe string <code class="code">name</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the <code class="code">name</code> (not the custom <code class="code">name</code>!) of the item.
 
   </p>
 </div>
@@ -1660,8 +730,8 @@ array.<span class="psymbol">remove</span>(0);
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> signed = <span class="keyword">new</span> <span class="psymbol">IntArray</span>([-1]);
-<span class="keyword">assert</span>(<span class="keyword">cast</span>(<span class="keyword">uint</span>[])signed == [<span class="keyword">uint</span>.max]);
+        <li><code class="code"><span class="keyword">if</span>(item.<span class="psymbol">name</span> == <span class="string_literal">"string"</span>)
+   item.customName = <span class="string_literal">"Special String"</span>;
 </code></li>
       </ol>
     </div>
@@ -1678,7 +748,7 @@ array.<span class="psymbol">remove</span>(0);
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound" id="Compound"><code class="code">Compound</code></a>
+  <a href="#Item.max" id="Item.max"><code class="code">max</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1687,7 +757,7 @@ array.<span class="psymbol">remove</span>(0);
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound"></span>class <code class="code">Compound</code>: <span class="ddoc_psuper_symbol">sel.nbt.tags.Tag</span>;
+            <span class="ddoc_anchor" id="Item.max"></span>pure nothrow @nogc @property @safe ubyte <code class="code">max</code>();
 
           </code>
         </p>
@@ -1699,7 +769,15 @@ array.<span class="psymbol">remove</span>(0);
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Associative array of named tags (that can be of different types).
+    Indicates the highest number of items that can be stacked in a slot.
+ This number is the default slot's count if not specified when created.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    a number between 1 and 64 (usually 1, 16 or 64).
 
   </p>
 </div>
@@ -1711,9 +789,12 @@ array.<span class="psymbol">remove</span>(0);
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> <span class="psymbol">Compound</span>();
-compound[<span class="string_literal">"string"</span>] = <span class="keyword">new</span> String(<span class="string_literal">"test"</span>);
-compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new</span> Byte(18);
+        <li><code class="code">Slot slot = <span class="keyword">new</span> Items.Beetroot();
+<span class="keyword">assert</span>(slot.count == 64 &amp;&amp; slot.item.<span class="psymbol">max</span> == 64);
+<span class="keyword">assert</span>(slot.item.<span class="psymbol">max</span> == 64);
+
+slot = <span class="keyword">new</span> Slot(<span class="keyword">new</span> Items.Beetroot(), 23);
+<span class="keyword">assert</span>(slot.count != 64 &amp;&amp; slot.count == 23);
 </code></li>
       </ol>
     </div>
@@ -1724,50 +805,13 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 </div>
 
 </section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.has" id="Compound.has"><code class="code">has</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.has"></span>pure nothrow @safe bool <code class="code">has</code>(string <code class="code">name</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Checks whether or not a value is in the associative array.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    <code class="code">true</code> if the key is found, <code class="code">false</code> otherwise
-  </p>
-</div>
-
-</section>
 
 </div>
 
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.has" id="Compound.has"><code class="code">has</code></a>
+  <a href="#Item.tool" id="Item.tool"><code class="code">tool</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1776,7 +820,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.has.2"></span>pure nothrow @trusted bool <code class="code">has</code>(T : Tag)(string <code class="code">name</code>);
+            <span class="ddoc_anchor" id="Item.tool"></span>pure nothrow @nogc @property @safe bool <code class="code">tool</code>();
 
           </code>
         </p>
@@ -1788,47 +832,9 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Checks if the key is associated to a value and that the value
- is of the same type of T.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    <code class="code">true</code> if the value is found and is of the type T, <code class="code">false</code> otherwise
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.opBinaryRight" id="Compound.opBinaryRight"><code class="code">opBinaryRight</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.opBinaryRight"></span>pure nothrow @safe Tag* <code class="code">opBinaryRight</code>(string op : "in")(string <code class="code">name</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gets a pointer to the element at the given index.
+    Indicates whether the item is a <code class="code">tool</code>.
+ A <code class="code">tool</code> can be used on blocks and entities
+ and its meta will vary.
 
   </p>
 </div>
@@ -1840,9 +846,282 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> test = <span class="string_literal">"test"</span> <span class="keyword">in</span> compound;
-<span class="keyword">if</span>(test &amp;&amp; <span class="keyword">cast</span>(String)*test) {
-   <span class="keyword">assert</span>(*test == <span class="string_literal">"test"</span>);
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Items.Beetroot().<span class="psymbol">tool</span> == <span class="keyword">false</span>);
+<span class="keyword">assert</span>(<span class="keyword">new</span> Items.DiamondSword().<span class="psymbol">tool</span> == <span class="keyword">true</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.toolType" id="Item.toolType"><code class="code">toolType</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.toolType"></span>pure nothrow @nogc @property @safe ubyte <code class="code">toolType</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the item's tool type.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    Tools.none if the item is not a tool or a number higher
+ 			than 0 indicating the tool type.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Items.Beetroot().<span class="psymbol">toolType</span> == Tools.none);
+<span class="keyword">assert</span>(<span class="keyword">new</span> Items.DiamondSword().<span class="psymbol">toolType</span> == Tools.sword);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.toolMaterial" id="Item.toolMaterial"><code class="code">toolMaterial</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.toolMaterial"></span>pure nothrow @nogc @property @safe ubyte <code class="code">toolMaterial</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the tool's material if the item is a tool.
+ Items with ID 0 have unspecified material, 1 is the minimum (wood)
+ and 5 is the maximum (diamond).
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Items.Beetroot().<span class="psymbol">toolMaterial</span> == NO_TOOL);
+<span class="keyword">assert</span>(<span class="keyword">new</span> Items.DiamondSword().<span class="psymbol">toolMaterial</span> == DIAMOND);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.finished" id="Item.finished"><code class="code">finished</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.finished"></span>pure nothrow @nogc @property @safe bool <code class="code">finished</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    If the item is a tool, checks whether its damage is higher than
+ its durability.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Items.Beetroot().<span class="psymbol">finished</span> == <span class="keyword">false</span>); <span class="comment">// beetroots aren't tools
+</span><span class="keyword">assert</span>(<span class="keyword">new</span> Items.DiamondSword().<span class="psymbol">finished</span> == <span class="keyword">false</span>);
+<span class="keyword">assert</span>(<span class="keyword">new</span> Items.DiamondSword(Items.DiamondSword.DURABILITY + 1).<span class="psymbol">finished</span> == <span class="keyword">true</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.attack" id="Item.attack"><code class="code">attack</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.attack"></span>pure nothrow @nogc @property @safe uint <code class="code">attack</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates the damage caused by the item when used as a weapon.
+ The value indicates the base damage without the influence of
+ enchantments or effects.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">if</span>(item.<span class="psymbol">attack</span> &gt; 1)
+   <span class="keyword">assert</span>(item.tool);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.consumeable" id="Item.consumeable"><code class="code">consumeable</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.consumeable"></span>pure nothrow @nogc @property @safe bool <code class="code">consumeable</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates whether or not an item can be eaten/drunk.
+ If <code class="code">true</code>, Item::onConsumed(Human consumer) will be called
+ when this item is eaten/drunk.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">if</span>(item.<span class="psymbol">consumeable</span>) {
+   Item residue;
+   <span class="keyword">if</span>((residue = item.onConsumed(player)) !<span class="keyword">is</span> <span class="keyword">null</span>) {
+      player.held = residue;
+   }
 }
 </code></li>
       </ol>
@@ -1860,7 +1139,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndex" id="Compound.opIndex"><code class="code">opIndex</code></a>
+  <a href="#Item.alwaysConsumeable" id="Item.alwaysConsumeable"><code class="code">alwaysConsumeable</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1869,7 +1148,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndex"></span>pure nothrow @safe Tag[] <code class="code">opIndex</code>();
+            <span class="ddoc_anchor" id="Item.alwaysConsumeable"></span>pure nothrow @nogc @property @safe bool <code class="code">alwaysConsumeable</code>();
 
           </code>
         </p>
@@ -1881,9 +1160,50 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the array of named tags (without the keys).
- To get the associative array of named tags use the
- property value.
+    Indicates whether the item can be consumed when the holder's
+ hunger is full.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.onConsumed" id="Item.onConsumed"><code class="code">onConsumed</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.onConsumed"></span>Item <code class="code">onConsumed</code>(Player <code class="code">player</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    If consumeable is <code class="code">true</code>, this function is called.
+ when the item is eaten/drunk by its holder, who's passed
+ as the first arguments.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Return:</span>
+<code class="code">null</code>: the item count will be reduced by 1
+ 		item: the item will substitutes the consumed item
 
   </p>
 </div>
@@ -1895,8 +1215,8 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">Compound compound = <span class="keyword">new</span> Compound([<span class="keyword">new</span> Byte(1), <span class="keyword">new</span> Int(2)]);
-<span class="keyword">assert</span>(compound[] == compound.value.values);
+        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Items.Beetroot().<span class="psymbol">onConsumed</span>(<span class="param">player</span>) <span class="keyword">is</span> <span class="keyword">null</span>);
+<span class="keyword">assert</span>(<span class="keyword">new</span> Items.BeetrootSoup().<span class="psymbol">onConsumed</span>(<span class="param">player</span>) == Items.BOWL);
 </code></li>
       </ol>
     </div>
@@ -1913,7 +1233,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndex" id="Compound.opIndex"><code class="code">opIndex</code></a>
+  <a href="#Item.placeable" id="Item.placeable"><code class="code">placeable</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1922,7 +1242,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndex.2"></span>pure nothrow @safe Tag <code class="code">opIndex</code>(string <code class="code">name</code>);
+            <span class="ddoc_anchor" id="Item.placeable"></span>pure nothrow @nogc @property @safe bool <code class="code">placeable</code>();
 
           </code>
         </p>
@@ -1934,14 +1254,754 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the element at the given index.
+    Indicates whether or not the item can be placed.
+ If this function returns <code class="code">true</code>, Item::place(World world) will be probably
+ called next for place a block
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.onPlaced" id="Item.onPlaced"><code class="code">onPlaced</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.onPlaced"></span>bool <code class="code">onPlaced</code>(Player <code class="code">player</code>, BlockPosition <code class="code">tpos</code>, uint <code class="code">tface</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is ready to be placed by
+ a <code class="code">player</code> (the event for the <code class="code">player</code> has already been called).
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if a block has been placed, <code class="code">false</code> otherwise
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.place" id="Item.place"><code class="code">place</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.place"></span>ushort <code class="code">place</code>(World <code class="code">world</code>, BlockPosition <code class="code">position</code>, uint <code class="code">face</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    If Item::placeable returns <code class="code">true</code>, this function
+ should return an instance of the block that will
+ be placed.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">World <code class="code">world</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the <code class="code">world</code> where the block has been placed
+    </p>
+  </div>
+</td>
+</tr>
+<tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">BlockPosition <code class="code">position</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      where the item should <code class="code">place</code> the block
+    </p>
+  </div>
+</td>
+</tr>
+<tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">uint <code class="code">face</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      side of the block touched when placed
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.useOnBlock" id="Item.useOnBlock"><code class="code">useOnBlock</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.useOnBlock"></span>bool <code class="code">useOnBlock</code>(Player <code class="code">player</code>, Block <code class="code">block</code>, BlockPosition <code class="code">position</code>, ubyte <code class="code">face</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is used on a <code class="code">block</code>
+ clicking the right mouse button or performing a long pressure on the screen.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if the item is a tool and it has been cosnumed, <code class="code">false</code> otherwise
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="comment">// N.B. that this will not work as the block hasn't been placed
+</span>world[0, 64, 0] = Blocks.DIRT;
+<span class="keyword">assert</span>(world[0, 64, 0] == Blocks.DIRT);
+
+<span class="keyword">new</span> Items.WoodenShovel().<span class="psymbol">useOnBlock</span>(<span class="param">player</span>, world[0, 64, 0], Faces.TOP);
+
+<span class="keyword">assert</span>(world[0, 64, 0] == Blocks.GRASS_PATH);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.destroyOn" id="Item.destroyOn"><code class="code">destroyOn</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.destroyOn"></span>bool <code class="code">destroyOn</code>(Player <code class="code">player</code>, Block <code class="code">block</code>, BlockPosition <code class="code">position</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is used to the destroy a <code class="code">block</code>.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if the item is a tool and it has been consumed, <code class="code">false</code> otherwise
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">auto</span> dirt = <span class="keyword">new</span> Blocks.Dirt();
+<span class="keyword">auto</span> sword = <span class="keyword">new</span> Items.DiamondSword(Items.DiamondSword.DURABILITY - 2);
+<span class="keyword">auto</span> shovel = <span class="keyword">new</span> Items.DiamondShovel(Items.DiamondShovel.DURABILITY - 2);
+
+<span class="keyword">assert</span>(sword.finished == <span class="keyword">false</span>);
+<span class="keyword">assert</span>(shovel.finished == <span class="keyword">false</span>);
+
+sword.<span class="psymbol">destroyOn</span>(<span class="param">player</span>, dirt);	<span class="comment">// 2 uses
+</span>shovel.<span class="psymbol">destroyOn</span>(<span class="param">player</span>, dirt);	<span class="comment">// 1 use
+</span>
+<span class="keyword">assert</span>(sword.finished == <span class="keyword">true</span>);
+<span class="keyword">assert</span>(shovel.finished == <span class="keyword">false</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.useOnEntity" id="Item.useOnEntity"><code class="code">useOnEntity</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.useOnEntity"></span>bool <code class="code">useOnEntity</code>(Player <code class="code">player</code>, Entity <code class="code">entity</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is used on an <code class="code">entity</code> as
+ right click or long screen pressure.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if the items is a tool and it has been consumed, <code class="code">false</code> otherwise
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.attackOnEntity" id="Item.attackOnEntity"><code class="code">attackOnEntity</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.attackOnEntity"></span>bool <code class="code">attackOnEntity</code>(Player <code class="code">player</code>, Entity <code class="code">entity</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is used against an
+ <code class="code">entity</code> as a left click or screen tap.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if the items is a tool and it has been consumed, <code class="code">false</code> otherwise
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.onThrowed" id="Item.onThrowed"><code class="code">onThrowed</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.onThrowed"></span>bool <code class="code">onThrowed</code>(Player <code class="code">player</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is throwed or aimed.
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if the item count should be reduced by 1, <code class="code">false</code> otherwise
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.onReleased" id="Item.onReleased"><code class="code">onReleased</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.onReleased"></span>bool <code class="code">onReleased</code>(Player <code class="code">holder</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Function called when the item is released, usually after
+ it has been throwed (which is used as aim-start function).
+
+  </p>
+</div>
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
+  <p class="para">
+    <code class="code">true</code> if the item has been consumed, <code class="code">false</code> otherwise
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.javaCompound" id="Item.javaCompound"><code class="code">javaCompound</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.javaCompound"></span>final pure nothrow @nogc @property @safe Compound <code class="code">javaCompound</code>();
+<br>
+<span class="ddoc_anchor" id="Item.pocketCompound"></span>final pure nothrow @nogc @property @safe Compound <code class="code">pocketCompound</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the item's compound tag with the custom data of the item.
+ It may be <code class="code">null</code> if the item has no custom behaviours.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">if</span>(item.minecraftCompound <span class="keyword">is</span> <span class="keyword">null</span>) {
+   <span class="keyword">assert</span>(item.customName == <span class="string_literal">""</span>);
+}
+item.customName = <span class="string_literal">"not empty"</span>;
+<span class="keyword">assert</span>(item.<span class="psymbol">pocketCompound</span> !<span class="keyword">is</span> <span class="keyword">null</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.parseJavaCompound" id="Item.parseJavaCompound"><code class="code">parseJavaCompound</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.parseJavaCompound"></span>@safe void <code class="code">parseJavaCompound</code>(Compound <code class="code">compound</code>);
+<br>
+<span class="ddoc_anchor" id="Item.parseBedrockCompound"></span>@safe void <code class="code">parseBedrockCompound</code>(Compound <code class="code">compound</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Parses a <code class="code">compound</code>, usually received from the client or
+ saved in a world.
+ The tag should never be <code class="code">null</code> as the method doesn't check it.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">item.parseMinecraftCompound(<span class="keyword">new</span> Compound(<span class="keyword">new</span> Compound(<span class="string_literal">"display"</span>, <span class="keyword">new</span> String(<span class="string_literal">"Name"</span>, <span class="string_literal">"custom"</span>))));
+<span class="keyword">assert</span>(item.customName == <span class="string_literal">"custom"</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.clear" id="Item.clear"><code class="code">clear</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.clear"></span>@trusted void <code class="code">clear</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Removes the custom behaviours of the item, like custom name
+ and enchantments.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">item.customName = <span class="string_literal">"name"</span>;
+<span class="keyword">assert</span>(item.customName == <span class="string_literal">"name"</span>);
+item.<span class="psymbol">clear</span>();
+<span class="keyword">assert</span>(item.customName == <span class="string_literal">""</span>);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.customName" id="Item.customName"><code class="code">customName</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.customName"></span>pure nothrow @nogc @property @safe string <code class="code">customName</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the item's custom name.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.customName" id="Item.customName"><code class="code">customName</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.customName.2"></span>@property @safe string <code class="code">customName</code>(string <code class="code">name</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Sets the item's custom <code class="code">name</code>.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">item.<span class="psymbol">customName</span> = <span class="string_literal">"§aColoured!"</span>;
+item.<span class="psymbol">customName</span> = <span class="string_literal">""</span>; <span class="comment">// remove
+</span></code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.lore" id="Item.lore"><code class="code">lore</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.lore"></span>pure nothrow @nogc @property @safe string <code class="code">lore</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the item's <code class="code">lore</code> or description which is displayed under
+ the item's name when the item is hovered in the player's inventory.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.addEnchantment" id="Item.addEnchantment"><code class="code">addEnchantment</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.addEnchantment"></span>@safe void <code class="code">addEnchantment</code>(Enchantment <code class="code">ench</code>);
+<br>
+@safe void <code class="code">addEnchantment</code>(sul.enchantments.Enchantment <code class="code">ench</code>, ubyte <code class="code">level</code>);
+<br>
+@safe void <code class="code">addEnchantment</code>(sul.enchantments.Enchantment <code class="code">ench</code>, string <code class="code">level</code>);
+<br>
+<span class="ddoc_anchor" id="Item.opBinaryRight"></span>@safe void <code class="code">opBinaryRight</code>(string op : "+")(Enchantment <code class="code">ench</code>);
+<br>
+<span class="ddoc_anchor" id="Item.enchant"></span>alias <code class="code">enchant</code> = addEnchantment;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Adds an enchantment to the item.
 
   </p>
 </div>
 <div class="ddoc_throws">
   <h4>Throws</h4>
   <p class="para">
-    RangeError if the given index is not in the array
+    EnchantmentException if the enchantment doesn't exist
 
   </p>
 </div><div class="ddoc_section">
@@ -1952,7 +2012,10 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!String(<span class="string_literal">"0"</span>, <span class="string_literal">"test"</span>))[<span class="string_literal">"0"</span>] == <span class="string_literal">"test"</span>);
+        <li><code class="code">item.<span class="psymbol">addEnchantment</span>(<span class="keyword">new</span> Enchantment(Enchantments.sharpness, 1));
+item.<span class="psymbol">addEnchantment</span>(Enchantments.power, 5);
+item.<span class="psymbol">addEnchantment</span>(Enchantments.fortune, <span class="string_literal">"X"</span>);
+item += <span class="keyword">new</span> Enchantment(Enchantments.smite, 2);
 </code></li>
       </ol>
     </div>
@@ -1969,7 +2032,7 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.get" id="Compound.get"><code class="code">get</code></a>
+  <a href="#Item.opBinaryRight" id="Item.opBinaryRight"><code class="code">opBinaryRight</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1978,9 +2041,65 @@ compound[<span class="string_literal">"byte"</span>] = <span class="keyword">new
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.get"></span>pure @safe T <code class="code">get</code>(T : Tag)(string <code class="code">name</code>, lazy T <code class="code">defaultValue</code>);
+            <span class="ddoc_anchor" id="Item.opBinaryRight.2"></span>@safe Enchantment* <code class="code">opBinaryRight</code>(string op : "in")(inout sul.enchantments.Enchantment <code class="code">ench</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets a pointer to the enchantment.
+ This method can be used to check if the item has an
+ enchantment and its level.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">auto</span> e = Enchantments.protection <span class="keyword">in</span> item;
+<span class="keyword">if</span>(!e || e.level != 5) {
+   item.enchant(Enchantment.protection, 5);
+}
+<span class="keyword">assert</span>(Enchantments.protection <span class="keyword">in</span> item);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.removeEnchantment" id="Item.removeEnchantment"><code class="code">removeEnchantment</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.removeEnchantment"></span>@safe void <code class="code">removeEnchantment</code>(inout sul.enchantments.Enchantment <code class="code">ench</code>);
 <br>
-pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code">name</code>, E <code class="code">defaultValue</code>) if (!is(T == E) &amp;&amp; __traits(compiles, new T(<code class="code">defaultValue</code>)));
+<span class="ddoc_anchor" id="Item.opBinaryRight.3"></span>@safe void <code class="code">opBinaryRight</code>(string op : "-")(inout sul.enchantments.Enchantment <code class="code">ench</code>);
 
           </code>
         </p>
@@ -1992,15 +2111,7 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the element at the given index, if exists and can be casted to T.
- Otherwise evaluates and returns <code class="code">defaultValue</code>.
-
-  </p>
-</div>
-<div class="ddoc_returns">
-  <h4>Return Value</h4>
-  <p class="para">
-    the named tag of type T or <code class="code">defaultValue</code> if the conversion fails
+    Removes an enchantment from the item.
 
   </p>
 </div>
@@ -2012,11 +2123,8 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!String(<span class="string_literal">"test"</span>, <span class="string_literal">"value"</span>));
-<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(compound[<span class="string_literal">"test"</span>]) == NamedTag));
-<span class="keyword">assert</span>(<span class="keyword">is</span>(<span class="keyword">typeof</span>(compound.<span class="psymbol">get</span>!String(<span class="string_literal">"test"</span>, <span class="keyword">null</span>)) == String));
-<span class="keyword">assert</span>(compound.<span class="psymbol">get</span>!String(<span class="string_literal">"failed"</span>, <span class="keyword">new</span> String(<span class="string_literal">"failed"</span>)) == <span class="keyword">new</span> String(<span class="string_literal">"failed"</span>));
-<span class="keyword">assert</span>(compound.<span class="psymbol">get</span>!String(<span class="string_literal">"?"</span>, <span class="string_literal">"string"</span>) == <span class="keyword">new</span> String(<span class="string_literal">"string"</span>));
+        <li><code class="code">item.<span class="psymbol">removeEnchantment</span>(Enchantments.sharpness);
+item -= Enchantments.fortune;
 </code></li>
       </ol>
     </div>
@@ -2033,7 +2141,7 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.getValue" id="Compound.getValue"><code class="code">getValue</code></a>
+  <a href="#Item.unbreakable" id="Item.unbreakable"><code class="code">unbreakable</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2042,7 +2150,7 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.getValue"></span>pure @safe typeof(T.value) <code class="code">getValue</code>(T : Tag)(string <code class="code">name</code>, lazy typeof(T.value) <code class="code">defaultValue</code>) if (__traits(hasMember, T, "value"));
+            <span class="ddoc_anchor" id="Item.unbreakable"></span>pure nothrow @nogc @property @safe bool <code class="code">unbreakable</code>();
 
           </code>
         </p>
@@ -2054,8 +2162,41 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Gets the tag's value at the given index, if it exists and can be
- casted to T. Otherwise returns <code class="code">defaultValue</code>.
+    If the item is a tool, indicates whether the item is consumed
+ when used for breaking or combat.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.opEquals" id="Item.opEquals"><code class="code">opEquals</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.opEquals"></span>bool <code class="code">opEquals</code>(Object <code class="code">o</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Deep comparation of 2 instantiated items.
+ Compare ids, metas, custom names and enchantments.
 
   </p>
 </div>
@@ -2067,10 +2208,17 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="keyword">new</span> Named!String(<span class="string_literal">"test"</span>, <span class="string_literal">"value"</span>));
-<span class="keyword">assert</span>(compound.<span class="psymbol">getValue</span>!String(<span class="string_literal">"test"</span>, <span class="string_literal">""</span>) == <span class="string_literal">"value"</span>);
-<span class="keyword">assert</span>(compound.<span class="psymbol">getValue</span>!Int(<span class="string_literal">"test"</span>, 0) == 0);
-<span class="keyword">assert</span>(compound.<span class="psymbol">getValue</span>!String(<span class="string_literal">"miss"</span>, <span class="string_literal">"miss"</span>) == <span class="string_literal">"miss"</span>);
+        <li><code class="code">Item a = <span class="keyword">new</span> Items.Beetroot();
+Item b = a.dup;
+<span class="keyword">assert</span>(a == b);
+
+a.customName = <span class="string_literal">"beetroot"</span>;
+<span class="keyword">assert</span>(a != b);
+
+b.customName = <span class="string_literal">"beetroot"</span>;
+a.enchant(Enchantments.protection, <span class="string_literal">"IV"</span>);
+b.enchant(Enchantments.protection, <span class="string_literal">"IV"</span>);
+<span class="keyword">assert</span>(a == b);
 </code></li>
       </ol>
     </div>
@@ -2087,7 +2235,7 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndexAssign" id="Compound.opIndexAssign"><code class="code">opIndexAssign</code></a>
+  <a href="#Item.opEquals" id="Item.opEquals"><code class="code">opEquals</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2096,7 +2244,9 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndexAssign"></span>pure nothrow @safe void <code class="code">opIndexAssign</code>(T)(T <code class="code">value</code>, string <code class="code">name</code>) if (is(T : Tag) || isNumeric!T || is(T == bool) || is(T == string) || is(T == ubyte[]) || is(T == byte[]) || is(T == int[]));
+            <span class="ddoc_anchor" id="Item.opEquals.2"></span>@nogc @safe bool <code class="code">opEquals</code>(item_t <code class="code">item</code>);
+<br>
+@nogc @safe bool <code class="code">opEquals</code>(item_t[] <code class="code">items</code>);
 
           </code>
         </p>
@@ -2108,9 +2258,7 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Sets the <code class="code">value</code> at the given index.
- If the tag's <code class="code">name</code> is different from the given index, the tag's
- <code class="code">name</code> will be changed to the given index's one.
+    Compare an <code class="code">item</code> with its type as a string or a group of strings.
 
   </p>
 </div>
@@ -2122,10 +2270,9 @@ pure @safe T <code class="code">get</code>(T : Tag, E)(string <code class="code"
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">compound[<span class="string_literal">"string"</span>] = <span class="keyword">new</span> String(<span class="string_literal">"test"</span>, <span class="string_literal">"test"</span>);
-<span class="keyword">assert</span>(compound[<span class="string_literal">"string"</span>].<span class="param">name</span> == <span class="string_literal">"string"</span>);
-compound[<span class="string_literal">"int"</span>] = 12;
-compound[<span class="string_literal">"string"</span>] = <span class="string_literal">"Another string"</span>;
+        <li><code class="code">Item <span class="param">item</span> = <span class="keyword">new</span> Items.Beetroot();
+<span class="keyword">assert</span>(<span class="param">item</span> == Items.beetroot);
+<span class="keyword">assert</span>(<span class="param">item</span> == [Items.beetrootSoup, Items.beetroot]);
 </code></li>
       </ol>
     </div>
@@ -2142,7 +2289,7 @@ compound[<span class="string_literal">"string"</span>] = <span class="string_lit
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Compound.opIndexAssign" id="Compound.opIndexAssign"><code class="code">opIndexAssign</code></a>
+  <a href="#Item.toString" id="Item.toString"><code class="code">toString</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -2151,7 +2298,7 @@ compound[<span class="string_literal">"string"</span>] = <span class="string_lit
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Compound.opIndexAssign.2"></span>pure nothrow @safe void <code class="code">opIndexAssign</code>(Tag <code class="code">tag</code>);
+            <span class="ddoc_anchor" id="Item.toString"></span>string <code class="code">toString</code>();
 
           </code>
         </p>
@@ -2163,7 +2310,39 @@ compound[<span class="string_literal">"string"</span>] = <span class="string_lit
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Sets the value using the named <code class="code">tag</code>'s name as the index.
+    Returns the item as string in format "name" or "name:damage" for tools.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Item.slot" id="Item.slot"><code class="code">slot</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Item.slot"></span>final @property @safe Slot <code class="code">slot</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Create a <code class="code">slot</code> with the Item::max as count
 
   </p>
 </div>
@@ -2175,214 +2354,17 @@ compound[<span class="string_literal">"string"</span>] = <span class="string_lit
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="string_literal">""</span>);
-compound[] = <span class="keyword">new</span> String(<span class="string_literal">"test"</span>, <span class="string_literal">"value"</span>);
-<span class="keyword">assert</span>(compound[<span class="string_literal">"test"</span>] == <span class="string_literal">"value"</span>);
+        <li><code class="code">Slot a = <span class="keyword">new</span> Slot(<span class="keyword">new</span> Items.Beetroot(), 12);
+Slot b = <span class="keyword">new</span> Items.Beetroot(); <span class="comment">// same as new Items.Beetroot().slot;
+</span>
+<span class="keyword">assert</span>(a.count == 12);
+<span class="keyword">assert</span>(b.count == 64);
 </code></li>
       </ol>
     </div>
   </div>
 </section>
 
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.remove" id="Compound.remove"><code class="code">remove</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.remove"></span>@safe void <code class="code">remove</code>(string <code class="code">name</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Removed the given index from the array, if set.
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">auto</span> compound = <span class="keyword">new</span> Compound(<span class="string_literal">""</span>, [<span class="string_literal">"string"</span>, <span class="keyword">new</span> String(<span class="string_literal">"test"</span>)]);
-<span class="keyword">assert</span>(<span class="string_literal">"string"</span> <span class="keyword">in</span> compound);
-compound.<span class="psymbol">remove</span>(<span class="string_literal">"string"</span>);
-<span class="keyword">assert</span>(<span class="string_literal">"string"</span> !<span class="keyword">in</span> compound);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.length" id="Compound.length"><code class="code">length</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.length"></span>final pure nothrow @nogc @property @safe size_t <code class="code">length</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gets the <code class="code">length</code> of the array (or the number of NamedTags in it).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.empty" id="Compound.empty"><code class="code">empty</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.empty"></span>final pure nothrow @nogc @property @safe bool <code class="code">empty</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Checks whether or not the array is <code class="code">empty</code> (its length is equal to 0).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.names" id="Compound.names"><code class="code">names</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.names"></span>pure nothrow @nogc @property @safe string[] <code class="code">names</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gets the keys (indexes of the array).
-
-  </p>
-</div>
-<div class="ddoc_section">
-  <p class="para">
-    <span class="ddoc_section_h">Example:</span>
-
-<section class="code_listing">
-  <div class="code_sample">
-    <div class="dlang">
-      <ol class="code_lines">
-        <li><code class="code"><span class="keyword">assert</span>(<span class="keyword">new</span> Compound(<span class="string_literal">""</span>, [<span class="string_literal">"a"</span>: <span class="keyword">new</span> String(<span class="string_literal">"a"</span>), <span class="string_literal">"b"</span>: <span class="keyword">new</span> String(<span class="string_literal">"b"</span>)]).keys == [<span class="string_literal">"a"</span>, <span class="string_literal">"b"</span>]);
-</code></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#Compound.dup" id="Compound.dup"><code class="code">dup</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="Compound.dup"></span>@property Compound <code class="code">dup</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Creates an exact duplicate of the tag.
   </p>
 </div>
 

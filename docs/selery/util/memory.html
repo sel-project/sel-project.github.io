@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.hncom.login</title>
+    <title>selery.util.memory</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,7 +463,7 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.hncom.login</h1>
+        <h1 class="module_name">selery.util.memory</h1>
         <section id="module_content">
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
@@ -471,7 +471,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest" id="ConnectionRequest"><code class="code">ConnectionRequest</code></a>
+  <a href="#bytes" id="bytes"><code class="code">bytes</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,7 +480,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest"></span>struct <code class="code">ConnectionRequest</code>;
+            <span class="ddoc_anchor" id="bytes"></span>@property @safe ulong <code class="code">bytes</code>(string <code class="code">value</code>);
 
           </code>
         </p>
@@ -492,847 +492,36 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    First packet sent by the client after the connection is established.
- It contains informations used by the hub to check permissions and compatibility.
+    Gets the memory in <code class="code">bytes</code> from a string.
+
   </p>
 </div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">string <code class="code">value</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      a <code class="code">value</code> formatted as "float type"
+    </p>
+  </div>
+</td>
+</tr>
 
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.password" id="ConnectionRequest.password"><code class="code">password</code></a>
+    </tbody>
+  </table>
 </div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.password"></span>string <code class="code">password</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
   <p class="para">
-    Password, if the hub requires one, or an empty string.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.name" id="ConnectionRequest.name"><code class="code">name</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.name"></span>string <code class="code">name</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Name of the node that will be validated by the hub. It should always be
- lowercase and only contain letters, numbers, dashes and underscores.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.main" id="ConnectionRequest.main"><code class="code">main</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.main"></span>bool <code class="code">main</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates whether the node accepts clients when they first connect to the
- hub or exclusively when they are transferred.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionRequest.protocol" id="ConnectionRequest.protocol"><code class="code">protocol</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionRequest.protocol"></span>uint <code class="code">protocol</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Version of the <code class="code">protocol</code> used by the client that must match the hub's one.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse" id="ConnectionResponse"><code class="code">ConnectionResponse</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse"></span>struct <code class="code">ConnectionResponse</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Reply to ConnectionRequest sent only when the node's ip is accepted by the hub.
- It contains the connection status (accepted or an error code) and the hub's protocol.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_HUB" id="ConnectionResponse.OUTDATED_HUB"><code class="code">OUTDATED_HUB</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_HUB"></span><code class="code">OUTDATED_HUB</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The hub uses an old version of hncom
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.OUTDATED_NODE" id="ConnectionResponse.OUTDATED_NODE"><code class="code">OUTDATED_NODE</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_NODE"></span><code class="code">OUTDATED_NODE</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The node uses an old version of hncom
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.PASSWORD_REQUIRED" id="ConnectionResponse.PASSWORD_REQUIRED"><code class="code">PASSWORD_REQUIRED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.PASSWORD_REQUIRED"></span><code class="code">PASSWORD_REQUIRED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    A password is required to connect
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.WRONG_PASSWORD" id="ConnectionResponse.WRONG_PASSWORD"><code class="code">WRONG_PASSWORD</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.WRONG_PASSWORD"></span><code class="code">WRONG_PASSWORD</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The password doesn't match the hub's one
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_LENGTH" id="ConnectionResponse.INVALID_NAME_LENGTH"><code class="code">INVALID_NAME_LENGTH</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_LENGTH"></span><code class="code">INVALID_NAME_LENGTH</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name is too short or too long
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.INVALID_NAME_CHARACTERS" id="ConnectionResponse.INVALID_NAME_CHARACTERS"><code class="code">INVALID_NAME_CHARACTERS</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_CHARACTERS"></span><code class="code">INVALID_NAME_CHARACTERS</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name contains invalid characters
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_ALREADY_USED" id="ConnectionResponse.NAME_ALREADY_USED"><code class="code">NAME_ALREADY_USED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_ALREADY_USED"></span><code class="code">NAME_ALREADY_USED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    There's already a node connected with the same name
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.NAME_RESERVED" id="ConnectionResponse.NAME_RESERVED"><code class="code">NAME_RESERVED</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.NAME_RESERVED"></span><code class="code">NAME_RESERVED</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    The name cannot be used because the hub has reserved it for something else
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.BLOCKED_BY_PLUGIN" id="ConnectionResponse.BLOCKED_BY_PLUGIN"><code class="code">BLOCKED_BY_PLUGIN</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.BLOCKED_BY_PLUGIN"></span><code class="code">BLOCKED_BY_PLUGIN</code>
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    A plugin has blocked the node from connecting
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.status" id="ConnectionResponse.status"><code class="code">status</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.status"></span>ubyte <code class="code">status</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates the <code class="code">status</code> of connection. If not 0, it indicates an error.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ConnectionResponse.protocol" id="ConnectionResponse.protocol"><code class="code">protocol</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ConnectionResponse.protocol"></span>uint <code class="code">protocol</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates the version of the <code class="code">protocol</code> used by the hub when the status
- code indicates that the hub or the node is obsolete.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo" id="HubInfo"><code class="code">HubInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo"></span>struct <code class="code">HubInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Hub's informations.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.serverId" id="HubInfo.serverId"><code class="code">serverId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.serverId"></span>ulong <code class="code">serverId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Server's id, either given by a snoop system or randomly generated at runtime.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.reservedUUIDs" id="HubInfo.reservedUUIDs"><code class="code">reservedUUIDs</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.reservedUUIDs"></span>ulong <code class="code">reservedUUIDs</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    First number of the 4,294,967,296 (2^32) reserved by the hub to create the node's UUIDs.
- Every UUID generated by the node is formed by the server's id (most signicant)
- and the next reserved uuid (least significant). This way every UUID in the hub
- and in the connected nodes is always different.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.displayName" id="HubInfo.displayName"><code class="code">displayName</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.displayName"></span>string <code class="code">displayName</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Unformatted name of the server as indicated in the hub's configuration file.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.gamesInfo" id="HubInfo.gamesInfo"><code class="code">gamesInfo</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.gamesInfo"></span>GameInfo[ubyte] <code class="code">gamesInfo</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Informations about the games supported by the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.online" id="HubInfo.online"><code class="code">online</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.online"></span>uint <code class="code">online</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Number of players currently <code class="code">online</code> and connected to other nodes.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.max" id="HubInfo.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.max"></span>int <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Number of maximum players that can connect to the server (that is the sum
- of the <code class="code">max</code> players of the nodes already connected).
- The number may change after the current node connects.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.language" id="HubInfo.language"><code class="code">language</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.language"></span>string <code class="code">language</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Default server's <code class="code">language</code> in format (language_COUNTRY, e.g. en_GB) and also the
- default <code class="code">language</code> for players that don't specify their <code class="code">language</code> or for the ones
- which <code class="code">language</code> is not supported by the server.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.acceptedLanguages" id="HubInfo.acceptedLanguages"><code class="code">acceptedLanguages</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.acceptedLanguages"></span>string[] <code class="code">acceptedLanguages</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Languages accepted by the server in the same format as language.
- The list should always contain at least one element (the default language).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#HubInfo.additionalJSON" id="HubInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="HubInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software, social accounts, system and options.
+    the given <code class="code">value</code> in <code class="code">bytes</code>, or 0 if bad formatting
 
   </p>
 </div>
@@ -1344,31 +533,8 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"minecraft"</span>: {
-     <span class="string_literal">"edu"</span>: <span class="keyword">false</span>,
-     <span class="string_literal">"realm"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"social"</span>: {
-     <span class="string_literal">"website"</span>: <span class="string_literal">"example.com"</span>,
-     <span class="string_literal">"facebook"</span>: <span class="string_literal">"example-official"</span>,
-     <span class="string_literal">"twitter"</span>: <span class="string_literal">"example_tweets"</span>,
-     <span class="string_literal">"youtube"</span>: <span class="string_literal">"examplechannel"</span>,
-     <span class="string_literal">"instagram"</span>: <span class="string_literal">"example"</span>,
-     <span class="string_literal">"google-plus"</span>: <span class="string_literal">"example-plus"</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Ubuntu 16.04"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz"</span>,
-     <span class="string_literal">"cores"</span>: 2,
-     <span class="string_literal">"ram"</span>: 2147483648
-  }
-}
+        <li><code class="code"><span class="keyword">assert</span>(<span class="string_literal">"100 kB"</span>.<span class="psymbol">bytes</span> == 100000);
+<span class="keyword">assert</span>(<span class="string_literal">"1000 MB"</span>.<span class="psymbol">bytes</span> == <span class="string_literal">"1 GB"</span>.<span class="psymbol">bytes</span>);
 </code></li>
       </ol>
     </div>
@@ -1382,15 +548,10 @@
 
 </div>
 
-</li>
-</ul>
-
-</div>
-
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#NodeInfo" id="NodeInfo"><code class="code">NodeInfo</code></a>
+  <a href="#usage" id="usage"><code class="code">usage</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1399,7 +560,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo"></span>struct <code class="code">NodeInfo</code>;
+            <span class="ddoc_anchor" id="usage"></span>@property @safe string <code class="code">usage</code>(double <code class="code">mem</code>, bool <code class="code">bin</code> = false);
 
           </code>
         </p>
@@ -1411,136 +572,50 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Node's informations.
+    Formats the given memory with the best unity of measurement.
+
   </p>
 </div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">double <code class="code">mem</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the memory to be formatted
+    </p>
+  </div>
+</td>
+</tr>
+<tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">bool <code class="code">bin</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      boolean value indicating whether or not to use powers of 2s instead of power of 10s
+    </p>
+  </div>
+</td>
+</tr>
 
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.acceptedGames" id="NodeInfo.acceptedGames"><code class="code">acceptedGames</code></a>
+    </tbody>
+  </table>
 </div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.acceptedGames"></span>uint[][ubyte] <code class="code">acceptedGames</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
+<div class="ddoc_returns">
+  <h4>Return Value</h4>
   <p class="para">
-    Informations about the games accepted by the node. There should be at least
- one combination of game/protocols that is also accepted by hub as indicated
- in HubInfo.gamesInfo, otherwise the node will never receive any player.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.max" id="NodeInfo.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.max"></span>uint <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Maximum number of players accepted by node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.plugins" id="NodeInfo.plugins"><code class="code">plugins</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.plugins"></span>Plugin[] <code class="code">plugins</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    List of <code class="code">plugins</code> loaded on the node for creating queries on the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#NodeInfo.additionalJSON" id="NodeInfo.additionalJSON"><code class="code">additionalJSON</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="NodeInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Optional informations about the server's software and system,
- similar to HubInfo's additionalJson field.
+    the formatted string
 
   </p>
 </div>
@@ -1552,19 +627,8 @@
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code">{
-  <span class="string_literal">"software"</span>: {
-     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
-     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
-     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
-  },
-  <span class="string_literal">"system"</span>: {
-     <span class="string_literal">"os"</span>: <span class="string_literal">"Windows 10"</span>,
-     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i7-5700U CPU @ 3.40GHz"</span>,
-     <span class="string_literal">"cores"</span>: 4,
-     <span class="string_literal">"ram"</span>: 8589934592
-  }
-}
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">usage</span>(1024, <span class="keyword">false</span>) == <span class="string_literal">"1.024 kB"</span>);
+d(<span class="psymbol">usage</span>(memory));
 </code></li>
       </ol>
     </div>
@@ -1578,8 +642,801 @@
 
 </div>
 
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory" id="Memory"><code class="code">Memory</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory"></span>struct <code class="code">Memory</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    <code class="code">Memory</code> stored as bytes and available in various formats.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">Memory</span>(1000).kilobytes == 1);
+<span class="keyword">assert</span>(<span class="psymbol">Memory</span>(<span class="string_literal">"1 MB"</span>).megabytes != <span class="psymbol">Memory</span>(<span class="string_literal">"1 MB"</span>).mibibytes);
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+<ul class="ddoc_members">
+  <li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.max" id="Memory.max"><code class="code">max</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.max"></span>static @nogc @property @safe Memory <code class="code">max</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the highest value possible (18 EiB).
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.this" id="Memory.this"><code class="code">this</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.this"></span>@nogc @safe this(ulong <code class="code">b</code>);
+<br>
+@nogc @safe this(double <code class="code">b</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Creates a Memory instance giving a certain
+ amount of bytes.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.this" id="Memory.this"><code class="code">this</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.this.2"></span>@safe this(string <code class="code">data</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Creates a Memory instance from a formatted string
+ that will be decoded using the bytes function.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.B" id="Memory.B"><code class="code">B</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.B"></span>@nogc @property @safe double <code class="code">B</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.Bytes"></span>alias <code class="code">Bytes</code> = B;
+<br>
+<span class="ddoc_anchor" id="Memory.bytes"></span>alias <code class="code">bytes</code> = B;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">bytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.KB" id="Memory.KB"><code class="code">KB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.KB"></span>@property double <code class="code">KB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.KiloBytes"></span>alias <code class="code">KiloBytes</code> = KB;
+<br>
+<span class="ddoc_anchor" id="Memory.kilobytes"></span>alias <code class="code">kilobytes</code> = KB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">kilobytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.KiB" id="Memory.KiB"><code class="code">KiB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.KiB"></span>@property double <code class="code">KiB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.KibiBytes"></span>alias <code class="code">KibiBytes</code> = KiB;
+<br>
+<span class="ddoc_anchor" id="Memory.kibibytes"></span>alias <code class="code">kibibytes</code> = KiB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">kibibytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.MB" id="Memory.MB"><code class="code">MB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.MB"></span>@property double <code class="code">MB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.MegaBytes"></span>alias <code class="code">MegaBytes</code> = MB;
+<br>
+<span class="ddoc_anchor" id="Memory.megabytes"></span>alias <code class="code">megabytes</code> = MB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">megabytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.MiB" id="Memory.MiB"><code class="code">MiB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.MiB"></span>@property double <code class="code">MiB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.MebiByes"></span>alias <code class="code">MebiByes</code> = MiB;
+<br>
+<span class="ddoc_anchor" id="Memory.mebibytes"></span>alias <code class="code">mebibytes</code> = MiB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">mebibytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.GB" id="Memory.GB"><code class="code">GB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.GB"></span>@property double <code class="code">GB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.GigaBytes"></span>alias <code class="code">GigaBytes</code> = GB;
+<br>
+<span class="ddoc_anchor" id="Memory.gigabytes"></span>alias <code class="code">gigabytes</code> = GB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">gigabytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.GiB" id="Memory.GiB"><code class="code">GiB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.GiB"></span>@property double <code class="code">GiB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.GibiBytes"></span>alias <code class="code">GibiBytes</code> = GiB;
+<br>
+<span class="ddoc_anchor" id="Memory.gibibytes"></span>alias <code class="code">gibibytes</code> = GiB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">gibibytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.TB" id="Memory.TB"><code class="code">TB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.TB"></span>@property double <code class="code">TB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.TeraBytes"></span>alias <code class="code">TeraBytes</code> = TB;
+<br>
+<span class="ddoc_anchor" id="Memory.terabytes"></span>alias <code class="code">terabytes</code> = TB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">terabytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.TiB" id="Memory.TiB"><code class="code">TiB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.TiB"></span>@property double <code class="code">TiB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.TibiBytes"></span>alias <code class="code">TibiBytes</code> = TiB;
+<br>
+<span class="ddoc_anchor" id="Memory.tibibytes"></span>alias <code class="code">tibibytes</code> = TiB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">tibibytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.PB" id="Memory.PB"><code class="code">PB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.PB"></span>@property double <code class="code">PB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.PetaBytes"></span>alias <code class="code">PetaBytes</code> = PB;
+<br>
+<span class="ddoc_anchor" id="Memory.petabytes"></span>alias <code class="code">petabytes</code> = PB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">petabytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.PiB" id="Memory.PiB"><code class="code">PiB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.PiB"></span>@property double <code class="code">PiB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.PibiBytes"></span>alias <code class="code">PibiBytes</code> = PiB;
+<br>
+<span class="ddoc_anchor" id="Memory.pibibytes"></span>alias <code class="code">pibibytes</code> = PiB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in pibibyes.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.EB" id="Memory.EB"><code class="code">EB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.EB"></span>@property double <code class="code">EB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.ExaBytes"></span>alias <code class="code">ExaBytes</code> = EB;
+<br>
+<span class="ddoc_anchor" id="Memory.exabytes"></span>alias <code class="code">exabytes</code> = EB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">exabytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.EiB" id="Memory.EiB"><code class="code">EiB</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.EiB"></span>@property double <code class="code">EiB</code>();
+<br>
+<span class="ddoc_anchor" id="Memory.ExbiBytes"></span>alias <code class="code">ExbiBytes</code> = EiB;
+<br>
+<span class="ddoc_anchor" id="Memory.exbibytes"></span>alias <code class="code">exbibytes</code> = EiB;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Gets the memory in <code class="code">exbibytes</code>.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.opCmp" id="Memory.opCmp"><code class="code">opCmp</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.opCmp"></span>bool <code class="code">opCmp</code>(Memory <code class="code">mem</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Compares two Memory instances and check if thay
+ have the value.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(Memory(1000) == <span class="param">mem</span>!<span class="string_literal">"KB"</span>(1));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#Memory.toString" id="Memory.toString"><code class="code">toString</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="Memory.toString"></span>string <code class="code">toString</code>();
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Returns the string formatted as the best option.
+
+  </p>
+</div>
+<div class="ddoc_see_also">
+  <h4>See Also</h4>
+  <p class="para">
+    usage
+  </p>
+</div>
+
+</section>
+
+</div>
+
 </li>
 </ul>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#mem" id="mem"><code class="code">mem</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="mem"></span>@nogc @safe Memory <code class="code">mem</code>(string type)(double <code class="code">value</code>) if (type == "B" || type == "KB" || type == "KiB" || type == "MB" || type == "MiB" || type == "GB" || type == "GiB");
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Creates a Memory instance from an amount of bytes.
+
+  </p>
+</div>
+<div class="ddoc_params">
+  <h4>Parameters</h4>
+  <table cellspacing="0" cellpadding="5" border="0" class="graybox">
+    <tbody>
+      <tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">type</em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the type of memory that will be used for conversion
+    </p>
+  </div>
+</td>
+</tr>
+<tr class="ddoc_param_row">
+  <td scope="ddoc_param_id">
+  <code class="code">
+    <em class="term">double <code class="code">value</code></em>
+  </code>
+</td>
+<td>
+  <div class="ddoc_param_desc">
+    <p class="para">
+      the <code class="code">value</code> to be converted in bytes
+    </p>
+  </div>
+</td>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code"><span class="keyword">assert</span>(<span class="psymbol">mem</span>!<span class="string_literal">"MB"</span>(1) == <span class="psymbol">mem</span>!<span class="string_literal">"KB"</span>(1000));
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+  </p>
+</div>
+
+</section>
 
 </div>
 
