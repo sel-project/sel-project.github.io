@@ -465,7 +465,10 @@
       <article class="module">
         <h1 class="module_name">sel.net.http</h1>
         <section id="module_content">
-$(DDOC_MODULE_MEMBERS <li class="ddoc_member">
+<section class="section ddoc_module_members_section">
+  <div class="ddoc_module_members">
+    <ul class="ddoc_members">
+  <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
   <a href="#HttpStream" id="HttpStream"><code class="code">HttpStream</code></a>
@@ -766,14 +769,18 @@ $(DDOC_MODULE_MEMBERS <li class="ddoc_member">
   <div class="code_sample">
     <div class="dlang">
       <ol class="code_lines">
-        <li><code class="code"> Request("GET", "/");
- Request(Request.POST, "/subscribe.php");</code></li>
+        <li><code class="code"><span class="psymbol">Request</span>(<span class="string_literal">"GET"</span>, <span class="string_literal">"/"</span>);
+<span class="psymbol">Request</span>(<span class="psymbol">Request</span>.POST, <span class="string_literal">"/subscribe.php"</span>);
+</code></li>
       </ol>
     </div>
   </div>
 </section>
+
   </p>
 </div>
+
+</section>
 <ul class="ddoc_members">
   <li class="ddoc_member">
   <div class="ddoc_member_header">
@@ -1151,10 +1158,9 @@ static Request <code class="code">post</code>(string <code class="code">path</co
 </li>
 </ul>
 
-</section>
+</div>
 
-
-</div><li class="ddoc_member">
+</li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
   <a href="#Response" id="Response"><code class="code">Response</code></a>
@@ -1563,7 +1569,10 @@ Response.<span class="psymbol">redirect</span>(StatusCodes.seeOther, <span class
 </div>
 
 </li>
-</li></section>
+</ul>
+  </div>
+</section>
+</section>
       </article>
     </div>
   </body>
