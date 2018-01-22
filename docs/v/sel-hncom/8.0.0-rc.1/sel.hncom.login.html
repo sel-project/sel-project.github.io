@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>sel.hncom.status</title>
+    <title>sel.hncom.login</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -463,7 +463,7 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">sel.hncom.status</h1>
+        <h1 class="module_name">sel.hncom.login</h1>
         <section id="module_content">
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
@@ -471,7 +471,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Latency" id="Latency"><code class="code">Latency</code></a>
+  <a href="#ConnectionRequest" id="ConnectionRequest"><code class="code">ConnectionRequest</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -480,7 +480,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Latency"></span>struct <code class="code">Latency</code>;
+            <span class="ddoc_anchor" id="ConnectionRequest"></span>struct <code class="code">ConnectionRequest</code>;
 
           </code>
         </p>
@@ -492,9 +492,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Used to calculate latency by both the hub and the node.
- When this packet is received it should be immeditaly sent back to the sender
- without any change.
+    First packet sent by the client after the connection is established.
+ It contains informations used by the hub to check permissions and compatibility.
   </p>
 </div>
 
@@ -503,7 +502,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Latency.id" id="Latency.id"><code class="code">id</code></a>
+  <a href="#ConnectionRequest.password" id="ConnectionRequest.password"><code class="code">password</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -512,7 +511,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Latency.id"></span>uint <code class="code">id</code>;
+            <span class="ddoc_anchor" id="ConnectionRequest.password"></span>string <code class="code">password</code>;
 
           </code>
         </p>
@@ -524,7 +523,105 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Id of the ping/pong. Should be unique for the session.
+    Password, if the hub requires one, or an empty string.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionRequest.name" id="ConnectionRequest.name"><code class="code">name</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionRequest.name"></span>string <code class="code">name</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Name of the node that will be validated by the hub. It should always be
+ lowercase and only contain letters, numbers, dashes and underscores.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionRequest.main" id="ConnectionRequest.main"><code class="code">main</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionRequest.main"></span>bool <code class="code">main</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates whether the node accepts clients when they first connect to the
+ hub or exclusively when they are transferred.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionRequest.protocol" id="ConnectionRequest.protocol"><code class="code">protocol</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionRequest.protocol"></span>uint <code class="code">protocol</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Version of the <code class="code">protocol</code> used by the client that must match the hub's one.
   </p>
 </div>
 
@@ -540,7 +637,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Log" id="Log"><code class="code">Log</code></a>
+  <a href="#ConnectionResponse" id="ConnectionResponse"><code class="code">ConnectionResponse</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -549,7 +646,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Log"></span>struct <code class="code">Log</code>;
+            <span class="ddoc_anchor" id="ConnectionResponse"></span>struct <code class="code">ConnectionResponse</code>;
 
           </code>
         </p>
@@ -561,7 +658,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Sends a logged message to the hub.
+    Reply to ConnectionRequest sent only when the node's ip is accepted by the hub.
+ It contains the connection status (accepted or an error code) and the hub's protocol.
   </p>
 </div>
 
@@ -570,7 +668,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Log.message" id="Log.message"><code class="code">message</code></a>
+  <a href="#ConnectionResponse.OUTDATED_HUB" id="ConnectionResponse.OUTDATED_HUB"><code class="code">OUTDATED_HUB</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -579,8 +677,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Log.message"></span>Message[] <code class="code">message</code>;
-
+            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_HUB"></span><code class="code">OUTDATED_HUB</code>
           </code>
         </p>
       </div>
@@ -591,7 +688,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Logged <code class="code">message</code> or translation. It may contain Minecraft formatting codes.
+    The hub uses an old version of hncom
   </p>
 </div>
 
@@ -602,7 +699,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Log.timestamp" id="Log.timestamp"><code class="code">timestamp</code></a>
+  <a href="#ConnectionResponse.OUTDATED_NODE" id="ConnectionResponse.OUTDATED_NODE"><code class="code">OUTDATED_NODE</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -611,8 +708,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Log.timestamp"></span>ulong <code class="code">timestamp</code>;
-
+            <span class="ddoc_anchor" id="ConnectionResponse.OUTDATED_NODE"></span><code class="code">OUTDATED_NODE</code>
           </code>
         </p>
       </div>
@@ -623,8 +719,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Unix time (in milliseconds) that indicates the exact creation time of the
- log (for ordering purposes).
+    The node uses an old version of hncom
   </p>
 </div>
 
@@ -635,7 +730,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Log.commandId" id="Log.commandId"><code class="code">commandId</code></a>
+  <a href="#ConnectionResponse.PASSWORD_REQUIRED" id="ConnectionResponse.PASSWORD_REQUIRED"><code class="code">PASSWORD_REQUIRED</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -644,8 +739,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Log.commandId"></span>int <code class="code">commandId</code>;
-
+            <span class="ddoc_anchor" id="ConnectionResponse.PASSWORD_REQUIRED"></span><code class="code">PASSWORD_REQUIRED</code>
           </code>
         </p>
       </div>
@@ -656,8 +750,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Identifier of the command that has generated the log or -1 if the
- log wasn't generated by a command.
+    A password is required to connect
   </p>
 </div>
 
@@ -668,7 +761,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#Log.worldId" id="Log.worldId"><code class="code">worldId</code></a>
+  <a href="#ConnectionResponse.WRONG_PASSWORD" id="ConnectionResponse.WRONG_PASSWORD"><code class="code">WRONG_PASSWORD</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -677,7 +770,193 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="Log.worldId"></span>int <code class="code">worldId</code>;
+            <span class="ddoc_anchor" id="ConnectionResponse.WRONG_PASSWORD"></span><code class="code">WRONG_PASSWORD</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The password doesn't match the hub's one
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.INVALID_NAME_LENGTH" id="ConnectionResponse.INVALID_NAME_LENGTH"><code class="code">INVALID_NAME_LENGTH</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_LENGTH"></span><code class="code">INVALID_NAME_LENGTH</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The name is too short or too long
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.INVALID_NAME_CHARACTERS" id="ConnectionResponse.INVALID_NAME_CHARACTERS"><code class="code">INVALID_NAME_CHARACTERS</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.INVALID_NAME_CHARACTERS"></span><code class="code">INVALID_NAME_CHARACTERS</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The name contains invalid characters
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.NAME_ALREADY_USED" id="ConnectionResponse.NAME_ALREADY_USED"><code class="code">NAME_ALREADY_USED</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.NAME_ALREADY_USED"></span><code class="code">NAME_ALREADY_USED</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    There's already a node connected with the same name
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.NAME_RESERVED" id="ConnectionResponse.NAME_RESERVED"><code class="code">NAME_RESERVED</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.NAME_RESERVED"></span><code class="code">NAME_RESERVED</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    The name cannot be used because the hub has reserved it for something else
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.BLOCKED_BY_PLUGIN" id="ConnectionResponse.BLOCKED_BY_PLUGIN"><code class="code">BLOCKED_BY_PLUGIN</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.BLOCKED_BY_PLUGIN"></span><code class="code">BLOCKED_BY_PLUGIN</code>
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    A plugin has blocked the node from connecting
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.status" id="ConnectionResponse.status"><code class="code">status</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.status"></span>ubyte <code class="code">status</code>;
 
           </code>
         </p>
@@ -689,7 +968,40 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Id of the world that has generated the log, if the log comes from a world, -1 otherwise.
+    Indicates the <code class="code">status</code> of connection. If not 0, it indicates an error.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ConnectionResponse.protocol" id="ConnectionResponse.protocol"><code class="code">protocol</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ConnectionResponse.protocol"></span>uint <code class="code">protocol</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates the version of the <code class="code">protocol</code> used by the hub when the status
+ code indicates that the hub or the node is obsolete.
   </p>
 </div>
 
@@ -705,7 +1017,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#RemoteCommand" id="RemoteCommand"><code class="code">RemoteCommand</code></a>
+  <a href="#HubInfo" id="HubInfo"><code class="code">HubInfo</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -714,7 +1026,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="RemoteCommand"></span>struct <code class="code">RemoteCommand</code>;
+            <span class="ddoc_anchor" id="HubInfo"></span>struct <code class="code">HubInfo</code>;
 
           </code>
         </p>
@@ -726,7 +1038,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Executes a command on the node.
+    Hub's informations.
   </p>
 </div>
 
@@ -735,7 +1047,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#RemoteCommand.origin" id="RemoteCommand.origin"><code class="code">origin</code></a>
+  <a href="#HubInfo.serverId" id="HubInfo.serverId"><code class="code">serverId</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -744,7 +1056,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="RemoteCommand.origin"></span>ubyte <code class="code">origin</code>;
+            <span class="ddoc_anchor" id="HubInfo.serverId"></span>ulong <code class="code">serverId</code>;
 
           </code>
         </p>
@@ -756,7 +1068,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Origin of the command. It could be the hub itself or an external source.
+    Server's id, either given by a snoop system or randomly generated at runtime.
   </p>
 </div>
 
@@ -767,7 +1079,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#RemoteCommand.sender" id="RemoteCommand.sender"><code class="code">sender</code></a>
+  <a href="#HubInfo.reservedUUIDs" id="HubInfo.reservedUUIDs"><code class="code">reservedUUIDs</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -776,7 +1088,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="RemoteCommand.sender"></span>Address <code class="code">sender</code>;
+            <span class="ddoc_anchor" id="HubInfo.reservedUUIDs"></span>ulong <code class="code">reservedUUIDs</code>;
 
           </code>
         </p>
@@ -788,8 +1100,10 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Address of the <code class="code">sender</code> if the command has been sent from an external source.
- It's <code class="code">null</code> when the hub is the <code class="code">sender</code>.
+    First number of the 4,294,967,296 (2^32) reserved by the hub to create the node's UUIDs.
+ Every UUID generated by the node is formed by the server's id (most signicant)
+ and the next reserved uuid (least significant). This way every UUID in the hub
+ and in the connected nodes is always different.
   </p>
 </div>
 
@@ -800,7 +1114,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#RemoteCommand.command" id="RemoteCommand.command"><code class="code">command</code></a>
+  <a href="#HubInfo.displayName" id="HubInfo.displayName"><code class="code">displayName</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -809,7 +1123,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="RemoteCommand.command"></span>string <code class="code">command</code>;
+            <span class="ddoc_anchor" id="HubInfo.displayName"></span>string <code class="code">displayName</code>;
 
           </code>
         </p>
@@ -821,8 +1135,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Commands and arguments that should be executed on the node.
- For example <code class="code">say hello world</code> or <code class="code">kill @a</code>.
+    Unformatted name of the server as indicated in the hub's configuration file.
   </p>
 </div>
 
@@ -833,7 +1146,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#RemoteCommand.commandId" id="RemoteCommand.commandId"><code class="code">commandId</code></a>
+  <a href="#HubInfo.gamesInfo" id="HubInfo.gamesInfo"><code class="code">gamesInfo</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -842,7 +1155,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="RemoteCommand.commandId"></span>uint <code class="code">commandId</code>;
+            <span class="ddoc_anchor" id="HubInfo.gamesInfo"></span>GameInfo[ubyte] <code class="code">gamesInfo</code>;
 
           </code>
         </p>
@@ -854,8 +1167,247 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Identifier of the command. It's sent back in Log's <code class="code">commandId</code> field
- when the command generates output.
+    Informations about the games supported by the hub.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#HubInfo.online" id="HubInfo.online"><code class="code">online</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="HubInfo.online"></span>uint <code class="code">online</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Number of players currently <code class="code">online</code> and connected to other nodes.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#HubInfo.max" id="HubInfo.max"><code class="code">max</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="HubInfo.max"></span>int <code class="code">max</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Number of maximum players that can connect to the server (that is the sum
+ of the <code class="code">max</code> players of the nodes already connected).
+ The number may change after the current node connects.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#HubInfo.language" id="HubInfo.language"><code class="code">language</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="HubInfo.language"></span>string <code class="code">language</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Default server's <code class="code">language</code> in format (language_COUNTRY, e.g. en_GB) and also the
+ default <code class="code">language</code> for players that don't specify their <code class="code">language</code> or for the ones
+ which <code class="code">language</code> is not supported by the server.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#HubInfo.acceptedLanguages" id="HubInfo.acceptedLanguages"><code class="code">acceptedLanguages</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="HubInfo.acceptedLanguages"></span>string[] <code class="code">acceptedLanguages</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Languages accepted by the server in the same format as language.
+ The list should always contain at least one element (the default language).
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#HubInfo.webAdmin" id="HubInfo.webAdmin"><code class="code">webAdmin</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="HubInfo.webAdmin"></span>bool <code class="code">webAdmin</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Indicates whether the web admin protocol is active on the hub. If it is the
+ node should send the port where it will listen for connections in its info packet.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#HubInfo.additionalJSON" id="HubInfo.additionalJSON"><code class="code">additionalJSON</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="HubInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Optional informations about the server's software, social accounts, system and options.
+
+  </p>
+</div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">{
+  <span class="string_literal">"software"</span>: {
+     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
+     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
+     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
+  },
+  <span class="string_literal">"minecraft"</span>: {
+     <span class="string_literal">"edu"</span>: <span class="keyword">false</span>,
+     <span class="string_literal">"realm"</span>: <span class="keyword">true</span>
+  },
+  <span class="string_literal">"social"</span>: {
+     <span class="string_literal">"website"</span>: <span class="string_literal">"example.com"</span>,
+     <span class="string_literal">"facebook"</span>: <span class="string_literal">"example-official"</span>,
+     <span class="string_literal">"twitter"</span>: <span class="string_literal">"example_tweets"</span>,
+     <span class="string_literal">"youtube"</span>: <span class="string_literal">"examplechannel"</span>,
+     <span class="string_literal">"instagram"</span>: <span class="string_literal">"example"</span>,
+     <span class="string_literal">"google-plus"</span>: <span class="string_literal">"example-plus"</span>
+  },
+  <span class="string_literal">"system"</span>: {
+     <span class="string_literal">"os"</span>: <span class="string_literal">"Ubuntu 16.04"</span>,
+     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz"</span>,
+     <span class="string_literal">"cores"</span>: 2,
+     <span class="string_literal">"ram"</span>: 2147483648
+  }
+}
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
   </p>
 </div>
 
@@ -871,7 +1423,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#AddNode" id="AddNode"><code class="code">AddNode</code></a>
+  <a href="#NodeInfo" id="NodeInfo"><code class="code">NodeInfo</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -880,7 +1432,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="AddNode"></span>struct <code class="code">AddNode</code>;
+            <span class="ddoc_anchor" id="NodeInfo"></span>struct <code class="code">NodeInfo</code>;
 
           </code>
         </p>
@@ -892,7 +1444,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Notifies the node that another node (that is not the receiver) has connected to the hub.
+    Node's informations.
   </p>
 </div>
 
@@ -901,7 +1453,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#AddNode.hubId" id="AddNode.hubId"><code class="code">hubId</code></a>
+  <a href="#NodeInfo.acceptedGames" id="NodeInfo.acceptedGames"><code class="code">acceptedGames</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -910,7 +1462,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="AddNode.hubId"></span>uint <code class="code">hubId</code>;
+            <span class="ddoc_anchor" id="NodeInfo.acceptedGames"></span>uint[][ubyte] <code class="code">acceptedGames</code>;
 
           </code>
         </p>
@@ -922,7 +1474,9 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Identifier given by the hub to uniquey identify the node.
+    Informations about the games accepted by the node. There should be at least
+ one combination of game/protocols that is also accepted by hub as indicated
+ in HubInfo.gamesInfo, otherwise the node will never receive any player.
   </p>
 </div>
 
@@ -933,7 +1487,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#AddNode.name" id="AddNode.name"><code class="code">name</code></a>
+  <a href="#NodeInfo.max" id="NodeInfo.max"><code class="code">max</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -942,539 +1496,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="AddNode.name"></span>string <code class="code">name</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Node's <code class="code">name</code> used for displaying and identification purposes.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddNode.main" id="AddNode.main"><code class="code">main</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddNode.main"></span>bool <code class="code">main</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Whether the node is a <code class="code">main</code> node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddNode.acceptedGames" id="AddNode.acceptedGames"><code class="code">acceptedGames</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddNode.acceptedGames"></span>uint[][ubyte] <code class="code">acceptedGames</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates the games and protocols accepted by the node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#RemoveNode" id="RemoveNode"><code class="code">RemoveNode</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="RemoveNode"></span>struct <code class="code">RemoveNode</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Notifies the node that another node, previously added with AddNode,
- has disconnected from the hub.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#RemoveNode.hubId" id="RemoveNode.hubId"><code class="code">hubId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="RemoveNode.hubId"></span>uint <code class="code">hubId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Node's id given by the hub.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ReceiveMessage" id="ReceiveMessage"><code class="code">ReceiveMessage</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ReceiveMessage"></span>struct <code class="code">ReceiveMessage</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Receives a binary message sent by another node using SendMessage.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ReceiveMessage.sender" id="ReceiveMessage.sender"><code class="code">sender</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ReceiveMessage.sender"></span>uint <code class="code">sender</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Id of the node that has sent the message.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ReceiveMessage.broadcasted" id="ReceiveMessage.broadcasted"><code class="code">broadcasted</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ReceiveMessage.broadcasted"></span>bool <code class="code">broadcasted</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates whether the message was <code class="code">broadcasted</code> to every connected node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ReceiveMessage.payload" id="ReceiveMessage.payload"><code class="code">payload</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ReceiveMessage.payload"></span>ubyte[] <code class="code">payload</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Bytes received. It could be serialised data or a plugin-defined packet.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#SendMessage" id="SendMessage"><code class="code">SendMessage</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="SendMessage"></span>struct <code class="code">SendMessage</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Sends a binary message to some selected nodes or broadcast it.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#SendMessage.addressees" id="SendMessage.addressees"><code class="code">addressees</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="SendMessage.addressees"></span>uint[] <code class="code">addressees</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Addressees of the message. If the array is empty the message is
- broadcasted to every connected node but the sender.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#SendMessage.payload" id="SendMessage.payload"><code class="code">payload</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="SendMessage.payload"></span>ubyte[] <code class="code">payload</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Bytes to be sent/broadcasted. It may be serialised data or a plugin-defined packet.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#UpdatePlayers" id="UpdatePlayers"><code class="code">UpdatePlayers</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="UpdatePlayers"></span>struct <code class="code">UpdatePlayers</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Updates the number of players on the server.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#UpdatePlayers.online" id="UpdatePlayers.online"><code class="code">online</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="UpdatePlayers.online"></span>uint <code class="code">online</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Players currently <code class="code">online</code> in the whole server (connected to a node).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#UpdatePlayers.max" id="UpdatePlayers.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="UpdatePlayers.max"></span>int <code class="code">max</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Maximum number of players that can connect to server, which is the sum of
- the <code class="code">max</code> players of every connected node.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#UpdateMaxPlayers" id="UpdateMaxPlayers"><code class="code">UpdateMaxPlayers</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="UpdateMaxPlayers"></span>struct <code class="code">UpdateMaxPlayers</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Updates the number of players that can be accepted by the node.
- If the given number is smaller than the players currently connected
- to the node no player should be kicked.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#UpdateMaxPlayers.max" id="UpdateMaxPlayers.max"><code class="code">max</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="UpdateMaxPlayers.max"></span>uint <code class="code">max</code>;
+            <span class="ddoc_anchor" id="NodeInfo.max"></span>uint <code class="code">max</code>;
 
           </code>
         </p>
@@ -1494,15 +1516,10 @@
 
 </div>
 
-</li>
-</ul>
-
-</div>
-
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#UpdateUsage" id="UpdateUsage"><code class="code">UpdateUsage</code></a>
+  <a href="#NodeInfo.plugins" id="NodeInfo.plugins"><code class="code">plugins</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1511,7 +1528,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="UpdateUsage"></span>struct <code class="code">UpdateUsage</code>;
+            <span class="ddoc_anchor" id="NodeInfo.plugins"></span>Plugin[] <code class="code">plugins</code>;
 
           </code>
         </p>
@@ -1523,37 +1540,7 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Updates the usage of the system's resources of the node.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#UpdateUsage.ram" id="UpdateUsage.ram"><code class="code">ram</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="UpdateUsage.ram"></span>uint <code class="code">ram</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Kibibytes of RAM used by the node.
+    List of <code class="code">plugins</code> loaded on the node for creating queries on the hub.
   </p>
 </div>
 
@@ -1564,7 +1551,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#UpdateUsage.cpu" id="UpdateUsage.cpu"><code class="code">cpu</code></a>
+  <a href="#NodeInfo.webAdminPort" id="NodeInfo.webAdminPort"><code class="code">webAdminPort</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1573,7 +1560,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="UpdateUsage.cpu"></span>float <code class="code">cpu</code>;
+            <span class="ddoc_anchor" id="NodeInfo.webAdminPort"></span>ushort <code class="code">webAdminPort</code>;
 
           </code>
         </p>
@@ -1585,75 +1572,8 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Percentage of CPU used by the node. It may be higher than 100
- if the node has more than 1 CPU
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddWorld" id="AddWorld"><code class="code">AddWorld</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddWorld"></span>struct <code class="code">AddWorld</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Notifies the hub that a new world has been created on the node.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddWorld.worldId" id="AddWorld.worldId"><code class="code">worldId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddWorld.worldId"></span>uint <code class="code">worldId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Id of the world. Must be unique on the node.
+    Port where the node is listening for connections, if the web admin protocol
+ is active on the hub.
   </p>
 </div>
 
@@ -1664,7 +1584,7 @@
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#AddWorld.name" id="AddWorld.name"><code class="code">name</code></a>
+  <a href="#NodeInfo.additionalJSON" id="NodeInfo.additionalJSON"><code class="code">additionalJSON</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -1673,7 +1593,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="AddWorld.name"></span>string <code class="code">name</code>;
+            <span class="ddoc_anchor" id="NodeInfo.additionalJSON"></span>JSONValue <code class="code">additionalJSON</code>;
 
           </code>
         </p>
@@ -1685,344 +1605,38 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    Name of the world, it doesn't need to be unique.
+    Optional informations about the server's software and system,
+ similar to HubInfo's additionalJson field.
+
   </p>
 </div>
+<div class="ddoc_section">
+  <p class="para">
+    <span class="ddoc_section_h">Example:</span>
 
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">{
+  <span class="string_literal">"software"</span>: {
+     <span class="string_literal">"name"</span>: <span class="string_literal">"selery"</span>,
+     <span class="string_literal">"version"</span>: <span class="string_literal">"0.0.1"</span>,
+     <span class="string_literal">"stable"</span>: <span class="keyword">true</span>
+  },
+  <span class="string_literal">"system"</span>: {
+     <span class="string_literal">"os"</span>: <span class="string_literal">"Windows 10"</span>,
+     <span class="string_literal">"cpu"</span>: <span class="string_literal">"Intel(R) Core(TM) i7-5700U CPU @ 3.40GHz"</span>,
+     <span class="string_literal">"cores"</span>: 4,
+     <span class="string_literal">"ram"</span>: 8589934592
+  }
+}
+</code></li>
+      </ol>
+    </div>
+  </div>
 </section>
 
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddWorld.dimension" id="AddWorld.dimension"><code class="code">dimension</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddWorld.dimension"></span>ubyte <code class="code">dimension</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    World's <code class="code">dimension</code> in the MCPE format (0: overworld, 1: nether, 2: end).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddWorld.default_" id="AddWorld.default_"><code class="code">default_</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddWorld.default_"></span>bool <code class="code">default_</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Indicates whether the world is the node's default (the one where new players
- are spawned into if not handled by plugins).
- If the node does not support default worlds or it simply doesn't have one
- this field should be left to its default value (<code class="code">false</code>).
- If the hub receives more than one default world it should consider the last
- received one as the default world.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#AddWorld.parent" id="AddWorld.parent"><code class="code">parent</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="AddWorld.parent"></span>int <code class="code">parent</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Id of the world's <code class="code">parent</code> or -1 if the world has no <code class="code">parent</code>. This is usually used
- for nether/end which are children of an overworld world.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#RemoveWorld" id="RemoveWorld"><code class="code">RemoveWorld</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="RemoveWorld"></span>struct <code class="code">RemoveWorld</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Notifies the hub that a world has been removed from the node.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#RemoveWorld.worldId" id="RemoveWorld.worldId"><code class="code">worldId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="RemoveWorld.worldId"></span>uint <code class="code">worldId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Id of the world that has been removed, previosly added using the
- AddWorld packet.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li>
-</ul>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#WebAdminCredentials" id="WebAdminCredentials"><code class="code">WebAdminCredentials</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="WebAdminCredentials"></span>struct <code class="code">WebAdminCredentials</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Gives the node the credentials that will be used by a remote panel
- client to connect to a world.
-  </p>
-</div>
-
-</section>
-<ul class="ddoc_members">
-  <li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#WebAdminCredentials.requestId" id="WebAdminCredentials.requestId"><code class="code">requestId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="WebAdminCredentials.requestId"></span>uint <code class="code">requestId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Id of the request, generated by the hub. To the request are associated the
- login credentials and the world to track.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#WebAdminCredentials.address" id="WebAdminCredentials.address"><code class="code">address</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="WebAdminCredentials.address"></span>string <code class="code">address</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Address used by the client to connect. May be a represantion of
- an ipv4 (<code class="code">134.56.1.55</code>), ipv6 (<code class="code">44:5:12::9</code>) or unix <code class="code">address</code> (<code class="code">~/tmp/rc</code>).
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#WebAdminCredentials.hash" id="WebAdminCredentials.hash"><code class="code">hash</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="WebAdminCredentials.hash"></span>ubyte[32] <code class="code">hash</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    Hash generated by the hub that will be used by the remote panel to
- perform authentication.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#WebAdminCredentials.worldId" id="WebAdminCredentials.worldId"><code class="code">worldId</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="WebAdminCredentials.worldId"></span>uint <code class="code">worldId</code>;
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    World that the remote panel client will connect to.
   </p>
 </div>
 
