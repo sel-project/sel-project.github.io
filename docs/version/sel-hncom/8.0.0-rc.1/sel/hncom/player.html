@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Module sel.hncom.player</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0-rc.1/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">hncom
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module selected">
+							<a href="../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Module sel.hncom.player</h1><p>Packets related to a player. The first field of every packet is an <code class="lang-d"><span class="pln">hub id</span></code>
+ that uniquely identifies a player in the hub and never changes until it disconnects.
+</p>
+				<section></section>
+				<section>
+					<h2>Structs</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Add" class="public" href="../../sel/hncom/player/Add.html">Add</a>
+								</code>
+							</td>
+							<td>Adds a player to the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Kick" class="public" href="../../sel/hncom/player/Kick.html">Kick</a>
+								</code>
+							</td>
+							<td>Kicks a player from the node and the whole server. When a player is disconnected
+ from the node using this packet the hub will not send the Remove packet.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Remove" class="public" href="../../sel/hncom/player/Remove.html">Remove</a>
+								</code>
+							</td>
+							<td>Removes a player from the node.
+ If the player is removed using Kick or Transfer this packet is not sent.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Transfer" class="public" href="../../sel/hncom/player/Transfer.html">Transfer</a>
+								</code>
+							</td>
+							<td>Transfers a player to another node. When a player is transferred from the node the hub
+ will not send the Remove packet and there's no way, for the node, to know whether the
+ player was disconnected or successfully transferred, if not using messages through a
+ user-defined protocol.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateDisplayName" class="public" href="../../sel/hncom/player/UpdateDisplayName.html">UpdateDisplayName</a>
+								</code>
+							</td>
+							<td>Updates the player's display name when it is changed.
+ When this packet is sent by the node a copy is always sent back by the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateLanguage" class="public" href="../../sel/hncom/player/UpdateLanguage.html">UpdateLanguage</a>
+								</code>
+							</td>
+							<td>Updates the player's language when the client changes it.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateLatency" class="public" href="../../sel/hncom/player/UpdateLatency.html">UpdateLatency</a>
+								</code>
+							</td>
+							<td>Updates the latency between the player and the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdatePacketLoss" class="public" href="../../sel/hncom/player/UpdatePacketLoss.html">UpdatePacketLoss</a>
+								</code>
+							</td>
+							<td>Updates the packet loss between the player and the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdatePermissionLevel" class="public" href="../../sel/hncom/player/UpdatePermissionLevel.html">UpdatePermissionLevel</a>
+								</code>
+							</td>
+							<td>Update the player's permission level.
+ When this packet is sent by the node a copy is always sent back by the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateViewDistance" class="public" href="../../sel/hncom/player/UpdateViewDistance.html">UpdateViewDistance</a>
+								</code>
+							</td>
+							<td>Notifies the node that the player's view distance has been updated client-side.
+ The node may decide to not accept the new view distance and not send the required chunks.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateWorld" class="public" href="../../sel/hncom/player/UpdateWorld.html">UpdateWorld</a>
+								</code>
+							</td>
+							<td>Updates the player's world. The player's dimension should be updated by
+ the hub using worldId to identify the world added with AddWorld and
+ removed with RemoveWorld.
+</td>
+						</tr>
+					</table>
+				</section>
+			</div>
+			<footer>
+				<div id="license-info">
+					
+					
+					
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
