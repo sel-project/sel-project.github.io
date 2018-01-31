@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Struct RemoteCommand</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/hncom.html">hncom</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/io.html">io</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/login.html">login</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/hncom/status.html">status</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Struct RemoteCommand</h1><p>Executes a command on the node.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">struct</span> <span class="typ">RemoteCommand</span>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Fields</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/status/RemoteCommand.command.html" class="public"><code>command</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Commands and arguments that should be executed on the node.
+ For example <code class="lang-d"><span class="pln">say hello world</span></code> or <code class="lang-d"><span class="pln">kill </span><span class="pun">@</span><span class="pln">a</span></code>.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/status/RemoteCommand.commandId.html" class="public"><code>commandId</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span></code></td><td>Identifier of the command. It's sent back in Log's commandId field
+ when the command generates output.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/status/RemoteCommand.origin.html" class="public"><code>origin</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ubyte</span></code></td><td>Origin of the command. It could be the hub itself or an external source.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/status/RemoteCommand.sender.html" class="public"><code>sender</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">socket<wbr/></span><span class="pun">.</span><span class="typ">Address</span></code></td><td>Address of the sender if the command has been sent from an external source.
+ It's <code class="lang-d"><span class="kwd">null</span></code> when the hub is the sender.
+</td>
+						</tr>
+					</table>
+				</section>
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>LGPL-3.0
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

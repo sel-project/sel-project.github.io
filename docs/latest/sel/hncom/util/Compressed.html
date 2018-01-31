@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Struct Compressed</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/hncom.html">hncom</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/io.html">io</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/login.html">login</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/status.html">status</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/hncom/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Struct Compressed</h1><p>Compressed packets.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">struct</span> <span class="typ">Compressed</span>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Fields</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/util/Compressed.id.html" class="public"><code>id</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ubyte</span></code></td><td>Same as Uncompressed's id field.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/util/Compressed.length.html" class="public"><code>length</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span></code></td><td>Length of the uncompressed buffer.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/util/Compressed.payload.html" class="public"><code>payload</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ubyte</span><span class="pun">[]</span></code></td><td>Compressed data.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Methods</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/util/Compressed.compress.html" class="public">
+									<code>compress</code>
+								</a>
+							</td>
+							<td>Creates a Compressed from an Uncompressed packet.
+ The Uncompressed packet is encoded and the data is compressed using
+ zlib's deflate algorithm.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/util/Compressed.compress.html" class="public">
+									<code>compress</code>
+								</a>
+							</td>
+							<td>Creates a Compressed from a list of encoded packets.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/util/Compressed.uncompress.html" class="public">
+									<code>uncompress</code>
+								</a>
+							</td>
+							<td>Uncompresses the data and returns an Uncompressed packet.
+</td>
+						</tr>
+					</table>
+				</section>
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>LGPL-3.0
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

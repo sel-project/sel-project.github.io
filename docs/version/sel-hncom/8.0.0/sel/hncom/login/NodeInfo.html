@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Struct NodeInfo</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/hncom.html">hncom</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/io.html">io</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/hncom/login.html">login</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/status.html">status</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Struct NodeInfo</h1><p>Node's informations.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">struct</span> <span class="typ">NodeInfo</span>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Fields</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/NodeInfo.acceptedGames.html" class="public"><code>acceptedGames</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span><span class="pun">[]</span><span class="pun">[</span><span class="typ">ubyte</span><span class="pun">]</span></code></td><td>Informations about the games accepted by the node. There should be at least
+ one combination of game/protocols that is also accepted by hub as indicated
+ in HubInfo.gamesInfo, otherwise the node will never receive any player.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/NodeInfo.additionalJSON.html" class="public"><code>additionalJSON</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">json<wbr/></span><span class="pun">.</span><span class="typ">JSONValue</span></code></td><td>Optional informations about the server's software and system,
+ similar to HubInfo's additionalJson field.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/NodeInfo.max.html" class="public"><code>max</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span></code></td><td>Maximum number of players accepted by node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/NodeInfo.plugins.html" class="public"><code>plugins</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">typecons<wbr/></span><span class="pun">.</span><span class="typ">Tuple</span>!(string,"name",string,"version_")<span class="pun">[]</span></code></td><td>List of plugins loaded on the node for creating queries on the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/NodeInfo.webAdminPort.html" class="public"><code>webAdminPort</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ushort</span></code></td><td>Port where the node is listening for connections, if the web admin protocol
+ is active on the hub.
+</td>
+						</tr>
+					</table>
+				</section>
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>LGPL-3.0
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

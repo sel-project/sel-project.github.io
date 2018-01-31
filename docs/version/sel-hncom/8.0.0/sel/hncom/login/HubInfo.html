@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Struct HubInfo</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/hncom.html">hncom</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/io.html">io</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/hncom/login.html">login</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/status.html">status</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Struct HubInfo</h1><p>Hub's informations.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">struct</span> <span class="typ">HubInfo</span>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Fields</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.acceptedLanguages.html" class="public"><code>acceptedLanguages</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span><span class="pun">[]</span></code></td><td>Languages accepted by the server in the same format as language.
+ The list should always contain at least one element (the default language).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.additionalJSON.html" class="public"><code>additionalJSON</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">json<wbr/></span><span class="pun">.</span><span class="typ">JSONValue</span></code></td><td>Optional informations about the server's software, social accounts, system and options.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.displayName.html" class="public"><code>displayName</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Unformatted name of the server as indicated in the hub's configuration file.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.gamesInfo.html" class="public"><code>gamesInfo</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">typecons<wbr/></span><span class="pun">.</span><span class="typ">Tuple</span>!(string,"motd",uint[],"protocols",bool,"onlineMode",ushort,"port")<span class="pun">[</span><span class="typ">ubyte</span><span class="pun">]</span></code></td><td>Informations about the games supported by the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.language.html" class="public"><code>language</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Default server's language in format (language_COUNTRY, e.g. en_GB) and also the
+ default language for players that don't specify their language or for the ones
+ which language is not supported by the server.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.max.html" class="public"><code>max</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">int</span></code></td><td>Number of maximum players that can connect to the server (that is the sum
+ of the max players of the nodes already connected).
+ The number may change after the current node connects.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.online.html" class="public"><code>online</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span></code></td><td>Number of players currently online and connected to other nodes.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.reservedUUIDs.html" class="public"><code>reservedUUIDs</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ulong</span></code></td><td>First number of the 4,294,967,296 (2^32) reserved by the hub to create the node's UUIDs.
+ Every UUID generated by the node is formed by the server's id (most signicant)
+ and the next reserved uuid (least significant). This way every UUID in the hub
+ and in the connected nodes is always different.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.serverId.html" class="public"><code>serverId</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ulong</span></code></td><td>Server's id, either given by a snoop system or randomly generated at runtime.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/hncom/login/HubInfo.webAdmin.html" class="public"><code>webAdmin</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Indicates whether the web admin protocol is active on the hub. If it is the
+ node should send the port where it will listen for connections in its info packet.
+</td>
+						</tr>
+					</table>
+				</section>
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>LGPL-3.0
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

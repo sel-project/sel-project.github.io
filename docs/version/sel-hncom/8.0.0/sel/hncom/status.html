@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Module sel.hncom.status</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../sel/hncom.html">hncom</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../sel/hncom/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/hncom/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/hncom/io.html">io</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/hncom/login.html">login</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../sel/hncom/status.html">status</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/hncom/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Module sel.hncom.status</h1><p></p>
+				<section></section>
+				<section>
+					<h2>Structs</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="AddNode" class="public" href="../../sel/hncom/status/AddNode.html">AddNode</a>
+								</code>
+							</td>
+							<td>Notifies the node that another node (that is not the receiver) has connected to the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="AddWorld" class="public" href="../../sel/hncom/status/AddWorld.html">AddWorld</a>
+								</code>
+							</td>
+							<td>Notifies the hub that a new world has been created on the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Latency" class="public" href="../../sel/hncom/status/Latency.html">Latency</a>
+								</code>
+							</td>
+							<td>Used to calculate latency by both the hub and the node.
+ When this packet is received it should be immeditaly sent back to the sender
+ without any change.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Log" class="public" href="../../sel/hncom/status/Log.html">Log</a>
+								</code>
+							</td>
+							<td>Sends a logged message to the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="ReceiveMessage" class="public" href="../../sel/hncom/status/ReceiveMessage.html">ReceiveMessage</a>
+								</code>
+							</td>
+							<td>Receives a binary message sent by another node using SendMessage.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="RemoteCommand" class="public" href="../../sel/hncom/status/RemoteCommand.html">RemoteCommand</a>
+								</code>
+							</td>
+							<td>Executes a command on the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="RemoveNode" class="public" href="../../sel/hncom/status/RemoveNode.html">RemoveNode</a>
+								</code>
+							</td>
+							<td>Notifies the node that another node, previously added with AddNode,
+ has disconnected from the hub.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="RemoveWorld" class="public" href="../../sel/hncom/status/RemoveWorld.html">RemoveWorld</a>
+								</code>
+							</td>
+							<td>Notifies the hub that a world has been removed from the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="SendMessage" class="public" href="../../sel/hncom/status/SendMessage.html">SendMessage</a>
+								</code>
+							</td>
+							<td>Sends a binary message to some selected nodes or broadcast it.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateMaxPlayers" class="public" href="../../sel/hncom/status/UpdateMaxPlayers.html">UpdateMaxPlayers</a>
+								</code>
+							</td>
+							<td>Updates the number of players that can be accepted by the node.
+ If the given number is smaller than the players currently connected
+ to the node no player should be kicked.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdatePlayers" class="public" href="../../sel/hncom/status/UpdatePlayers.html">UpdatePlayers</a>
+								</code>
+							</td>
+							<td>Updates the number of players on the server.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="UpdateUsage" class="public" href="../../sel/hncom/status/UpdateUsage.html">UpdateUsage</a>
+								</code>
+							</td>
+							<td>Updates the usage of the system's resources of the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="WebAdminCredentials" class="public" href="../../sel/hncom/status/WebAdminCredentials.html">WebAdminCredentials</a>
+								</code>
+							</td>
+							<td>Gives the node the credentials that will be used by a remote panel
+ client to connect to a world.
+</td>
+						</tr>
+					</table>
+				</section>
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>LGPL-3.0
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

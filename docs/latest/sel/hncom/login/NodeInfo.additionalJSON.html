@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Variable NodeInfo.additionalJSON</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-hncom/8.0.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/hncom.html">hncom</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/io.html">io</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/hncom/login.html">login</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/status.html">status</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/hncom/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Variable NodeInfo.additionalJSON</h1><p>Optional informations about the server's software and system,
+ similar to HubInfo's additionalJson field.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">struct</span> <a href="../../../sel/hncom/login/NodeInfo.html"><span class="typ">NodeInfo</span></a>
+				<br/>
+				<span class="pun">
+					{
+					<br/>
+				</span>
+				&nbsp;&nbsp;<span class="com">// ...</span>
+				<br/>
+				&nbsp;&nbsp;<span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">json<wbr/></span><span class="pun">.</span><span class="typ">JSONValue</span> <span class="pln">additionalJSON</span>
+				<span class="pun">;</span>
+				<br/>
+				&nbsp;&nbsp;<span class="com">// ...</span>
+				<br/>
+				<span class="pun">}</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="pun">{
+  </span><span class="str">"software"</span><span class="pun">: {
+     </span><span class="str">"name"</span><span class="pun">: </span><span class="str">"selery"</span><span class="pun">,
+     </span><span class="str">"version"</span><span class="pun">: </span><span class="str">"0.0.1"</span><span class="pun">,
+     </span><span class="str">"stable"</span><span class="pun">: </span><span class="kwd">true
+  </span><span class="pun">},
+  </span><span class="str">"system"</span><span class="pun">: {
+     </span><span class="str">"os"</span><span class="pun">: </span><span class="str">"Windows 10"</span><span class="pun">,
+     </span><span class="str">"cpu"</span><span class="pun">: </span><span class="str">"Intel(R) Core(TM) i7-5700U CPU @ 3.40GHz"</span><span class="pun">,
+     </span><span class="str">"cores"</span><span class="pun">: </span><span class="lit">4</span><span class="pun">,
+     </span><span class="str">"ram"</span><span class="pun">: </span><span class="lit">8589934592
+  </span><span class="pun">}
+}</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>LGPL-3.0
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
