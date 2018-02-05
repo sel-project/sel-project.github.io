@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Function query</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-client/0.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/client.html">client</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/client/bedrock.html">bedrock</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/client/client.html">client</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/client/java.html">java</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/client/query.html">query</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/client/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Function query</h1><p></p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">const</span><span class="pun">(</span><span class="pln">sel<wbr/></span><span class="pun">.</span><span class="pln">client<wbr/></span><span class="pun">.</span><span class="pln">query<wbr/></span><span class="pun">.</span><span class="typ">Query</span><span class="pun">)</span> <span class="pln">query</span>
+				<span class="pun">(</span>
+				<br/>
+				&nbsp;&nbsp;<span class="typ">string</span> <span class="pln">ip</span><span class="pun">,</span>
+				<br/>
+				&nbsp;&nbsp;<span class="typ">ushort</span> <span class="pln">port</span><span class="pun">,</span>
+				<br/>
+				&nbsp;&nbsp;<span class="pln">sel<wbr/></span><span class="pun">.</span><span class="pln">client<wbr/></span><span class="pun">.</span><span class="pln">query<wbr/></span><span class="pun">.</span><span class="typ">QueryType</span> <span class="pln">type</span> <span class="pun">=</span> <span class="kwd">cast</span><span class="pun">(</span><span class="typ">QueryType</span><span class="pun">)</span><span class="lit">1</span>
+				<br/>
+				<span class="pun">)</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
