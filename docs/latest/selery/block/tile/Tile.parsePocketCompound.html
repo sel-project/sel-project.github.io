@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Function Tile.parsePocketCompound</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/selery/0.1.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">arsd
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../arsd/terminal.html">terminal</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view ">
+						<div class="package ">selery
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../selery/block.html">block</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/block.html">block</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/blocks.html">blocks</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/farming.html">farming</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/fluid.html">fluid</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/miscellaneous.html">miscellaneous</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/redstone.html">redstone</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/solid.html">solid</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../selery/block/tile.html">tile</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/command.html">command</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/args.html">args</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/command.html">command</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/execute.html">execute</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/entity.html">entity</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/entity.html">entity</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/human.html">human</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/interfaces.html">interfaces</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/living.html">living</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/metadata.html">metadata</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/noai.html">noai</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/projectile.html">projectile</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">event
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">hub
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/hub/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/event/node.html">node</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/command.html">command</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/node.html">node</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/event/world.html">world</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/block.html">block</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/damage.html">damage</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/entity.html">entity</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/world.html">world</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/event.html">event</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">hub
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">handler
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/hncom.html">hncom</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/rcon.html">rcon</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/webadmin.html">webadmin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/webview.html">webview</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">inventory
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/inventory/inventory.html">inventory</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/inventory/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/item.html">item</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/consumeable.html">consumeable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/item.html">item</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/items.html">items</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/miscellaneous.html">miscellaneous</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/placeable.html">placeable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/recipe.html">recipe</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/slot.html">slot</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/throwable.html">throwable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/tool.html">tool</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/math.html">math</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/math/vector.html">vector</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">node
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/node/plugin.html">plugin</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/config.html">config</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/plugin.html">plugin</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/info.html">info</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/node.html">node</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/player.html">player</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/bedrock.html">bedrock</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/java.html">java</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">util
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/color.html">color</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/diet.html">diet</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/messages.html">messages</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/portable.html">portable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/resourcepack.html">resourcepack</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/thread.html">thread</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/tuple.html">tuple</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/world.html">world</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/chunk.html">chunk</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/generator.html">generator</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/map.html">map</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/task.html">task</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/thread.html">thread</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/world.html">world</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/commands.html">commands</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/config.html">config</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/crash.html">crash</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/effect.html">effect</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/enchantment.html">enchantment</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/lang.html">lang</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/log.html">log</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Function Tile.parsePocketCompound</h1><p>Parses a non-null compound saved from a Minecraft: Pocket
+ Edition's LevelDB format.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">abstract </span><span class="typ">void</span> <span class="pln">parsePocketCompound</span>
+				<span class="pun">(</span>
+				<br/>
+				&nbsp;&nbsp;<span class="pln">sel<wbr/></span><span class="pun">.</span><span class="pln">nbt<wbr/></span><span class="pun">.</span><span class="pln">tags<wbr/></span><span class="pun">.</span><span class="typ">Compound</span> <span class="pln">compound</span>
+				<br/>
+				<span class="pun">)</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

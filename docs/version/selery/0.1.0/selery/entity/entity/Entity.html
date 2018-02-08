@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Class Entity</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/selery/0.1.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">arsd
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../arsd/terminal.html">terminal</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view ">
+						<div class="package ">selery
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/block.html">block</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/block.html">block</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/blocks.html">blocks</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/farming.html">farming</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/fluid.html">fluid</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/miscellaneous.html">miscellaneous</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/redstone.html">redstone</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/solid.html">solid</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/tile.html">tile</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/command.html">command</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/args.html">args</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/command.html">command</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/execute.html">execute</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../selery/entity.html">entity</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module selected">
+							<a href="../../../selery/entity/entity.html">entity</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/human.html">human</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/interfaces.html">interfaces</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/living.html">living</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/metadata.html">metadata</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/noai.html">noai</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/projectile.html">projectile</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">event
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">hub
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/hub/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/event/node.html">node</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/command.html">command</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/node.html">node</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/event/world.html">world</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/block.html">block</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/damage.html">damage</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/entity.html">entity</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/world.html">world</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/event.html">event</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">hub
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">handler
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/hncom.html">hncom</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/rcon.html">rcon</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/webadmin.html">webadmin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/webview.html">webview</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">inventory
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/inventory/inventory.html">inventory</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/inventory/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/item.html">item</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/consumeable.html">consumeable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/item.html">item</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/items.html">items</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/miscellaneous.html">miscellaneous</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/placeable.html">placeable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/recipe.html">recipe</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/slot.html">slot</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/throwable.html">throwable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/tool.html">tool</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/math.html">math</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/math/vector.html">vector</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">node
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/node/plugin.html">plugin</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/config.html">config</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/plugin.html">plugin</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/info.html">info</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/node.html">node</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/player.html">player</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/bedrock.html">bedrock</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/java.html">java</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">util
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/color.html">color</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/diet.html">diet</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/messages.html">messages</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/portable.html">portable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/resourcepack.html">resourcepack</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/thread.html">thread</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/tuple.html">tuple</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/world.html">world</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/chunk.html">chunk</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/generator.html">generator</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/map.html">map</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/task.html">task</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/thread.html">thread</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/world.html">world</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/commands.html">commands</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/config.html">config</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/crash.html">crash</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/effect.html">effect</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/enchantment.html">enchantment</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/lang.html">lang</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/log.html">log</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Class Entity</h1><p>Base abstract class for every entity.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">class</span> <span class="typ">Entity</span>
+				<br>&nbsp;&nbsp;: <a href="../../../selery/event/event/EventListener.html"><span class="typ">EventListener</span></a>!(selery.event.world.world.WorldEvent)
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Properties</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.alive.html" class="public property"><code>alive</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Checks the dead/alive status of the entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.anglePitch.html" class="public property"><code>anglePitch</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">byte</span></code></td><td>Gets the pitch as a byte for encoding reasons.
+ To btain a valid value the pitch should be in its valid range
+ from -90 to 90.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.angleYaw.html" class="public property"><code>angleYaw</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ubyte</span></code></td><td>Gets the yaw as an unsigned byte for encoding reasons.
+ To obtain a valid value the yaw should be in its valid range
+ from 0 to 360.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.bedrock.html" class="public property"><code>bedrock</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Indicates whether the entity exists in Minecraft.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.bodyYaw.html" class="public property"><code>bodyYaw</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">float</span></code></td><td>Gets the entity's body facing direction. This variable
+ may not affect all the entities.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.box.html" class="public property"><code>box</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">selery<wbr/></span><span class="pun">.</span><span class="pln">math<wbr/></span><span class="pun">.</span><span class="pln">vector<wbr/></span><span class="pun">.</span><span class="typ">ClassicEntityBox</span>!(double)</code></td><td>Gets the entity's bounding box.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.chunk.html" class="public property"><code>chunk</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/math/vector/Vector.html"><span class="typ">Vector</span></a>!(int,"xz")</code></td><td>Gets the 16x16 chunk the entity is in.
+ A bigger chunk can be obtained by right-shifting the vector
+ by the required amount.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.dead.html" class="public property"><code>dead</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Checks the dead/alive status of the entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.direction.html" class="public property"><code>direction</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/math/vector/Vector.html"><span class="typ">Vector</span></a>!(double,"xyz")</code></td><td>Gets the player's looking direction calculated from yaw and pitch.
+ The return value is in range 0..1 and it should be multiplied to
+ obtain the desired value.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.eyeHeight.html" class="public property"><code>eyeHeight</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">double</span></code></td><td>Gets entity's sizes.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.falling.html" class="public property"><code>falling</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Boolean value indicating whether or not the entity
+ is falling.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.height.html" class="public property"><code>height</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">double</span></code></td><td>Gets the item's height.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.java.html" class="public property"><code>java</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Indicates whether the entity exists in Minecraft.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.motion.html" class="public property"><code>motion</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/math/vector/Vector.html"><span class="typ">Vector</span></a>!(double,"xyz")</code></td><td>Gets the entity's motion.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.motion.html" class="public property"><code>motion</code></a><span class="tableEntryAnnotation">[set]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/math/vector/Vector.html"><span class="typ">Vector</span></a>!(double,"xyz")</code></td><td>Sets the entity's motion.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.motionless.html" class="public property"><code>motionless</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Checks whether or not an entity has motion.
+ A motionless entity has every value of the motion's vector
+ equal to 0.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.motionless.html" class="public property"><code>motionless</code></a><span class="tableEntryAnnotation">[set]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Sets the entity as motionless.
+ This is equivalent to motion = EntityPosition(0).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.object.html" class="public property"><code>object</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Indicates whether the entity is an object. If not the entity is
+ a mob (living entity).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.objectData.html" class="public property"><code>objectData</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">int</span></code></td><td>If the entity is an object gets the object's extra data used
+ in Minecraft's SpawnObject packet.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.onGround.html" class="public property"><code>onGround</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Boolean value indicating whether or not the player is touching
+ the ground or is in it.
+ This value is true even if the player is in a liquid (like water).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.passenger.html" class="public property"><code>passenger</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/entity/entity/Entity.html"><span class="typ">Entity</span></a></code></td><td>Gets the entity's passenger.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.passenger.html" class="public property"><code>passenger</code></a><span class="tableEntryAnnotation">[set]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/entity/entity/Entity.html"><span class="typ">Entity</span></a></code></td><td>Sets the entity's passenger.
+ The vehicle of the passenger is set automatically.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.pitch.html" class="public property"><code>pitch</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">float</span></code></td><td>Gets the entity's looking direction (up-down).
+ The value should be in range -90..90 (90 included).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.position.html" class="public property"><code>position</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/math/vector/Vector.html"><span class="typ">Vector</span></a>!(double,"xyz")</code></td><td>Gets the entity's position.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.scale.html" class="public property"><code>scale</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">float</span></code></td><td>/**
+	 * Gets the entity's width.
+	 */
+	public final @property @safe @nogc float width() {
+		return this.box.width;
+	}
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.ticks.html" class="public property"><code>ticks</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ulong</span></code></td><td>Gets the amount of ticks for this entity.
+ The ticks doesn't indicates the life-time of the entity, but
+ how many times it has been ticked by its world.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.type.html" class="public property"><code>type</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets the entity's type in a string format.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.uuid.html" class="public property"><code>uuid</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">uuid<wbr/></span><span class="pun">.</span><span class="pln">UUID</span></code></td><td>Gets the unique identifier (UUID).
+ It's usually randomly generated when the entity is
+ created and it can only be changed by the child classes.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.vehicle.html" class="public property"><code>vehicle</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/entity/entity/Entity.html"><span class="typ">Entity</span></a></code></td><td>Gets the entity's vechicle.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.velocity.html" class="public property"><code>velocity</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/math/vector/Vector.html"><span class="typ">Vector</span></a>!(short,"xyz")</code></td><td>Gets the motion as pc's velocity, ready to be encoded
+ in a packet.
+ Due to this encoding limitation, the entity's motion should
+ never be higher than 4.096 (2^15 / 8000).
+ If it is, it will be clamped.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.viewers.html" class="public property"><code>viewers</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">T</span><span class="pun">[]</span></code></td><td>Gets a list of the entities that can see this entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.watchlist.html" class="public property"><code>watchlist</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">T</span><span class="pun">[]</span></code></td><td>Gets a list of the entities that this entity can see.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.width.html" class="public property"><code>width</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">double</span></code></td><td>Gets the item's width.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.world.html" class="public property"><code>world</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/world/world/World.html"><span class="typ">World</span></a></code></td><td>Gets the world the entity has been spawned into.
+ Non-player entities should always have the same world for
+ their whole life-cycle.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.yaw.html" class="public property"><code>yaw</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">float</span></code></td><td>Gets the entity's looking direction (right-left).
+ The value should always be in range 0..360.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.vehicle.html" class="protected property"><code>vehicle</code></a><span class="tableEntryAnnotation">[set]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../selery/entity/entity/Entity.html"><span class="typ">Entity</span></a></code></td><td>Sets the entity's vehicle.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Methods</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.attack.html" class="public">
+									<code>attack</code>
+								</a>
+							</td>
+							<td>Attacks an entity and returns the event used.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.drop.html" class="public">
+									<code>drop</code>
+								</a>
+							</td>
+							<td>Drop an item from this entity
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.hide.html" class="public">
+									<code>hide</code>
+								</a>
+							</td>
+							<td>Hides an entity from this entity, if this entity can see it.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.move.html" class="public">
+									<code>move</code>
+								</a>
+							</td>
+							<td>Moves the entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.sees.html" class="public">
+									<code>sees</code>
+								</a>
+							</td>
+							<td>Checks wether this entity can see or not another entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.setSize.html" class="public">
+									<code>setSize</code>
+								</a>
+							</td>
+							<td>Updates the size of the entity and its bounding box.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.shouldSee.html" class="public">
+									<code>shouldSee</code>
+								</a>
+							</td>
+							<td>Indicates which entities this one should and should not see.
+ By default only the entities indicated as true by this function
+ will be shown through the <a href="#Entity.show">show</a> function
+ and added to the watchlist.
+ For example, an arrow can see a painting, so Arrow.shouldSee(painting)
+ will be true, but a painting shouldn't see an arrow, so Painting.shouldSee(arrow)
+ will be false.
+ This increases the performances as there are less controls, casts and operation
+ on arrays in big worlds or chunks of worlds with an high concetration of entities.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.show.html" class="public">
+									<code>show</code>
+								</a>
+							</td>
+							<td>Adds an entity to the ones this entity can see.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.teleport.html" class="public">
+									<code>teleport</code>
+								</a>
+							</td>
+							<td>Teleports the entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.addEventListener.html" class="public inherited">
+									<code>addEventListener</code>
+								</a>
+							</td>
+							<td>Adds an event through a delegate.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.callCancellableIfExists.html" class="public inherited">
+									<code>callCancellableIfExists</code>
+								</a>
+							</td>
+							<td>Calls a cancellable event using callEventIfExists.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.callEvent.html" class="public inherited">
+									<code>callEvent</code>
+								</a>
+							</td>
+							<td>Calls an event.
+ Events are always called in the order they are registered, even
+ in the inheritance.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.callEventIfExists.html" class="public inherited">
+									<code>callEventIfExists</code>
+								</a>
+							</td>
+							<td>Calls an event only if it exists.
+ This should be used when a event is used only to notify
+ the plugin of it.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.opOpAssign.html" class="public inherited">
+									<code>opOpAssign</code>
+								</a>
+							</td>
+							<td>Adds an event through a delegate.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.opOpAssign.html" class="public inherited">
+									<code>opOpAssign</code>
+								</a>
+							</td>
+							<td>Removes an event listener using its delegate pointer.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.opOpAssign.html" class="public inherited">
+									<code>opOpAssign</code>
+								</a>
+							</td>
+							<td>Removes an event listener using its assigned id.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.removeEventListener.html" class="public inherited">
+									<code>removeEventListener</code>
+								</a>
+							</td>
+							<td>Removes an event listener using its delegate pointer.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/event/event/EventListener.removeEventListener.html" class="public inherited">
+									<code>removeEventListener</code>
+								</a>
+							</td>
+							<td>Removes an event listener using its assigned id.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.broadcastMetadata.html" class="protected">
+									<code>broadcastMetadata</code>
+								</a>
+							</td>
+							<td>Send the metadata to the viewers
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.checkCollisionsWithEntities.html" class="protected">
+									<code>checkCollisionsWithEntities</code>
+								</a>
+							</td>
+							<td>Checks collisions with the entities in the watchlist
+ and calls onCollideWithEntity on collision.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.despawn.html" class="protected">
+									<code>despawn</code>
+								</a>
+							</td>
+							<td>Despawns this entity, calling the event in the world.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.doPhysic.html" class="protected">
+									<code>doPhysic</code>
+								</a>
+							</td>
+							<td>Does physic movements using the entity's parameters.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.onCollideWithEntity.html" class="protected">
+									<code>onCollideWithEntity</code>
+								</a>
+							</td>
+							<td>Function called from checkCollisionWithEntities when
+ this entity collides with another entity.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/entity/entity/Entity.updateGroundStatus.html" class="protected">
+									<code>updateGroundStatus</code>
+								</a>
+							</td>
+							<td>Does the onGround updates.
+</td>
+						</tr>
+					</table>
+				</section>
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

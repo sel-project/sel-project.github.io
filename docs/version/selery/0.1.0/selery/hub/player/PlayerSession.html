@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Class PlayerSession</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/selery/0.1.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">arsd
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../arsd/terminal.html">terminal</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view ">
+						<div class="package ">selery
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/block.html">block</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/block.html">block</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/blocks.html">blocks</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/farming.html">farming</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/fluid.html">fluid</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/miscellaneous.html">miscellaneous</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/redstone.html">redstone</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/solid.html">solid</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/block/tile.html">tile</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/command.html">command</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/args.html">args</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/command.html">command</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/execute.html">execute</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/command/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/entity.html">entity</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/entity.html">entity</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/human.html">human</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/interfaces.html">interfaces</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/living.html">living</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/metadata.html">metadata</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/noai.html">noai</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/projectile.html">projectile</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/entity/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">event
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">hub
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/hub/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/event/node.html">node</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/command.html">command</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/node.html">node</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/node/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/event/world.html">world</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/block.html">block</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/damage.html">damage</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/entity.html">entity</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/world/world.html">world</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/event/event.html">event</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view ">
+						<div class="package ">hub
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">handler
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/hncom.html">hncom</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/rcon.html">rcon</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/webadmin.html">webadmin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/handler/webview.html">webview</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../selery/hub/player.html">player</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/hub/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">inventory
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/inventory/inventory.html">inventory</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/inventory/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/item.html">item</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/consumeable.html">consumeable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/item.html">item</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/items.html">items</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/miscellaneous.html">miscellaneous</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/placeable.html">placeable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/recipe.html">recipe</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/slot.html">slot</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/throwable.html">throwable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/item/tool.html">tool</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/math.html">math</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/math/vector.html">vector</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">node
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/node/plugin.html">plugin</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/config.html">config</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/plugin/plugin.html">plugin</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/handler.html">handler</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/info.html">info</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/node.html">node</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/node/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/player.html">player</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/bedrock.html">bedrock</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/java.html">java</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/player/player.html">player</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">util
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/color.html">color</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/diet.html">diet</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/messages.html">messages</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/portable.html">portable</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/resourcepack.html">resourcepack</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/thread.html">thread</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/tuple.html">tuple</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/util/util.html">util</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li class="tree-view collapsed">
+						<div class="package ">
+							<a href="../../../selery/world.html">world</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/chunk.html">chunk</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/generator.html">generator</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/map.html">map</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/task.html">task</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/thread.html">thread</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/world/world.html">world</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/about.html">about</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/commands.html">commands</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/config.html">config</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/crash.html">crash</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/effect.html">effect</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/enchantment.html">enchantment</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/lang.html">lang</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/log.html">log</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/plugin.html">plugin</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../selery/server.html">server</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Class PlayerSession</h1><p>Session for players.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">class</span> <span class="typ">PlayerSession</span>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Properties</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.address.html" class="public property"><code>address</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">socket<wbr/></span><span class="pun">.</span><span class="typ">Address</span></code></td><td>Gets the player's remote address. it's usually an ipv4, ipv6
+ or an ipv4-mapped ipv6.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.dimension.html" class="public property"><code>dimension</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">byte</span></code></td><td>Gets the player's world, which is updated by the node every
+ time the client changes dimension.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.displayName.html" class="public property"><code>displayName</code></a><span class="tableEntryAnnotation">[get, set]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets and sets the player's display name.
+ It can contain formatting codes and it could change during
+ the session's lifetime (if modified by a node).
+ It's usually displayed in the nametag and in the players list.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.game.html" class="public property"><code>game</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets the game type and version as a human-readable string.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.gameName.html" class="public property"><code>gameName</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets the client's game name.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.gameVersion.html" class="public property"><code>gameVersion</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets the client's game version, which could either be calculated
+ from the protocol number or given by the client.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.inputMode.html" class="public property"><code>inputMode</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">sel<wbr/></span><span class="pun">.</span><span class="pln">server<wbr/></span><span class="pun">.</span><span class="pln">client<wbr/></span><span class="pun">.</span><span class="typ">InputMode</span></code></td><td>Gets the player's input mode.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.iusername.html" class="public property"><code>iusername</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets the player's lowercase username.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.language.html" class="public property"><code>language</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets/sets the player's language, indicated as code_COUNTRY.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.latency.html" class="public property"><code>latency</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span></code></td><td>Gets the player's latency.
+ Not being calculated using an ICMP protocol the value may not be
+ completely accurate.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.packetLoss.html" class="public property"><code>packetLoss</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">float</span></code></td><td>Gets the player's latency.
+ It returns a floating point value between 0 and 100 where
+ 0 is no packet loss and 100 is every packet lost since the
+ last check.
+ If the client uses a stream-oriented connection the value
+ will always be 0.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.protocol.html" class="public property"><code>protocol</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">uint</span></code></td><td>Gets the protocol number used by the client.
+ It may be 0 if the packet with the protocol number didn't
+ come yet.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.serverIp.html" class="public property"><code>serverIp</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>IP used by the client to connect to the server.
+ It's a string and can either be a numerical ip or a full url.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.serverPort.html" class="public property"><code>serverPort</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ushort</span></code></td><td>Port used by the client to connect to the server.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.skin.html" class="public property"><code>skin</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">selery<wbr/></span><span class="pun">.</span><span class="pln">hub<wbr/></span><span class="pun">.</span><span class="pln">player<wbr/></span><span class="pun">.</span><span class="typ">Skin</span></code></td><td>Gets the player's skin as a Skin object.
+ If the player has no skin the object will be null.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.suuid.html" class="public property"><code>suuid</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="kwd">immutable</span><span class="pun">(</span><span class="typ">ubyte</span><span class="pun">[</span><span class="lit">17</span><span class="pun">]</span><span class="pun">)</span></code></td><td>Gets the SEL UUID, a unique identifier for the player in
+ the session. It's composed by 17 bytes (type and UUID)
+ and it will never change for authenticated players.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.type.html" class="public property"><code>type</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ubyte</span></code></td><td>Gets the game type as an unsigned byte identifier.
+ The types are indicated in module sel.server.client, in the
+ Client's class.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.username.html" class="public property"><code>username</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Gets the player's username, mantaining the case given
+ by the login packet.
+ It doesn't change during the life of the session.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.uuid.html" class="public property"><code>uuid</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">uuid<wbr/></span><span class="pun">.</span><span class="pln">UUID</span></code></td><td>Gets the UUID. It's unique when online-mode is se to true
+ and can be used to identify a player.
+ When online-mode is set to false it is randomly generated
+ and its uses are very limited.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.world.html" class="public property"><code>world</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="kwd">shared</span><span class="pun">(</span><span class="pln">selery<wbr/></span><span class="pun">.</span><span class="pln">hub<wbr/></span><span class="pun">.</span><span class="pln">player<wbr/></span><span class="pun">.</span><span class="typ">World</span><span class="pun">)</span></code></td><td>Gets the player's world, which is updated by the node every
+ time the client changes dimension.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Methods</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.connect.html" class="public">
+									<code>connect</code>
+								</a>
+							</td>
+							<td>Tries to connect the player to a node.
+ This function does not notify the old node of the change,
+ as the old node should have called the function.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.firstConnect.html" class="public">
+									<code>firstConnect</code>
+								</a>
+							</td>
+							<td>Calls the connect function using 'first join' as reason
+ and, if it successfully connects to a node, add the player
+ to the server.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.kick.html" class="public">
+									<code>kick</code>
+								</a>
+							</td>
+							<td>Function called when the player is kicked (by the
+ hub or the node).
+ The function should send a disconnection message
+ and close the session.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.onKicked.html" class="public">
+									<code>onKicked</code>
+								</a>
+							</td>
+							<td>Function called when the client is kicked from
+ the hub (not from the node).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.sendFromNode.html" class="public">
+									<code>sendFromNode</code>
+								</a>
+							</td>
+							<td>Sends an encoded packet to client that has been created
+ and encoded by the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.sendOrderedFromNode.html" class="public">
+									<code>sendOrderedFromNode</code>
+								</a>
+							</td>
+							<td>Sends a packet from the node and mantains the order.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.sendToNode.html" class="public">
+									<code>sendToNode</code>
+								</a>
+							</td>
+							<td>Forwards a game packet to the node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.transfer.html" class="public">
+									<code>transfer</code>
+								</a>
+							</td>
+							<td>Function called when the player is manually
+ transferred by the hub to a node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.endOfStream.html" class="protected">
+									<code>endOfStream</code>
+								</a>
+							</td>
+							<td>Function called when the player tries to connect to
+ a node that doesn't exist, either because the name is
+ wrong or because there aren't available ones.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.onClosedByClient.html" class="protected">
+									<code>onClosedByClient</code>
+								</a>
+							</td>
+							<td>Function called when the connection is manually closed
+ by the client clicking the disconnect button on the
+ game's interface.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.onTimedOut.html" class="protected">
+									<code>onTimedOut</code>
+								</a>
+							</td>
+							<td>Function called when the client times out.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.sendLatency.html" class="protected">
+									<code>sendLatency</code>
+								</a>
+							</td>
+							<td>Sends the latency to the connected node.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../selery/hub/player/PlayerSession.sendPacketLoss.html" class="protected">
+									<code>sendPacketLoss</code>
+								</a>
+							</td>
+							<td>Sends the packet loss to the connected node.
+</td>
+						</tr>
+					</table>
+				</section>
+				
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
