@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Alias Bool</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Alias Bool</h1><p>Byte tag that only uses the values 1 and 0 to indicate
+ respectively true and false.
+ It's usually used by SEL to store boolean values instead
+ of a byte tag.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">alias</span> <span class="pln">Bool</span>
+				 <span class="pun">=</span> <a href="../../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(byte,1)<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="kwd">assert</span><span class="pun">(</span><span class="kwd">new <a href="../../../sel/nbt/tags/Byte.html"></span><span class="typ">Byte</span></a><span class="pun">(</span><span class="lit">1</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Bool</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">));</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

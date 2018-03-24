@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Module sel.nbt.tags</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Module sel.nbt.tags</h1><p></p>
+				<section></section>
+				<section>
+					<h2>Classes</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="ArrayTag" class="public" href="../../sel/nbt/tags/ArrayTag.html">ArrayTag</a>
+								</code>
+							</td>
+							<td>Simple tag with array-related functions.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Compound" class="public" href="../../sel/nbt/tags/Compound.html">Compound</a>
+								</code>
+							</td>
+							<td>Associative array of named tags (that can be of different types).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="ListOf" class="public" href="../../sel/nbt/tags/ListOf.html">ListOf</a>
+								</code>
+							</td>
+							<td>Array of signed longs, introduced in Minecraft: Java Edition 1.13
+ and not yet in the other versions of Minecraft.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Named" class="public" href="../../sel/nbt/tags/Named.html">Named</a>
+								</code>
+							</td>
+							<td>Creates a named tag. The first argument of the constructor becomes a string
+ (the name) and rest doesn't change.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="NumericArrayTag" class="public" href="../../sel/nbt/tags/NumericArrayTag.html">NumericArrayTag</a>
+								</code>
+							</td>
+							<td>Simple tag with array-related functions.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="SimpleTag" class="public" href="../../sel/nbt/tags/SimpleTag.html">SimpleTag</a>
+								</code>
+							</td>
+							<td>Simple tag with a value of type T, if T is a primitive type
+ or it can be written in the buffer.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="Tag" class="public" href="../../sel/nbt/tags/Tag.html">Tag</a>
+								</code>
+							</td>
+							<td>Base class for every NBT that contains id and encoding
+ functions (the endianness may vary from a Minecraft version
+ to another and the purpose of the tags in the game).
+</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h2>Enums</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<code>
+									<a id="NBT_TYPE" class="public" href="../../sel/nbt/tags/NBT_TYPE.html">NBT_TYPE</a>
+								</code>
+							</td>
+							<td>NBT's ids, as unsigned bytes, used by for client-server
+ and generic io communication.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h2>Aliases</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a id="Bool" class="public" href="../../sel/nbt/tags/Bool.html">
+									<code>Bool</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(byte,1)</code>
+							</td>
+							<td>Byte tag that only uses the values 1 and 0 to indicate
+ respectively true and false.
+ It's usually used by SEL to store boolean values instead
+ of a byte tag.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="Byte" class="public" href="../../sel/nbt/tags/Byte.html">
+									<code>Byte</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(byte,1)</code>
+							</td>
+							<td>Tag with a signed byte, usually used to store small
+ values like the progress of an action or the type of
+ an entity.
+ An unsigned version of the tag can be obtained doing a
+ cast to ubyte.
+ <a href="#ByteArray">Byte Array</a> is a tag with an array
+ of unsigned bytes.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="ByteArray" class="public" href="../../sel/nbt/tags/ByteArray.html">
+									<code>ByteArray</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/NumericArrayTag.html"><span class="typ">NumericArrayTag</span></a>!(byte,7)</code>
+							</td>
+							<td>Array of unsigned bytes (clients and other softwares may
+ interpret the bytes as signed due to limitations of the
+ programming language).
+ The tag is usually used by Minecraft's worlds to store
+ blocks' ids and metas.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="Double" class="public" href="../../sel/nbt/tags/Double.html">
+									<code>Double</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(double,6)</code>
+							</td>
+							<td>Tag with an 8-bytes float point value used instead of the
+ Float tag if the precision or the available number's range
+ must be higher.
+ See <a href="#Float">Float</a>'s documentation for informations
+ about the NaN value and its support inside and outside SEL.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="Float" class="public" href="../../sel/nbt/tags/Float.html">
+									<code>Float</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(float,5)</code>
+							</td>
+							<td>Tag with a 4-bytes floating point value, usually used to
+ store non-blocks coordinates or points in the world.
+ The float.nan value can be used and recognized by the
+ SEL-derived systems, but couldn't be recognized by other
+ softwares based on different programming languages that
+ doesn't support the not-a-number value.
+ More informations about the NaN value and its encoding
+ can be found on <a href="#https://en.wikipedia.org/wiki/NaN">Wikipedia</a>.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="Int" class="public" href="../../sel/nbt/tags/Int.html">
+									<code>Int</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(int,3)</code>
+							</td>
+							<td>Tag with a signed integer, used to store values that
+ don't usually fit in the short tag, like entity's ids.
+ This tag can aslo be converted to its unsigned version
+ (uint) with a simple cast to it.
+ <a href="#IntArray">Int Array</a> is a tag with an array
+ of signed integers.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="IntArray" class="public" href="../../sel/nbt/tags/IntArray.html">
+									<code>IntArray</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/NumericArrayTag.html"><span class="typ">NumericArrayTag</span></a>!(int,11)</code>
+							</td>
+							<td>Array of signed integers, introduced in the last version
+ of the NBT format. Used by anvil worlds.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="Long" class="public" href="../../sel/nbt/tags/Long.html">
+									<code>Long</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(long,4)</code>
+							</td>
+							<td>Tag with a signed long.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="LongArray" class="public" href="../../sel/nbt/tags/LongArray.html">
+									<code>LongArray</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/NumericArrayTag.html"><span class="typ">NumericArrayTag</span></a>!(long,12)</code>
+							</td>
+							<td>Array of signed longs, introduced in Minecraft: Java Edition 1.13
+ and not yet in the other versions of Minecraft.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="Short" class="public" href="../../sel/nbt/tags/Short.html">
+									<code>Short</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(short,2)</code>
+							</td>
+							<td>Tag with a signed short, used when the 255 bytes (or 127
+ if only the positive part is counted) is not enough.
+ This tag can also be converted to its unsigned version
+ doing a simple cast to ushort.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a id="String" class="public" href="../../sel/nbt/tags/String.html">
+									<code>String</code>
+								</a>
+							</td>
+							<td>
+								<code class="prettyprint lang-d"><a href="../../sel/nbt/tags/SimpleTag.html"><span class="typ">SimpleTag</span></a>!(string,8)</code>
+							</td>
+							<td>Tag with an UTF-8 string encoded as its length as short and
+ its content casted to btyes.
+</td>
+						</tr>
+					</table>
+				</section>
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

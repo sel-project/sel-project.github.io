@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Function parse</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Function parse</h1><p>Parses a string into a tag.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<a href="../../../sel/nbt/tags/Tag.html"><span class="typ">Tag</span></a> <span class="pln">parse</span>
+				<span class="pun">(</span>
+				<br/>
+				&nbsp;&nbsp;<span class="typ">string</span> <span class="pln">data</span>
+				<br/>
+				<span class="pun">)</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Example</h2>
+
+<pre class="code"><code class="lang-d"><span class="pln">
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">""</span><span class="pun">) </span><span class="kwd">is null</span><span class="pun">);
+
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"{}"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Compound</span><span class="pun">());
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"{a:true,b:false}"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Compound</span><span class="pun">(</span><span class="kwd">new </span><span class="typ">Named</span><span class="pun">!</span><span class="typ">Byte</span><span class="pun">(</span><span class="str">"a"</span><span class="pun">, </span><span class="kwd">true</span><span class="pun">), </span><span class="kwd">new </span><span class="typ">Named</span><span class="pun">!</span><span class="typ">Byte</span><span class="pun">(</span><span class="str">"b"</span><span class="pun">, </span><span class="kwd">false</span><span class="pun">)));
+
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"[string,1]"</span><span class="pun">) </span><span class="kwd">is null</span><span class="pun">);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"[]"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">List</span><span class="pun">());
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"[,]"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">IntArray</span><span class="pun">());
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"[1L, 2]"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">IntArray</span><span class="pun">(</span><span class="lit">1</span><span class="pun">, </span><span class="lit">2</span><span class="pun">));
+
+</span><span class="com">// string
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">`"a string"`</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">String</span><span class="pun">(</span><span class="str">"a string"</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">`"a \"quoted\" string"`</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">String</span><span class="pun">(</span><span class="str">"a \"quoted\" string"</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">`"a newline\nstring"`</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">String</span><span class="pun">(</span><span class="str">"a newline\\nstring"</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">`"\\\\\" \ "`</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">String</span><span class="pun">(</span><span class="str">`\\" \ `</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"test"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">String</span><span class="pun">(</span><span class="str">"test"</span><span class="pun">));
+
+</span><span class="com">// numbers
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"55"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Int</span><span class="pun">(</span><span class="lit">55</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"12b"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Byte</span><span class="pun">(</span><span class="lit">12</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"-4S"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Short</span><span class="pun">(-</span><span class="lit">4</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"2147483649"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Long</span><span class="pun">(</span><span class="lit">2147483649L</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"0L"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Long</span><span class="pun">(</span><span class="lit">0</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"12.1"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Double</span><span class="pun">(</span><span class="lit">12.1</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">".44f"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Float</span><span class="pun">(</span><span class="lit">.44f</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"12.1.1.1"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Double</span><span class="pun">(</span><span class="lit">12.1</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">".00D"</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Double</span><span class="pun">(</span><span class="lit">0</span><span class="pun">));
+
+</span><span class="com">// compound
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">`{EntityData:{id:"minecraft:creeper"}}`</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Compound</span><span class="pun">(</span><span class="kwd">new </span><span class="typ">Named</span><span class="pun">!</span><span class="typ">Compound</span><span class="pun">(</span><span class="str">"EntityData"</span><span class="pun">, </span><span class="kwd">new </span><span class="typ">Named</span><span class="pun">!</span><span class="typ">String</span><span class="pun">(</span><span class="str">"id"</span><span class="pun">, </span><span class="str">"minecraft:creeper"</span><span class="pun">))));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">(</span><span class="str">`{Potion:"minecraft:long_strength"}`</span><span class="pun">) == </span><span class="kwd">new </span><span class="typ">Compound</span><span class="pun">(</span><span class="kwd">new </span><span class="typ">Named</span><span class="pun">!</span><span class="typ">String</span><span class="pun">(</span><span class="str">"Potion"</span><span class="pun">, </span><span class="str">"minecraft:long_strength"</span><span class="pun">)));
+
+</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Function toNBT</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Function toNBT</h1><p>Converts a JSONValue into a Tag.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<a href="../../../sel/nbt/tags/Tag.html"><span class="typ">Tag</span></a> <span class="pln">toNBT</span>
+				<span class="pun">(</span>
+				<br/>
+				&nbsp;&nbsp;<span class="pln">std<wbr/></span><span class="pun">.</span><span class="pln">json<wbr/></span><span class="pun">.</span><span class="typ">JSONValue</span> <span class="pln">json</span>
+				<br/>
+				<span class="pun">)</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Returns</h2>
+<p>an instance of Compound when the json is an object, and instance of
+ 		List when the json is an array, an instance of String when the json
+ 		is a string, an instance of Long when the json is an integer, an
+ 		instance of Double when the json is a floating point number, an
+ 		instance of Byte (with values 0 and 1) when the json is a boolean
+ 		and null when the json is null.
+</p>
+</section>
+<section><h2>Example</h2>
+
+<pre class="code"><code class="lang-d"><span class="pln">
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">Byte</span><span class="pun">(</span><span class="lit">1</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">([</span><span class="lit">1</span><span class="pun">, </span><span class="lit">2</span><span class="pun">, </span><span class="lit">3</span><span class="pun">])) == </span><span class="kwd">new </span><span class="typ">ListOf</span><span class="pun">!</span><span class="typ">Long</span><span class="pun">(</span><span class="lit">1</span><span class="pun">, </span><span class="lit">2</span><span class="pun">, </span><span class="lit">3</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">([</span><span class="str">"a"</span><span class="pun">: [</span><span class="lit">42</span><span class="pun">]])) == </span><span class="kwd">new </span><span class="typ">Compound</span><span class="pun">(</span><span class="kwd">new </span><span class="typ">Named</span><span class="pun">!(</span><span class="typ">ListOf</span><span class="pun">!</span><span class="typ">Long</span><span class="pun">)(</span><span class="str">"a"</span><span class="pun">, </span><span class="lit">42</span><span class="pun">)));
+</span><span class="com">//assert(toNBT(JSONValue(["a": [42]])) == new Compound(new Named!List("a", new Long(42)))); //FIXME
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="str">"test"</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">String</span><span class="pun">(</span><span class="str">"test"</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="lit">42</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">Long</span><span class="pun">(</span><span class="lit">42</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="lit">42u</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">Long</span><span class="pun">(</span><span class="lit">42</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="lit">.523</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">Double</span><span class="pun">(</span><span class="lit">.523</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">Byte</span><span class="pun">(</span><span class="lit">1</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">)) == </span><span class="kwd">new </span><span class="typ">Byte</span><span class="pun">(</span><span class="lit">0</span><span class="pun">));
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">toNBT</span><span class="pun">(</span><span class="typ">JSONValue</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">)) </span><span class="kwd">is null</span><span class="pun">);
+
+</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

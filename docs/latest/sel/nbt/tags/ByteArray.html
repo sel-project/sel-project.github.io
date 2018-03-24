@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Alias ByteArray</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Alias ByteArray</h1><p>Array of unsigned bytes (clients and other softwares may
+ interpret the bytes as signed due to limitations of the
+ programming language).
+ The tag is usually used by Minecraft's worlds to store
+ blocks' ids and metas.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">alias</span> <span class="pln">ByteArray</span>
+				 <span class="pun">=</span> <a href="../../../sel/nbt/tags/NumericArrayTag.html"><span class="typ">NumericArrayTag</span></a>!(byte,7)<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				<section><p>If a signed byte is needed a cast operation can be done.
+</p>
+</section>
+
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="kwd">auto </span><span class="pln">unsigned </span><span class="pun">= </span><span class="kwd">new </span><span class="typ">ByteArray</span><span class="pun">([</span><span class="lit">0</span><span class="pun">, </span><span class="lit">1</span><span class="pun">, </span><span class="lit">255</span><span class="pun">]);
+</span><span class="kwd">auto </span><span class="pln">signed </span><span class="pun">= </span><span class="kwd">cast</span><span class="pun">(</span><span class="typ">byte</span><span class="pun">[])</span><span class="pln">unsigned</span><span class="pun">;
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">signed </span><span class="pun">== [</span><span class="lit">0</span><span class="pun">, </span><span class="lit">1</span><span class="pun">, -</span><span class="lit">1</span><span class="pun">]);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

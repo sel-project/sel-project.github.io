@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Class ArrayTag</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Class ArrayTag</h1><p>Simple tag with array-related functions.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">class</span> <span class="typ">ArrayTag</span>(T, <a href="../../../sel/nbt/tags/NBT_TYPE.html"><span class="pln">NBT_TYPE</span></a> _type)
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Properties</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/ArrayTag.empty.html" class="public property"><code>empty</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Checks whether or not the array's length is equals to 0.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Methods</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/ArrayTag.opBinary.html" class="public">
+									<code>opBinary</code>
+								</a>
+							</td>
+							<td>Does the same job opOpAssign does, but creates a new instance
+ of typeof(this) with the same name of the tag and returns it.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/ArrayTag.opOpAssign.html" class="public">
+									<code>opOpAssign</code>
+								</a>
+							</td>
+							<td>Concatenates T, an array of T or a NBT array of T to the tag.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/ArrayTag.remove.html" class="public">
+									<code>remove</code>
+								</a>
+							</td>
+							<td>Removes the element at the given index from the array.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="kwd">assert</span><span class="pun">(</span><span class="kwd">new <a href="../../../sel/nbt/tags/ByteArray.html"></span><span class="typ">ByteArray</span></a><span class="pun">([</span><span class="lit">2</span><span class="pun">, </span><span class="lit">3</span><span class="pun">, </span><span class="lit">4</span><span class="pun">])<wbr/>.</span><span class="pln">length </span><span class="pun">== </span><span class="kwd">new <a href="../../../sel/nbt/tags/IntArray.html"></span><span class="typ">IntArray</span></a><span class="pun">([</span><span class="lit">9</span><span class="pun">, </span><span class="lit">0</span><span class="pun">, </span><span class="lit">12</span><span class="pun">])<wbr/>.</span><span class="pln">length</span><span class="pun">);
+
+</span><span class="kwd">auto </span><span class="pln">b </span><span class="pun">= </span><span class="kwd">new <a href="../../../sel/nbt/tags/ByteArray.html"></span><span class="typ">ByteArray</span></a><span class="pun">();
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">b<wbr/></span><span class="pun">.</span><span class="pln">empty</span><span class="pun">);
+</span><span class="pln">b </span><span class="pun">~= </span><span class="lit">14</span><span class="pun">;
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">b<wbr/></span><span class="pun">.</span><span class="pln">length </span><span class="pun">== </span><span class="lit">1 </span><span class="pun">&amp;&amp; </span><span class="pln">b</span><span class="pun">[</span><span class="lit">0</span><span class="pun">] == </span><span class="lit">14</span><span class="pun">);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

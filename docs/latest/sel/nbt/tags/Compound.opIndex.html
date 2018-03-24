@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Compound.opIndex - multiple declarations</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Compound.opIndex - multiple declarations</h1>
+				<nav class="page-nav">
+					<ul>
+						<li>
+							<a href="#0">
+								Function <code>Compound.opIndex</code>
+							</a>
+						</li>
+						<li>
+							<a href="#1">
+								Function <code>Compound.opIndex</code>
+							</a>
+						</li>
+					</ul>
+				</nav><h2 id="0">Function Compound.opIndex</h2><p>Gets the array of named tags (without the keys).
+ To get the associative array of named tags use the
+ property value.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<a href="../../../sel/nbt/tags/Tag.html"><span class="typ">Tag</span></a><span class="pun">[]</span> <span class="pln">opIndex
+				<span class="pun">()</span><span class="pln"> </span><span class="kwd">pure nothrow @safe</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h3>Example</h3>
+<pre class="code"><code class="lang-d"><a href="../../../sel/nbt/tags/Compound.html"><span class="typ">Compound</span></a><span class="pln"> compound </span><span class="pun">= </span><span class="kwd">new <a href="../../../sel/nbt/tags/Compound.html"></span><span class="typ">Compound</span></a><span class="pun">([</span><span class="kwd">new <a href="../../../sel/nbt/tags/Byte.html"></span><span class="typ">Byte</span></a><span class="pun">(</span><span class="lit">1</span><span class="pun">), </span><span class="kwd">new <a href="../../../sel/nbt/tags/Int.html"></span><span class="typ">Int</span></a><span class="pun">(</span><span class="lit">2</span><span class="pun">)]);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">compound</span><span class="pun">[] == </span><span class="pln">compound<wbr/></span><span class="pun">.</span><span class="pln">value<wbr/></span><span class="pun">.</span><span class="pln">values</span><span class="pun">);</span></code></pre>
+</section>
+<h2 id="1">Function Compound.opIndex</h2><p>Gets the element at the given index.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<a href="../../../sel/nbt/tags/Tag.html"><span class="typ">Tag</span></a> <span class="pln">opIndex</span>
+				<span class="pun">(</span>
+				<br/>
+				&nbsp;&nbsp;<span class="typ">string</span> <span class="pln">name</span>
+				<br/>
+				<span class="pun">)</span><span class="pln"> </span><span class="kwd">pure nothrow @safe</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h3>Throws</h3>
+<p>RangeError if the given index is not in the array
+</p>
+</section>
+<section><h3>Example</h3>
+<pre class="code"><code class="lang-d"><span class="kwd">assert</span><span class="pun">(</span><span class="kwd">new <a href="../../../sel/nbt/tags/Compound.html"></span><span class="typ">Compound</span></a><span class="pun">(</span><span class="kwd">new <a href="../../../sel/nbt/tags/Named.html"></span><span class="typ">Named</span></a><span class="pun">!<a href="../../../sel/nbt/tags/String.html"></span><span class="typ">String</span></a><span class="pun">(</span><span class="str">"0"</span><span class="pun">, </span><span class="str">"test"</span><span class="pun">))[</span><span class="str">"0"</span><span class="pun">] == </span><span class="str">"test"</span><span class="pun">);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

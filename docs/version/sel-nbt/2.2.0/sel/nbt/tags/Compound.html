@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Class Compound</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-nbt/2.2.0/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/nbt.html">nbt</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/file.html">file</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/json.html">json</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/parser.html">parser</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/nbt/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/nbt/tags.html">tags</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Class Compound</h1><p>Associative array of named tags (that can be of different types).
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">class</span> <span class="typ">Compound</span>
+				<br>&nbsp;&nbsp;: <a href="../../../sel/nbt/tags/Tag.html"><span class="typ">Tag</span></a>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Properties</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.dup.html" class="public property"><code>dup</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../sel/nbt/tags/Compound.html"><span class="typ">Compound</span></a></code></td><td>Creates an exact duplicate of the tag.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.empty.html" class="public property"><code>empty</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>Checks whether or not the array is empty (its length is equal to 0).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.length.html" class="public property"><code>length</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">ulong</span></code></td><td>Gets the length of the array (or the number of NamedTags in it).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.names.html" class="public property"><code>names</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span><span class="pun">[]</span></code></td><td>Gets the keys (indexes of the array).
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.type.html" class="public inherited property"><code>type</code></a><span class="tableEntryAnnotation">[get]</span>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../sel/nbt/tags/NBT_TYPE.html"><span class="pln">NBT_TYPE</span></a></code></td><td>Gets the tag's type.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Methods</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.get.html" class="public">
+									<code>get</code>
+								</a>
+							</td>
+							<td>Gets the element at the given index, if exists and can be casted to T.
+ Otherwise evaluates and returns defaultValue.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.getValue.html" class="public">
+									<code>getValue</code>
+								</a>
+							</td>
+							<td>Gets the tag's value at the given index, if it exists and can be
+ casted to T. Otherwise returns defaultValue.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.has.html" class="public">
+									<code>has</code>
+								</a>
+							</td>
+							<td>Checks whether or not a value is in the associative array.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.has.html" class="public">
+									<code>has</code>
+								</a>
+							</td>
+							<td>Checks if the key is associated to a value and that the value
+ is of the same type of T.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.opBinaryRight.html" class="public">
+									<code>opBinaryRight</code>
+								</a>
+							</td>
+							<td>Gets a pointer to the element at the given index.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.opIndex.html" class="public">
+									<code>opIndex</code>
+								</a>
+							</td>
+							<td>Gets the array of named tags (without the keys).
+ To get the associative array of named tags use the
+ property value.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.opIndex.html" class="public">
+									<code>opIndex</code>
+								</a>
+							</td>
+							<td>Gets the element at the given index.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.opIndexAssign.html" class="public">
+									<code>opIndexAssign</code>
+								</a>
+							</td>
+							<td>Sets the value at the given index.
+ If the tag's name is different from the given index, the tag's
+ name will be changed to the given index's one.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.opIndexAssign.html" class="public">
+									<code>opIndexAssign</code>
+								</a>
+							</td>
+							<td>Sets the value using the named tag's name as the index.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Compound.remove.html" class="public">
+									<code>remove</code>
+								</a>
+							</td>
+							<td>Removed the given index from the array, if set.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.decode.html" class="public inherited">
+									<code>decode</code>
+								</a>
+							</td>
+							<td>Decodes the tag's body.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.encode.html" class="public inherited">
+									<code>encode</code>
+								</a>
+							</td>
+							<td>Encodes the tag's body.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.name.html" class="public inherited">
+									<code>name</code>
+								</a>
+							</td>
+							<td>Gets the tag's name, if there's one.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.named.html" class="public inherited">
+									<code>named</code>
+								</a>
+							</td>
+							<td>Indicates whether the tag has a name.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.rename.html" class="public inherited">
+									<code>rename</code>
+								</a>
+							</td>
+							<td>Creates a NamedTag maintaing the tag's properties.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.toJSON.html" class="public inherited">
+									<code>toJSON</code>
+								</a>
+							</td>
+							<td>Encodes the tag's value as json.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/nbt/tags/Tag.toString.html" class="public inherited">
+									<code>toString</code>
+								</a>
+							</td>
+							<td>Encodes the tag a human-readable string.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="kwd">auto </span><span class="pln">compound </span><span class="pun">= </span><span class="kwd">new </span><span class="typ">Compound</span><span class="pun">();
+</span><span class="pln">compound</span><span class="pun">[</span><span class="str">"string"</span><span class="pun">] = </span><span class="kwd">new <a href="../../../sel/nbt/tags/String.html"></span><span class="typ">String</span></a><span class="pun">(</span><span class="str">"test"</span><span class="pun">);
+</span><span class="pln">compound</span><span class="pun">[</span><span class="str">"byte"</span><span class="pun">] = </span><span class="kwd">new <a href="../../../sel/nbt/tags/Byte.html"></span><span class="typ">Byte</span></a><span class="pun">(</span><span class="lit">18</span><span class="pun">);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
