@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Struct Response</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-net/0.2.2/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/net.html">net</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/net/http.html">http</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/modifiers.html">modifiers</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/websocket.html">websocket</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Struct Response</h1><p>Container for an HTTP response.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">struct</span> <span class="typ">Response</span>
+				<span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Fields</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Type</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.content.html" class="public"><code>content</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span></code></td><td>Content of the request. Its type should be specified in
+ the <code class="lang-d"><span class="pln"><span class="pln">content</span></span><span class="pun">-</span><span class="pln">type</span></code> field in the headers.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.headers.html" class="public"><code>headers</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">string</span><span class="pun">[</span><span class="typ">string</span><span class="pun">]</span></code></td><td>HTTP headers of the request.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.status.html" class="public"><code>status</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><a href="../../../sel/net/http/Status.html"><span class="typ">Status</span></a></code></td><td>Status of the response.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.valid.html" class="public"><code>valid</code></a>
+							</td>
+							<td class="typecol"><code class="prettyprint lang-d"><span class="typ">bool</span></code></td><td>If the response was parsed, indicates whether it was in a
+ valid HTTP format.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Methods</h2>
+					<table>
+						<col class="caption"/>
+						<tr>
+							<th>Name</th><th>Description</th>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.error.html" class="public">
+									<code>error</code>
+								</a>
+							</td>
+							<td>Creates a response for an HTTP error an automatically generates
+ an HTML page to display it.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.parse.html" class="public">
+									<code>parse</code>
+								</a>
+							</td>
+							<td>Parses a string and returns a Response.
+ If the response is successfully parsed Response.valid will be true.
+ Please note that every key in the header is converted to lowercase for
+ an easier search in the associative array.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.redirect.html" class="public">
+									<code>redirect</code>
+								</a>
+							</td>
+							<td>Creates a 3xx redirect response and adds the <code class="lang-d"><span class="typ">Location</span></code> field to
+ the header.
+ If not specified status code <code class="lang-d"><span class="lit">301 </span><span class="typ">Moved Permanently</span></code> will be used.
+</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="../../../sel/net/http/Response.toString.html" class="public">
+									<code>toString</code>
+								</a>
+							</td>
+							<td>Encodes the response into a string.
+ The <code class="lang-d"><span class="typ">Content</span><span class="pun">-</span><span class="typ">Length</span></code> header field is created automatically
+ based on the length of the content field.
+</td>
+						</tr>
+					</table>
+				</section>
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="typ">Response</span><span class="pun">(</span><span class="lit">200</span><span class="pun">, [</span><span class="str">"Connection"</span><span class="pun">: </span><span class="str">"Close"</span><span class="pun">], </span><span class="str">"&lt;b&gt;Hi there&lt;/b&gt;"</span><span class="pun">);
+</span><span class="typ">Response</span><span class="pun">(</span><span class="lit">404</span><span class="pun">, [], </span><span class="str">"Cannot find the specified path"</span><span class="pun">);
+</span><span class="typ">Response</span><span class="pun">(</span><span class="lit">204</span><span class="pun">);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) 2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

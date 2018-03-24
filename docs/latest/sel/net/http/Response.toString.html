@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Function Response.toString</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-net/0.2.2/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/net.html">net</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/net/http.html">http</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/modifiers.html">modifiers</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/websocket.html">websocket</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Function Response.toString</h1><p>Encodes the response into a string.
+ The <code class="lang-d"><span class="typ">Content</span><span class="pun">-</span><span class="typ">Length</span></code> header field is created automatically
+ based on the length of the content field.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="typ">string</span> <span class="pln">toString
+				<span class="pun">()</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="kwd">auto </span><span class="pln">response </span><span class="pun">= <a href="../../../sel/net/http/Response.html"></span><span class="typ">Response</span></a><span class="pun">(</span><span class="lit">200</span><span class="pun">, [], </span><span class="str">"Hi"</span><span class="pun">);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">response<wbr/></span><span class="pun">.</span><span class="pln">toString</span><span class="pun">() == </span><span class="str">"HTTP/1.1 200 OK\r\nContent-Length: 2\r\n\r\nHi"</span><span class="pun">);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) 2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

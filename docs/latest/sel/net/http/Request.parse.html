@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Function Request.parse</title>
+		<link rel="stylesheet" href="/docs/res/style.min.css"/>
+		<script type="text/javascript" src="/docs/res/script.min.js"></script>
+	</head>
+	<body onload="setupDdox();">
+		<header></header>
+		<nav id="main-nav">
+			<div>
+				<noscript>
+					<p style="color: red">The search functionality needs JavaScript enabled</p>
+				</noscript>
+				<div id="symbolSearchPane" style="display: none">
+					<form action="#" method="GET">
+						<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(24);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" autofocus/>
+					</form>
+					<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="/docs/version/sel-net/0.2.2/symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../../";
+document.getElementById('symbolSearchPane').style.display = 'block';</script>
+				</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">sel
+						</div>
+				<ul class="tree-view">
+					<li class="tree-view ">
+						<div class="package ">
+							<a href="../../../sel/net.html">net</a>
+						</div>
+				<ul class="tree-view">
+					<li>
+						<div class="module selected">
+							<a href="../../../sel/net/http.html">http</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/modifiers.html">modifiers</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/stream.html">stream</a>
+						</div>
+					</li>
+					<li>
+						<div class="module ">
+							<a href="../../../sel/net/websocket.html">websocket</a>
+						</div>
+					</li>
+				</ul>
+					</li>
+				</ul>
+					</li>
+				</ul>
+			</div>
+			<p id="main-nav-footer">
+				Built with
+				<a href="https://github.com/MartinNowak/scod">scod</a>
+			</p>
+		</nav>
+		<div id="main-contents">
+			<div>
+				<h1>Function Request.parse</h1><p>Parses a string and returns a Request.
+ If the request is successfully parsed Request.valid will be true.
+ Please note that every key in the header is converted to lowercase for
+ an easier search in the associative array.
+</p>
+				<div class="prototype">
+					<code class="lang-d">
+						<div class="single-prototype">
+				<span class="kwd">static </span><a href="../../../sel/net/http/Request.html"><span class="typ">Request</span></a> <span class="pln">parse</span>
+				<span class="pun">(</span>
+				<br/>
+				&nbsp;&nbsp;<span class="typ">string</span> <span class="pln">str</span>
+				<br/>
+				<span class="pun">)</span><span class="pun">;</span>
+						</div>
+					</code>
+				</div>
+				
+				<section><h2>Example</h2>
+<pre class="code"><code class="lang-d"><span class="kwd">auto </span><span class="pln">request </span><span class="pun">= </span><span class="typ">Request<wbr/></span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="str">"GET /index.html HTTP/1.1\r\nHost: 127.0.0.1\r\nConnection: Keep-Alive\r\n"</span><span class="pun">);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">request<wbr/></span><span class="pun">.</span><span class="pln">valid</span><span class="pun">);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">request<wbr/></span><span class="pun">.</span><span class="pln">method </span><span class="pun">== </span><span class="typ">Request<wbr/></span><span class="pun">.</span><span class="pln">GET</span><span class="pun">);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">request<wbr/></span><span class="pun">.</span><span class="pln">headers</span><span class="pun">[</span><span class="str">"Host"</span><span class="pun">] == </span><span class="str">"127.0.0.1"</span><span class="pun">);
+</span><span class="kwd">assert</span><span class="pun">(</span><span class="pln">request<wbr/></span><span class="pun">.</span><span class="pln">headers</span><span class="pun">[</span><span class="str">"Connection"</span><span class="pun">] == </span><span class="str">"Keep-Alive"</span><span class="pun">);</span></code></pre>
+</section>
+
+			</div>
+			<footer>
+				<div id="license-info">
+					<p>Kripth
+</p>
+
+					<p>Copyright (c) 2017-2018 sel-project
+</p>
+
+					<p>MIT
+</p>
+
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
